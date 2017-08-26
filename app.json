@@ -1,0 +1,25 @@
+{
+	"id": "com.mcohome",
+	"sdk": 2,
+	"name": {
+		"en": "MCOHome Z-wave"
+	},
+	"description": {
+		"en": "Adds support for MCOHome Z-wave devices"
+	},
+	"category": [
+    "climate",
+    "appliances",
+    "lights"
+  ],
+	"version": "0.0.1",
+	"compatibility": ">=1.5.0",
+	"author": {
+		"name": "Ted Tolboom",
+		"email": "ttolboom@gmail.com"
+	},
+	"images": {
+		"large": "/assets/images/large.jpg",
+		"small": "/assets/images/small.jpg"
+	}
+}

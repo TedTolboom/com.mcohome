@@ -1,0 +1,299 @@
+{
+	"id": "Switch-1",
+	"name": {
+		"en": "Touch panel switch (1)"
+	},
+	"zwave": {
+		"manufacturerId": [520],
+		"productTypeId": [512],
+		"productId": [6],
+		"productDocumentation": "http://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/1891/HKZW-SO05%20Manual.pdf",
+		"pid": 2305,
+		"imageRemotePath": "http://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2305/Switch-1%20MANUL.pdf",
+		"learnmode": {
+			"image": "/drivers/Switch-1/assets/learnmode.svg",
+			"instruction": {
+				"en": "1) Power on the device.\r\n2) Set the Z-Wave network main controller into inclusion mode (see Z-Wave network controller operating manual).\r\n3. Press and hold the Z-button for 3 seconds to add the motion sensor in secure mode.\n4. If the inclusion is successful, the LED will blink fast for less than 5 seconds and then keep on for 3 seconds, otherwise the LED will blink fast for 5 seconds and then turn off, in which you need to repeat the process from step 2.\r\n"
+			}
+		},
+		"unlearnmode": {
+			"image": "/drivers/Switch-1/assets/learnmode.svg",
+			"instruction": {
+				"en": "1) Power on the device.\r\n2) Set the Z-Wave network main controller into removing mode (see Z-Wave network controller operating manual).\r\n3) Triple click the Z-button\r\n4) If the exclusion is successfull, the LED will keep on for 3 seconds.\r\n"
+			}
+		},
+		"wakeUpInterval": 0,
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "1. Notification Report.\r\nSensor will send Notification Report to the associated nodes when Multisensor is removed or/and PIR is triggered.\r\n2. Sensor Multilevel Report.\r\nMultisensor will send Sensor Multilevel Report to the associated nodes at setting interval.\r\n3. Battery Report.\r\nMultisensor will send Battery Report when the battery level is low and the battery report’s value is 0xFF.\r\n4. Device Reset Locally Notification.\r\n"
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "1. Basic Set\r\nMultisensor will send Basic Set to associated nodes when the PIR is triggered.\r\n"
+				}
+			}
+		}
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_motion",
+		"measure_luminance",
+		"measure_temperature",
+		"measure_humidity",
+		"alarm_tamper",
+		"alarm_battery",
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/Switch-1/assets/images/large.jpg",
+		"small": "/drivers/Switch-1/assets/images/small.jpg"
+	},
+	"settings": [
+		{
+			"id": 12,
+			"zwave": {
+				"index": 12,
+				"size": 1
+			},
+			"type": "number",
+			"value": 8,
+			"attr": {
+				"min": 0,
+				"max": 8
+			},
+			"label": {
+				"en": "MOTION SENSOR’S SENSITIVITY."
+			},
+			"hint": {
+				"en": "The higher the value is set, the more sensitive the PIR sensor are."
+			},
+			"_size": 1
+	    },
+		{
+			"id": 13,
+			"zwave": {
+				"index": 13,
+				"size": 2
+			},
+			"value": 30,
+			"attr": {
+				"min": 3,
+				"max": 28800
+			},
+			"label": {
+				"en": "MOTION SENSOR’S BLIND TIME (INSENSITIVITY)"
+			},
+			"hint": {
+				"en": "Period of time through which the PIR sensor is “blind” (insensitive) to motion. After this time period the PIR sensor will be again able to detect motion. The longer the insensitivity period, the longer the battery life. If the sensor is required to detect motion quickly, the time period may be shortened.\ntime (seconds) = value (3-60), time (minutes) = value/60 (61-28800)"
+			},
+			"_size": 2,
+			"type": "number"
+	    },
+		{
+			"id": 14,
+			"zwave": {
+				"index": 14,
+				"size": 1
+			},
+			"type": "checkbox",
+			"value": false,
+			"label": {
+				"en": "ENABLE/DISABLE BASIC COMMAND"
+			},
+			"hint": {
+				"en": "Multisensor can send BASIC ON/OFF COMMAND CLASS to nodes associated with group 2."
+			}
+	  },
+		{
+			"id": 15,
+			"zwave": {
+				"index": 15,
+				"size": 1
+			},
+			"type": "checkbox",
+			"value": false,
+			"label": {
+				"en": "Reverse BASIC COMMAND VALUE"
+			},
+			"hint": {
+				"en": "Multisensor can reverse the BASIC ON/OFF."
+			}
+	    },
+		{
+			"id": 32,
+			"zwave": {
+				"index": 32,
+				"size": 1
+			},
+			"type": "number",
+			"value": 20,
+			"attr": {
+				"min": 10,
+				"max": 50
+			},
+			"label": {
+				"en": "LEVEL OF LOW BATTERY"
+			},
+			"hint": {
+				"en": "Define a battery level as the “low battery”."
+			}
+		},
+		{
+			"id": 171,
+			"zwave": {
+				"index": 171,
+				"size": 4
+			},
+			"type": "number",
+			"value": 1800,
+			"attr": {
+				"min": 5,
+				"max": 2678400
+			},
+			"label": {
+				"en": " BATTERY REPORT INTERVAL"
+			},
+			"hint": {
+				"en": "The interval of sending battery report to association device (Group Lifeline). The reports\r\nare sent even if there are no changes in the battery level.\r\n"
+			}
+	    },
+		{
+			"id": 172,
+			"zwave": {
+				"index": 172,
+				"size": 4
+			},
+			"type": "number",
+			"value": 1800,
+			"attr": {
+				"min": 5,
+				"max": 2678400
+			},
+			"label": {
+				"en": "TEMPERATURE REPORT INTERVAL"
+			},
+			"hint": {
+				"en": "The interval of sending temperature report to association device (Group Lifeline). The reports\r\nare sent even if there are no changes in the temperature level."
+			}
+	    },
+		{
+			"id": 173,
+			"zwave": {
+				"index": 173,
+				"size": 4
+			},
+			"type": "number",
+			"value": 1800,
+			"attr": {
+				"min": 5,
+				"max": 2678400
+			},
+			"label": {
+				"en": "HUMIDITY REPORT INTERVAL"
+			},
+			"hint": {
+				"en": "The interval of sending Humidity report to association device (Group Lifeline). The reports\r\nare sent even if there are no changes in the humidity level.\r\n"
+			}
+	    },
+		{
+			"id": 174,
+			"zwave": {
+				"index": 174,
+				"size": 4
+			},
+			"type": "number",
+			"value": 1800,
+			"attr": {
+				"min": 5,
+				"max": 2678400
+			},
+			"label": {
+				"en": "LUMINANCE REPORT INTERVAL"
+			},
+			"hint": {
+				"en": "The interval of sending luminance report to association device (Group Lifeline). The reports\r\nare sent even if there are no changes in the luminance level.\r\n"
+			}
+	    },
+		{
+			"id": 181,
+			"zwave": {
+				"index": 181,
+				"size": 1
+			},
+			"type": "number",
+			"value": 10,
+			"attr": {
+				"min": 0,
+				"max": 100
+			},
+			"label": {
+				"en": "BATTERY REPORT THRESHOLD"
+			},
+			"hint": {
+				"en": "The parameter determines the change in battery level resulting in battery report being sent to the main controller."
+			}
+		},
+		{
+			"id": 182,
+			"zwave": {
+				"index": 182,
+				"size": 1
+			},
+			"type": "number",
+			"value": 20,
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"label": {
+				"en": "TEMPERATURE REPORT THRESHOLD"
+			},
+			"hint": {
+				"en": "The parameter determines the change in temperature level resulting in temperature report being sent to the main controller.(Degrees Celsius)"
+			}
+	    },
+		{
+			"id": 183,
+			"zwave": {
+				"index": 183,
+				"size": 1
+			},
+			"type": "number",
+			"value": 5,
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"label": {
+				"en": "HUMITIDY REPORT THRESHOLD"
+			},
+			"hint": {
+				"en": "The parameter determines the change in humidity level resulting in humidity report being sent to the main controller."
+			}
+	    },
+		{
+			"id": 184,
+			"zwave": {
+				"index": 184,
+				"size": 2
+			},
+			"type": "number",
+			"value": 200,
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"label": {
+				"en": "LUMINANCE REPORT THRESHOLD"
+			},
+			"hint": {
+				"en": "The parameter determines the change in luminance level resulting in luminance report being sent to the main controller."
+			}
+	    }
+	  ]
+}
