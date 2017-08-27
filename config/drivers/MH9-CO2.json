@@ -1,0 +1,73 @@
+{
+	"id": "MH9-CO2",
+	"name": {
+		"en": "CO2 Monitor"
+	},
+	"zwave": {
+		"manufacturerId": [351],
+		"productTypeId": [2305],
+		"productId": [12546],
+		"learnmode": {
+			"image": "/drivers/MH9-CO2/assets/learnmode.svg",
+			"instruction": {
+				"en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\rnNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+			}
+		},
+		"unlearnmode": {
+			"image": "/drivers/MH9-CO2/assets/learnmode.svg",
+			"instruction": {
+				"en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+			}
+		},
+		"associationGroups": [
+			1,
+			2
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Notification"
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "Lifeline group"
+				}
+			}
+		}
+	},
+	"class": "sensor",
+	"capabilities": [
+		"measure_co2",
+		"measure_temperature",
+		"measure_humidity"
+	],
+	"icon": "/drivers/MH9-CO2/assets/icon.svg",
+	"images": {
+		"large": "/drivers/MH9-CO2/assets/images/large.jpg",
+		"small": "/drivers/MH9-CO2/assets/images/small.jpg"
+	},
+	"settings": [
+		{
+			"id": "CO2_notification",
+			"zwave": {
+				"index": 1,
+				"size": 2
+			},
+			"type": "number",
+			"value": 1000,
+			"attr": {
+				"min": 1,
+				"max": 1200
+			},
+			"label": {
+				"en": "CO2 notification threshold",
+				"nl": "CO2 notificatie drempelwaarde"
+			},
+			"hint": {
+				"en": "CO2 Notification threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
+				"nl": "CO2 Notificatie drempelwaarde 1 to 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
+			}
+	    }
+	  ]
+}
