@@ -77,8 +77,8 @@
 	],
 	"icon": "/drivers/Switch-3/assets/icon.svg",
 	"images": {
-		"large": "/drivers/Switch-3/assets/images/large.jpg",
-		"small": "/drivers/Switch-3/assets/images/small.jpg"
+		"large": "/drivers/Switch-3/assets/images/large.png",
+		"small": "/drivers/Switch-3/assets/images/small.png"
 	},
 	"settings": [
 		{

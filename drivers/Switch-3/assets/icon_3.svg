@@ -7,8 +7,8 @@
 <style type="text/css">
 	.st0{fill:none;stroke:#000000;stroke-linejoin:bevel;}
 	.st1{fill:#000200;}
-	.st2{stroke:#000000;stroke-miterlimit:10;}
-	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st3{stroke:#000000;stroke-miterlimit:10;}
 </style>
 <sodipodi:namedview  bordercolor="#666666" borderopacity="1" fit-margin-bottom="5" fit-margin-left="5" fit-margin-right="5" fit-margin-top="5" gridtolerance="10" guidetolerance="10" id="namedview194" inkscape:current-layer="svg2" inkscape:cx="74.609338" inkscape:cy="170.23821" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-height="781" inkscape:window-maximized="0" inkscape:window-width="1321" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="1" objecttolerance="10" pagecolor="#ffffff" showgrid="false">
 	</sodipodi:namedview>
@@ -65,16 +65,16 @@
 		s-3.1,1.4-3.1,3.1S74,46.5,75.7,46.5z"/>
 </g>
 <g>
-	<path id="path154" inkscape:connector-curvature="0" class="st3" d="M83.8,102.2c0-1.7-1.4-3.1-3.1-3.1s-3.1,1.4-3.1,3.1
+	<path id="path154" inkscape:connector-curvature="0" class="st2" d="M83.8,102.2c0-1.7-1.4-3.1-3.1-3.1s-3.1,1.4-3.1,3.1
 		s1.4,3.1,3.1,3.1C82.4,105.3,83.8,104,83.8,102.2z"/>
-	<path id="path156" inkscape:connector-curvature="0" class="st3" d="M73.9,102.2c0-1.7-1.4-3.1-3.1-3.1s-3.1,1.4-3.1,3.1
+	<path id="path156" inkscape:connector-curvature="0" class="st2" d="M73.9,102.2c0-1.7-1.4-3.1-3.1-3.1s-3.1,1.4-3.1,3.1
 		s1.4,3.1,3.1,3.1C72.5,105.3,73.9,104,73.9,102.2z"/>
-	<path id="path188" inkscape:connector-curvature="0" class="st3" d="M63.5,103.8c-8.5,5.4-12.4,15.8-9.6,25.5s11.7,16.4,21.8,16.4
+	<path id="path188" inkscape:connector-curvature="0" class="st2" d="M63.5,103.8c-8.5,5.4-12.4,15.8-9.6,25.5s11.7,16.4,21.8,16.4
 		s19-6.7,21.8-16.4s-1.1-20.1-9.6-25.5l-1.5,2.4c5.8,3.7,9.2,10.1,9.2,16.7l0,0l0,0c0,1.8-0.3,3.7-0.8,5.5
 		c-2.5,8.5-10.2,14.3-19.1,14.3s-16.6-5.8-19.1-14.3s1-17.6,8.4-22.3C65.1,106.2,63.5,103.8,63.5,103.8z"/>
-	<path id="path190" inkscape:connector-curvature="0" class="st3" d="M67.6,102.2c0,1.7,1.4,3.1,3.1,3.1s3.1-1.4,3.1-3.1
+	<path id="path190" inkscape:connector-curvature="0" class="st2" d="M67.6,102.2c0,1.7,1.4,3.1,3.1,3.1s3.1-1.4,3.1-3.1
 		s-1.4-3.1-3.1-3.1S67.6,100.5,67.6,102.2z"/>
-	<path id="path192" inkscape:connector-curvature="0" class="st3" d="M80.7,99.1c-1.7,0-3.1,1.4-3.1,3.1s1.4,3.1,3.1,3.1
+	<path id="path192" inkscape:connector-curvature="0" class="st2" d="M80.7,99.1c-1.7,0-3.1,1.4-3.1,3.1s1.4,3.1,3.1,3.1
 		s3.1-1.4,3.1-3.1S82.4,99.1,80.7,99.1z"/>
 </g>
 <g>

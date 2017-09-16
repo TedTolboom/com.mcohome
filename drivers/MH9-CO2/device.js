@@ -19,6 +19,13 @@ class CO2monitor extends ZwaveDevice {
 				//pollInterval: 'poll_interval' // maps to device settings
 			}
 		});
+		// register device capabilities
+		this.registerCapability('alarm_co2', 'NOTIFICATION', {
+			getOpts: {
+				getOnStart: true, // get the initial value on app start
+				//pollInterval: 'poll_interval' // maps to device settings
+			}
+		});
 		this.registerCapability('measure_temperature', 'SENSOR_MULTILEVEL', {
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
