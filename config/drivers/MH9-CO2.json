@@ -10,7 +10,7 @@
 		"learnmode": {
 			"image": "/drivers/MH9-CO2/assets/learnmode.svg",
 			"instruction": {
-				"en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\rnNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+				"en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
 			}
 		},
 		"unlearnmode": {

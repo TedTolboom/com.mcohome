@@ -10,13 +10,13 @@
 		"learnmode": {
 			"image": "/drivers/MH10-PM2.5/assets/learnmode.svg",
 			"instruction": {
-				"en": "1. When device powered on, long press S1 & S3 synchronically to enter interface for inclusion or exclusion of Z-Wave network.\r\nIf device has not been included into any Z-Wave network before, “- - -” will display on the screen.\r\n2.Then press S1 once, “- - -” flashing and device enters into learning mode to get a node ID.\rnNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+				"en": "1. When device powered on, long press S1 & S3 synchronically to enter interface for inclusion or exclusion of Z-Wave network.\r\n   If device has not been included into any Z-Wave network before, “- - -” will display on the screen.\r\n2.Then press S1 once, “- - -” flashing and device enters into learning mode to get a node ID.\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
 			}
 		},
 		"unlearnmode": {
 			"image": "/drivers/MH10-PM2.5/assets/learnmode.svg",
 			"instruction": {
-				"en": "1. When device powered on, long press S1 & S3 synchronically to enter interface for exclusion of Z-Wave network.\r\nIf a node ID displays, it means the device is already in a Z-Wave network. \r\n2. Press S1 once can remove it from the network. “- - -” displays and press S2 once can return to normal work."
+				"en": "1. When device powered on, long press S1 & S3 synchronically to enter interface for exclusion of Z-Wave network.\r\n   If a node ID displays, it means the device is already in a Z-Wave network. \r\n2. Press S1 once can remove it from the network. “- - -” displays and press S2 once can return to normal work."
 			}
 		},
 		"associationGroups": [
