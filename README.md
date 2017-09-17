@@ -18,7 +18,7 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-2/assets/icon.svg" width="10%" height="10%">
 </a>
 <a href="https://github.com/TedTolboom/com.mcohome">
-  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-3/assets/icon.svg" width="10%" height="10%">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-3/assets/icon.svg" height="10%">
 </a>
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-4/assets/icon.svg" width="10%" height="10%">
