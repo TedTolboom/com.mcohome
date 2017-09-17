@@ -5,18 +5,20 @@
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [12546, 16642],
-		"productId": [516],
+		"productTypeId": [12546, 12609],
+		"productId": [516, 4866],
 		"learnmode": {
 			"image": "/drivers/Switch-4/assets/learnmode.svg",
 			"instruction": {
-				"en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. "
+				"en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+				"nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
 			}
 		},
 		"unlearnmode": {
 			"image": "/drivers/Switch-4/assets/learnmode.svg",
 			"instruction": {
-				"en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data"
+				"en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+				"nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
 			}
 		},
 		"associationGroups": [
@@ -25,22 +27,26 @@
 		"associationGroupsOptions": {
 			"1": {
 				"hint": {
-					"en": "Switch 1"
+					"en": "Switch 1 - control associated devices",
+					"nl": "Schakelaar 1 - schakel gekoppelde apparaten"
 				}
 			},
 			"2": {
 				"hint": {
-					"en": "Switch 2"
+					"en": "Switch 2 - control associated devices",
+					"nl": "Schakelaar 2 - schakel gekoppelde apparaten"
 				}
 			},
 			"3": {
 				"hint": {
-					"en": "Switch 3"
+					"en": "Switch 3 - control associated devices",
+					"nl": "Schakelaar 3 - schakel gekoppelde apparaten"
 				}
 			},
 			"4": {
 				"hint": {
-					"en": "Switch 4"
+					"en": "Switch 4 - control associated devices",
+					"nl": "Schakelaar 4 - schakel gekoppelde apparaten"
 				}
 			},
 			"5": {
@@ -57,8 +63,8 @@
 				],
 				"icon": "/drivers/Switch-4/assets/icon_2.svg",
 				"name": {
-					"en": "MCOHome Right Switch",
-					"nl": "MCOHome Rechter Schakelaar"
+					"en": "Switch 2",
+					"nl": "Schakelaar 2"
 				},
 				"settings": []
 			},
@@ -69,8 +75,8 @@
 				],
 				"icon": "/drivers/Switch-4/assets/icon_3.svg",
 				"name": {
-					"en": "MCOHome Switch 3",
-					"nl": "MCOHome Schakelaar 3"
+					"en": "Switch 3",
+					"nl": "Schakelaar 3"
 				},
 				"settings": []
 			},
@@ -81,8 +87,8 @@
 				],
 				"icon": "/drivers/Switch-4/assets/icon_4.svg",
 				"name": {
-					"en": "MCOHome Switch 4",
-					"nl": "MCOHome Schakelaar 4"
+					"en": "Switch 4",
+					"nl": "Schakelaar 4"
 				},
 				"settings": []
 			}
