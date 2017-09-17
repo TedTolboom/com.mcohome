@@ -17,10 +17,10 @@ class PM25monitor extends ZwaveDevice {
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
-			}
+			},
 		});
 		// register device capabilities
-		/*this.registerCapability('alarm_pm25', 'NOTIFICATION', {
+		/* this.registerCapability('alarm_pm25', 'NOTIFICATION', {
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
@@ -30,13 +30,13 @@ class PM25monitor extends ZwaveDevice {
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
-			}
+			},
 		});
 		this.registerCapability('measure_humidity', 'SENSOR_MULTILEVEL', {
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
-			}
+			},
 		});
 	}
 
