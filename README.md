@@ -72,5 +72,10 @@ If you like the app, consider a donation to support development
 [![Paypal Donate](https://www.paypalobjects.com/en_US/NL/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5JCN4Q3XSBTBJ&lc=NL&item_name=Athom%20Homey%20apps&item_number=MCOHome%20app&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 ## Changelog:     
+### v1.0.1
+* Update to Z-wave meshdriver 1.2.0   
+* Update correct image Switch-4   
+* Add additional productID's for Touch Panel Switchs (1-4x)        
+
 ### v1.0.0
 * App store release   
