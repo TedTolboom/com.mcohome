@@ -73,9 +73,9 @@ If you like the app, consider a donation to support development
 
 ## Changelog:     
 ### v1.0.1
-* Update to Z-wave meshdriver 1.2.0   
+* Update to Z-wave meshdriver capabilities      
 * Update correct image Switch-4   
-* Add additional productID's for Touch Panel Switchs (1-4x)        
+* Add additional productID's for Touch Panel Switches (1-4x)        
 
 ### v1.0.0
 * App store release   
