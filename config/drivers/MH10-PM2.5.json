@@ -6,7 +6,7 @@
 	"zwave": {
 		"manufacturerId": [351],
 		"productTypeId": [2565],
-		"productId": [12545, 12546, 12547, 12548],
+		"productId": [12545, 12546, 12547, 12548, 513],
 		"learnmode": {
 			"image": "/drivers/MH10-PM2.5/assets/learnmode.svg",
 			"instruction": {
