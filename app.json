@@ -4,11 +4,19 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=1.5.2",
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "email": "dtnl.homey@gmail.com",
+        "currency": "EUR"
+      }
+    }
   },
   "description": {
     "en": "Adds support for MCOHome Z-wave devices",
@@ -78,7 +86,8 @@
           12545,
           12546,
           12547,
-          12548
+          12548,
+          513
         ],
         "learnmode": {
           "image": "/drivers/MH10-PM2.5/assets/learnmode.svg",

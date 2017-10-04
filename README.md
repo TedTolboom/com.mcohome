@@ -69,9 +69,12 @@ If possible, please report issues at the [issues section on Github](https://gith
 
 ### Donate:
 If you like the app, consider a donation to support development    
-[![Paypal Donate](https://www.paypalobjects.com/en_US/NL/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5JCN4Q3XSBTBJ&lc=NL&item_name=Athom%20Homey%20apps&item_number=MCOHome%20app&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 ## Changelog:     
+### v1.0.2
+* Clean-up icons for MH9-CO2 and MH10-PM2      
+* Add additional productID for MH10-PM2   
+
 ### v1.0.1
 * Update to Z-wave meshdriver capabilities      
 * Update correct image Switch-4   
