@@ -14,6 +14,24 @@ class PM25monitor extends ZwaveDevice {
 
 		// register device capabilities
 		this.registerCapability('measure_pm25', 'SENSOR_MULTILEVEL', {
+
+			// << containment for error in report handling of Particulate Matter 2.5 (v7)
+			report: 'SENSOR_MULTILEVEL_REPORT',
+			reportParser: report => {
+				if (report && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report.hasOwnProperty('Sensor Type')) {
+						console.log('Sensor Type: ', report['Sensor Type']); // debugging only
+						if (report['Sensor Type'] === 'Particulate Matter 2.5 (v7)') return report['Sensor Value (Parsed)'];
+					}
+					if (report.hasOwnProperty('Sensor Type (Raw)')) {
+						console.log('Sensor Type (RAW): ', report['Sensor Type (Raw)'][0]); // debugging only
+						if (report['Sensor Type (Raw)'][0] === 35) return report['Sensor Value (Parsed)'];
+					}
+				}
+				return null;
+			},
+			// >> containment for error in report handling of Particulate Matter 2.5 (v7)
+
 			getOpts: {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
