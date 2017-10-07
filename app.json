@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=1.5.2",
   "author": {
     "name": "Ted Tolboom",

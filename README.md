@@ -71,6 +71,10 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:     
+### v1.0.3
+* Add containment for issue with report handling MH10-PM2 for measure_PM2.5 capability       
+* Update meshdriver to 1.2.3      
+
 ### v1.0.2
 * Clean-up icons for MH9-CO2 and MH10-PM2      
 * Add additional productID for MH10-PM2   
