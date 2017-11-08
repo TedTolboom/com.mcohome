@@ -4,7 +4,7 @@ const Homey = require('homey');
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
 class CO2monitor extends ZwaveDevice {
-	onMeshInit() {
+	async onMeshInit() {
 
 		// enable debugging
 		this.enableDebug();

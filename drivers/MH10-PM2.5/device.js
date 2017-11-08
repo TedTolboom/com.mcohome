@@ -4,7 +4,7 @@ const Homey = require('homey');
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
 class PM25monitor extends ZwaveDevice {
-	onMeshInit() {
+	async onMeshInit() {
 
 		// enable debugging
 		this.enableDebug();
