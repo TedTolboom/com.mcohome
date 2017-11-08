@@ -4,11 +4,19 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": ">=1.5.2",
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+        {
+            "name": "Mike Lim (Automate Asia)",
+            "email": "mike.lim@automate.asia"
+        }
+    ]
   },
   "contributing": {
     "donate": {
@@ -138,13 +146,15 @@
           351
         ],
         "productTypeId": [
-          2305
+          2305,
+          2309
         ],
         "productId": [
           12545,
           12546,
           12547,
-          12548
+          12548,
+          513
         ],
         "learnmode": {
           "image": "/drivers/MH9-CO2/assets/learnmode.svg",
@@ -718,6 +728,97 @@
               "id": "0",
               "label": {
                 "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Touch-Dimmer",
+      "name": {
+        "en": "Touch Dimmer"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          20762
+        ],
+        "productId": [
+          5202
+        ],
+        "learnmode": {
+          "image": "/drivers/Touch-Dimmer/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Touch-Dimmer/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Switch 1",
+              "nl": "schakelaar 1"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "class": "light",
+      "capabilities": [
+        "dim"
+      ],
+      "icon": "/drivers/Touch-Dimmer/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Touch-Dimmer/assets/images/large.jpg",
+        "small": "/drivers/Touch-Dimmer/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "Dimmer_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Dimmer state saved",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the dimmer keep the last state after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off after a power failure",
+                "nl": "Herstelt toestand na spanningsuitval"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Resume last state after a power failure (Default)",
                 "nl": "UIT na spanningsuitval"
               }
             }
