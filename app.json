@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": ">=1.5.2",
   "author": {
     "name": "Ted Tolboom",
@@ -138,13 +138,15 @@
           351
         ],
         "productTypeId": [
-          2305
+          2305,
+          2309
         ],
         "productId": [
           12545,
           12546,
           12547,
-          12548
+          12548,
+          513
         ],
         "learnmode": {
           "image": "/drivers/MH9-CO2/assets/learnmode.svg",

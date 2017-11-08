@@ -6,7 +6,7 @@
 	"requires": true,
 	"dependencies": {
 		"homey-log": "^1.0.1",
-		"homey-meshdriver": "^1.2.3"
+		"homey-meshdriver": "^1.2.4"
 	},
 	"devDependencies": {},
 	"scripts": {
