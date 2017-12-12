@@ -27,11 +27,17 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-4/assets/icon.svg" width="10%" height="10%">
 </a>  
 
+### MCOHome Touch Panel Dimmer  
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-1/assets/icon.svg" width="10%" height="10%">
+</a>
+
 **Supported devices:**   
 * Touch panel switch 1x: MH-S311(H), MH-S411(H), MH-S511(H)    
 * Touch panel switch 2x: MH-S312(H), MH-S412, MH-S512    
 * Touch panel switch 3x: MH-S513     
-* Touch panel switch 4x: MH-S514    
+* Touch panel switch 4x: MH-S514   
+* Touch panel dimmer 1x: MH-P311   
 
 **Note:** Product Identification numbers have been added based on available information, but is still incomplete. If your touch panel switch is not recognized properly, please send me a message.
 
@@ -74,6 +80,10 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:     
+
+### v1.0.5      
+* Add additional productID for MH-P311     
+
 ### v1.0.4      
 * Add additional productID for MH9-CO2    
 * Update meshdriver to 1.2.4      
