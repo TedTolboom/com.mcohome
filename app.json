@@ -4,11 +4,23 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "compatibility": ">=1.5.2",
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Mike Lim (Automate Asia)",
+        "email": "mike.lim@automate.asia"
+      },
+      {
+        "name": "Ted Tolboom",
+        "email": "dTNL.Homey@gmail.com"
+      }
+    ]
   },
   "contributing": {
     "donate": {
@@ -71,6 +83,97 @@
   "flow": {},
   "drivers": [
     {
+      "id": "Dimmer-1",
+      "name": {
+        "en": "Touch panel dimmer"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          20762
+        ],
+        "productId": [
+          5202
+        ],
+        "learnmode": {
+          "image": "/drivers/Dimmer-1/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Dimmer-1/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Switch 1 - control associated devices",
+              "nl": "schakelaar 1 - schakel gekoppelde apparaten"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "class": "light",
+      "capabilities": [
+        "dim"
+      ],
+      "icon": "/drivers/Dimmer-1/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Dimmer-1/assets/images/large.jpg",
+        "small": "/drivers/Dimmer-1/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "Dimmer_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Dimmer state saved",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the dimmer keep the last state after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off after a power failure",
+                "nl": "Herstelt toestand na spanningsuitval"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Resume last state after a power failure (Default)",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "MH10-PM2.5",
       "name": {
         "en": "PM2.5 Monitor"
@@ -125,6 +228,56 @@
       "images": {
         "large": "/drivers/MH10-PM2.5/assets/images/large.jpg",
         "small": "/drivers/MH10-PM2.5/assets/images/small.jpg"
+      },
+      "settings": []
+    },
+    {
+      "id": "MH7-EH",
+      "name": {
+        "en": "MH7 Thermostat"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          1793
+        ],
+        "productId": [
+          20738
+        ],
+        "learnmode": {
+          "image": "/drivers/MH7-EH/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/MH7-EH/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "target_temperature"
+      ],
+      "icon": "/drivers/MH7-EH/assets/icon.svg",
+      "images": {
+        "large": "/drivers/MH7-EH/assets/images/large.jpg",
+        "small": "/drivers/MH7-EH/assets/images/small.jpg"
       },
       "settings": []
     },
