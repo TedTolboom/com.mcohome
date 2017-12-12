@@ -82,7 +82,7 @@ If you like the app, consider a donation to support development
 ## Changelog:     
 
 ### v1.0.5      
-* Add additional productID for MH-P311     
+* Add support for MH-P311     
 
 ### v1.0.4      
 * Add additional productID for MH9-CO2    
