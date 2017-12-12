@@ -33,6 +33,7 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
 * Touch panel switch 4x: MH-S514   
 
 ### MCOHome Touch Panel Dimmer  
+A glass panel dimmer with 1 capacitive touch buttons.   
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-1/assets/icon.svg" width="10%" height="10%">
 </a>
