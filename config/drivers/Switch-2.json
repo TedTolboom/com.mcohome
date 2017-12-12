@@ -1,5 +1,6 @@
 {
 	"id": "Switch-2",
+	"branch": "master",
 	"name": {
 		"en": "Touch panel switch (2)"
 	},

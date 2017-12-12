@@ -8,6 +8,9 @@ This app adds support for Z-wave devices made by [MCOHome](http://www.mcohome.co
 [MCOHome app Athom apps](https://apps.athom.com/app/com.mcohome)                    
 [MCOHome app Github repository](https://github.com/TedTolboom/com.mcohome)   
 
+**Note:** This app is using [HomeyConfig composer](https://www.npmjs.com/package/node-homey-config-composer).   
+Please file Pull Requests on the *development* branch of this repository and with respect to the refactored files in _/drivers_ and _/config_ folders.   
+
 ## Supported devices:
 ### MCOHome Touch Panel Switches (1 - 4x)    
 A glass panel switch with 1 - 4 capacitive touch buttons.    
