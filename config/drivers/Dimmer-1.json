@@ -9,10 +9,12 @@
       351
     ],
 		"productTypeId": [
-      20762
+      20762,
+			54033
     ],
 		"productId": [
-      5202
+      5202,
+			20738
     ],
 		"learnmode": {
 			"image": "/drivers/Dimmer-1/assets/learnmode.svg",
