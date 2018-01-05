@@ -92,10 +92,12 @@
           351
         ],
         "productTypeId": [
-          20762
+          20762,
+          54033
         ],
         "productId": [
-          5202
+          5202,
+          20738
         ],
         "learnmode": {
           "image": "/drivers/Dimmer-1/assets/learnmode.svg",
@@ -496,7 +498,8 @@
           4100,
           5121,
           5122,
-          5126
+          5126,
+          20738
         ],
         "learnmode": {
           "image": "/drivers/Switch-2/assets/learnmode.svg",
@@ -746,7 +749,8 @@
           516,
           4866,
           4868,
-          4869
+          4869,
+          20738
         ],
         "learnmode": {
           "image": "/drivers/Switch-4/assets/learnmode.svg",
