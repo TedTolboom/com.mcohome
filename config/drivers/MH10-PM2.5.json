@@ -1,5 +1,6 @@
 {
 	"id": "MH10-PM2.5",
+	"branch": "master",
 	"name": {
 		"en": "PM2.5 Monitor"
 	},

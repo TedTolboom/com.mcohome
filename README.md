@@ -8,6 +8,9 @@ This app adds support for Z-wave devices made by [MCOHome](http://www.mcohome.co
 [MCOHome app Athom apps](https://apps.athom.com/app/com.mcohome)                    
 [MCOHome app Github repository](https://github.com/TedTolboom/com.mcohome)   
 
+**Note:** This app is using [HomeyConfig composer](https://www.npmjs.com/package/node-homey-config-composer).   
+Please file Pull Requests on the *development* branch of this repository and with respect to the refactored files in _/drivers_ and _/config_ folders.   
+
 ## Supported devices:
 ### MCOHome Touch Panel Switches (1 - 4x)    
 A glass panel switch with 1 - 4 capacitive touch buttons.    
@@ -23,12 +26,20 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-4/assets/icon.svg" width="10%" height="10%">
 </a>  
-
 **Supported devices:**   
 * Touch panel switch 1x: MH-S311(H), MH-S411(H), MH-S511(H)    
 * Touch panel switch 2x: MH-S312(H), MH-S412, MH-S512    
 * Touch panel switch 3x: MH-S513     
-* Touch panel switch 4x: MH-S514    
+* Touch panel switch 4x: MH-S314, MH-S514
+
+### MCOHome Touch Panel Dimmer  
+A glass panel dimmer with 1 capacitive touch buttons.   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-1/assets/icon.svg" width="10%" height="10%">
+</a>
+
+**Supported devices:**     
+* Touch panel dimmer 1x: MH-P311, MH-P411, MH-P511  
 
 **Note:** Product Identification numbers have been added based on available information, but is still incomplete. If your touch panel switch is not recognized properly, please send me a message.
 
@@ -71,6 +82,11 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:     
+
+### v1.0.5      
+* Add support for MH-P311 (including new Z-wave plus version)   
+* Add support for Z-wave plus version of touch panel switch MH-S312, MH-S314     
+
 ### v1.0.4      
 * Add additional productID for MH9-CO2    
 * Update meshdriver to 1.2.4      
