@@ -28,9 +28,9 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
 </a>  
 **Supported devices:**   
 * Touch panel switch 1x: MH-S311(H), MH-S411(H), MH-S511(H)    
-* Touch panel switch 2x: MH-S312(H), MH-S412, MH-S512    
+* Touch panel switch 2x: MH-S312(H), MH-S412, MH-S512, MH-S312 (Z-Wave Plus)   
 * Touch panel switch 3x: MH-S513     
-* Touch panel switch 4x: MH-S314, MH-S514
+* Touch panel switch 4x: MH-S314, MH-S514, MH-S314 (Z-Wave Plus)
 
 ### MCOHome Touch Panel Dimmer  
 A glass panel dimmer with 1 capacitive touch buttons.   
@@ -38,8 +38,14 @@ A glass panel dimmer with 1 capacitive touch buttons.
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-1/assets/icon.svg" width="10%" height="10%">
 </a>
 
+A glass panel dimmer with 2 capacitive touch buttons.   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Dimmer-1-Plus/assets/icon.svg" width="10%" height="10%">
+</a>
+
 **Supported devices:**     
 * Touch panel dimmer 1x: MH-P311, MH-P411, MH-P511  
+* Touch panel dimmer 2x: MH-DT311
 
 **Note:** Product Identification numbers have been added based on available information, but is still incomplete. If your touch panel switch is not recognized properly, please send me a message.
 
