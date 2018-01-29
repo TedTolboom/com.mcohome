@@ -1,22 +1,22 @@
 {
-	"id": "Switch-4-Plus",
+	"id": "Switch-1-Plus",
 	"branch": "master",
 	"name": {
-		"en": "Touch Switch (4) Z-Wave Plus"
+		"en": "Touch Switch (1) Plus"
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [12609],
+		"productTypeId": [12562],
 		"productId": [20738],
 		"learnmode": {
-			"image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+			"image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
 			"instruction": {
 				"en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
 				"nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
 			}
 		},
 		"unlearnmode": {
-			"image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+			"image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
 			"instruction": {
 				"en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
 				"nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
@@ -26,7 +26,6 @@
 			1
 		],
 		"associationGroupsOptions": {
-
 			"1": {
 				"hint": {
 					"en": "Lifeline group"
@@ -34,26 +33,8 @@
 			},
 			"2": {
 				"hint": {
-					"en": "Switch 1 - control associated devices",
-					"nl": "Schakelaar 1 - schakel gekoppelde apparaten"
-				}
-			},
-			"3": {
-				"hint": {
-					"en": "Switch 2 - control associated devices",
-					"nl": "Schakelaar 2 - schakel gekoppelde apparaten"
-				}
-			},
-			"4": {
-				"hint": {
-					"en": "Switch 3 - control associated devices",
-					"nl": "Schakelaar 3 - schakel gekoppelde apparaten"
-				}
-			},
-			"5": {
-				"hint": {
-					"en": "Switch 4 - control associated devices",
-					"nl": "Schakelaar 4 - schakel gekoppelde apparaten"
+					"en": "Switch 1",
+					"nl": "schakelaar 1"
 				}
 			}
 		},
@@ -63,46 +44,10 @@
 				"capabilities": [
 					"onoff"
 				],
-				"icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
+				"icon": "/drivers/Switch-1-Plus/assets/icon.svg",
 				"name": {
-					"en": "Switch 2",
-					"nl": "Schakelaar 2"
-				},
-				"settings": []
-			},
-			"2": {
-				"class": "socket",
-				"capabilities": [
-					"onoff"
-				],
-				"icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
-				"name": {
-					"en": "Switch 2",
-					"nl": "Schakelaar 2"
-				},
-				"settings": []
-			},
-			"3": {
-				"class": "socket",
-				"capabilities": [
-					"onoff"
-				],
-				"icon": "/drivers/Switch-4-Plus/assets/icon_3.svg",
-				"name": {
-					"en": "Switch 3",
-					"nl": "Schakelaar 3"
-				},
-				"settings": []
-			},
-			"4": {
-				"class": "socket",
-				"capabilities": [
-					"onoff"
-				],
-				"icon": "/drivers/Switch-4-Plus/assets/icon_4.svg",
-				"name": {
-					"en": "Switch 4",
-					"nl": "Schakelaar 4"
+					"en": "Switch 1",
+					"nl": "Schakelaar 1"
 				},
 				"settings": []
 			}
@@ -112,10 +57,10 @@
 	"capabilities": [
 		"onoff"
 	],
-	"icon": "/drivers/Switch-4-Plus/assets/icon.svg",
+	"icon": "/drivers/Switch-1-Plus/assets/icon.svg",
 	"images": {
-		"large": "/drivers/Switch-4-Plus/assets/images/large.jpg",
-		"small": "/drivers/Switch-4-Plus/assets/images/small.jpg"
+		"large": "/drivers/Switch-1-Plus/assets/images/large.jpg",
+		"small": "/drivers/Switch-1-Plus/assets/images/small.jpg"
 	},
 	"settings": [
 		{
@@ -151,5 +96,5 @@
 			]
 		}
 
-	 ]
+	  ]
 }

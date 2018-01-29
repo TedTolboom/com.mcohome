@@ -101,14 +101,14 @@
           "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
           "instruction": {
             "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
           "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
           "instruction": {
             "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
           }
         },
         "associationGroups": [
@@ -410,6 +410,111 @@
       ]
     },
     {
+      "id": "Switch-1-Plus",
+      "name": {
+        "en": "Touch Switch (1) Plus"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          12562
+        ],
+        "productId": [
+          20738
+        ],
+        "learnmode": {
+          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Switch 1",
+              "nl": "schakelaar 1"
+            }
+          }
+        },
+        "multiChannelNodes": {
+          "1": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
+            "name": {
+              "en": "Switch 1",
+              "nl": "Schakelaar 1"
+            },
+            "settings": []
+          }
+        }
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Switch-1-Plus/assets/images/large.jpg",
+        "small": "/drivers/Switch-1-Plus/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "Power_off_status",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "State after power loss",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the switch reacts after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "Switch-1",
       "name": {
         "en": "Touch panel switch (1)"
@@ -522,7 +627,8 @@
           351
         ],
         "productTypeId": [
-          20769
+          12577,
+          12578
         ],
         "productId": [
           20738
@@ -530,15 +636,15 @@
         "learnmode": {
           "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
           "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
           }
         },
         "associationGroups": [
@@ -911,15 +1017,15 @@
         "learnmode": {
           "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
           "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
           }
         },
         "associationGroups": [
