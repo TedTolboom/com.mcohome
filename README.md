@@ -1,7 +1,7 @@
 # MCOHome
 This app adds support for Z-wave devices made by [MCOHome](http://www.mcohome.com).  
 <a href="https://github.com/TedTolboom/com.mcohome">
-  <img src="https://raw.githubusercontent.com/TedTolboom/com.mcohome/master/assets/images/small.jpg">
+  <img src="https://raw.githubusercontent.com/TedTolboom/com.mcohome/master/assets/images/small.png">
 </a>  
 
 ## Links:
