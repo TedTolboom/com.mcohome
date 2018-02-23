@@ -89,6 +89,10 @@ If you like the app, consider a donation to support development
 
 ## Changelog:     
 
+### v1.0.6
+* Add support for MH-S311(H) and MH-S312(H) for Z-Wave Plus models   
+* Update Homey meshdriver to 1.2.7   
+
 ### v1.0.5      
 * Add support for MH-P311 (including new Z-wave plus version)   
 * Add support for Z-wave plus version of touch panel switch MH-S312, MH-S314     
