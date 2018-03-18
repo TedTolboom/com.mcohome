@@ -27,9 +27,9 @@ A glass panel switch with 1 - 4 capacitive touch buttons.
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Switch-4/assets/icon.svg" width="10%" height="10%">
 </a>  
 **Supported devices:**   
-* Touch panel switch 1x: MH-S311(H), MH-S411(H), MH-S511(H)    
+* Touch panel switch 1x: MH-S311(H), MH-S411(H), MH-S511(H)  (Z-Wave Plus)    
 * Touch panel switch 2x: MH-S312(H), MH-S412, MH-S512, MH-S312 (Z-Wave Plus)   
-* Touch panel switch 3x: MH-S513     
+* Touch panel switch 3x: MH-S513 (Z-Wave Plus)
 * Touch panel switch 4x: MH-S314, MH-S514, MH-S314 (Z-Wave Plus)
 
 ### MCOHome Touch Panel Dimmer  
@@ -47,10 +47,24 @@ A glass panel dimmer with 2 capacitive touch buttons.
 * Touch panel dimmer 1x: MH-P311, MH-P411, MH-P511  
 * Touch panel dimmer 2x: MH-DT311
 
-**Note:** Product Identification numbers have been added based on available information, but is still incomplete. If your touch panel switch is not recognized properly, please send me a message.
+### MCOHome Micro-dimmer
+A Z-Wave enabled 1-load in-wall dimmer   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Micro-Dimmer/assets/icon.svg" width="10%" height="10%">
+</a>   
+**Supported devices:**   
+* Micro dimmer: MH-P220   
+
+### MCOHome Micro-switch
+A Z-Wave enabled 1-load in-wall relay   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Micro-Switch/assets/icon.svg" width="10%" height="10%">
+</a>   
+**Supported devices:**   
+* Micro switch: MH-S220   
 
 ### MCOHome CO2 monitor     
-Monitor CO2 concentration in air.  
+Monitor CO2 concentration in air.    
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/MH9-CO2/assets/icon.svg" width="10%" height="10%">
 </a>  
@@ -88,6 +102,16 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:     
+
+### v1.1.0
+* Add Athom community forum link to app      
+* Update Homey meshdriver to 1.2.9  
+* Add dim-duration to the dimmer devices    
+* Add support for Z-wave plus version of touch panel switch (3)
+* Add support for the micro-dimmer and micro-switch   
+* Mass update of all productID's  
+* Fix issue with CO2 sensor not reporting CO2 alarm [#5](https://github.com/TedTolboom/com.mcohome/issues/5)  
+* Fix issue where CO2 and PM2.5 sensors are not (re)setting their alarms   
 
 ### v1.0.6
 * Add support for MH-S311(H) and MH-S312(H) for Z-Wave Plus models   

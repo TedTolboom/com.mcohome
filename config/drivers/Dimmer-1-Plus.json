@@ -49,6 +49,16 @@
 	"capabilities": [
     "dim"
   ],
+	"capabilitiesOptions": {
+		"onoff": {
+			"setOnDim": false
+		},
+		"dim": {
+			"opts": {
+				"duration": true
+			}
+		}
+	},
 	"icon": "/drivers/Dimmer-1-Plus/assets/icon.svg",
 	"images": {
 		"large": "/drivers/Dimmer-1-Plus/assets/images/large.jpg",
