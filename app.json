@@ -4,8 +4,9 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.0.6",
+  "version": "1.1.0",
   "compatibility": ">=1.5.2",
+  "athomForumDiscussionId": 3463,
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
@@ -25,8 +26,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "TedTolboom",
-        "currency": "EUR"
+        "username": "TedTolboom"
       }
     }
   },
@@ -132,6 +132,16 @@
       "capabilities": [
         "dim"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "icon": "/drivers/Dimmer-1-Plus/assets/icon.svg",
       "images": {
         "large": "/drivers/Dimmer-1-Plus/assets/images/large.jpg",
@@ -183,10 +193,17 @@
           351
         ],
         "productTypeId": [
+          12570,
+          16666,
           20762
         ],
         "productId": [
-          5202
+          5201,
+          5202,
+          5203,
+          5204,
+          5206,
+          5209
         ],
         "learnmode": {
           "image": "/drivers/Dimmer-1/assets/learnmode.svg",
@@ -223,6 +240,16 @@
       "capabilities": [
         "dim"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "icon": "/drivers/Dimmer-1/assets/icon.svg",
       "images": {
         "large": "/drivers/Dimmer-1/assets/images/large.jpg",
@@ -274,6 +301,7 @@
           351
         ],
         "productTypeId": [
+          2561,
           2565
         ],
         "productId": [
@@ -320,7 +348,25 @@
         "large": "/drivers/MH10-PM2.5/assets/images/large.jpg",
         "small": "/drivers/MH10-PM2.5/assets/images/small.jpg"
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "PM2.5_notification",
+          "type": "number",
+          "value": 800,
+          "attr": {
+            "min": 1,
+            "max": 999
+          },
+          "label": {
+            "en": "PM2.5 notification threshold",
+            "nl": "PM2.5 notificatie drempelwaarde"
+          },
+          "hint": {
+            "en": "PM2.5 Notification threshold 1 to 999 ug/m3.\nDefault: 800\nRange 1 - 999 ug/m3",
+            "nl": "PM2.5 Notificatie drempelwaarde 1 to 999 ug/m3.\nStandaard: 800\nBereik 1 - 999 ug/m3"
+          }
+        }
+      ]
     },
     {
       "id": "MH7-EH",
@@ -460,6 +506,1093 @@
       ]
     },
     {
+      "id": "Micro-Dimmer",
+      "name": {
+        "en": "Micro Dimmer"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          8714
+        ],
+        "productId": [
+          4945,
+          4946,
+          4947,
+          4948,
+          4949,
+          4950,
+          4953,
+          4954
+        ],
+        "learnmode": {
+          "image": "/drivers/Micro-Dimmer/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk de puld drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Micro-Dimmer/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
+            "nl": "1. Zet de controller in verwijder modus\n2.Druk de puld drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "reports device’s dimming state. It supports only one Node ID. A controller/gateway SHOULD be associated to this AG"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S1’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S1’s state changes, it will send “Multi-level Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S2’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          }
+        }
+      },
+      "class": "light",
+      "capabilities": [
+        "dim",
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "icon": "/drivers/Micro-Dimmer/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Micro-Dimmer/assets/images/large.png",
+        "small": "/drivers/Micro-Dimmer/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "Dimmer_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Dimmer state saved",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the dimmer keep the last state after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off after a power failure",
+                "nl": "Herstelt toestand na spanningsuitval"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Resume last state after a power failure (Default)",
+                "nl": "UIT na spanningsuitval (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Switch_type",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Switch type",
+            "nl": "Schakelaar type"
+          },
+          "hint": {
+            "en": "Choose between momentary switch and toggle switch. Default value: Momentary switch.",
+            "nl": "Kies tussen kortstondige schakelaar en tuimelschakelaar. Standaard waarde: Pulsdruk schakelaar."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Momentary switch (Default)",
+                "nl": "Pulsdruk schakelaar (Standaard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle switch",
+                "nl": "Tuimel schakelaar"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Roller blind Switch (UP | DOWN)",
+                "nl": "Rolgordijn schakelaar (OP | NEER)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Two_state_switch",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Toggle switch",
+            "nl": "Tuimel schakelaar"
+          },
+          "hint": {
+            "en": "Define the toggle switch behavior.",
+            "nl": "Bepaal hoe de tuimelschakelaar reageert."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Toggle Dimmer without specified on/off position",
+                "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle Dimmer with specified on/off position (Default)",
+                "nl": "Schakel dimmer met gedefinieerde aan/uit positie (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "All_ON_All_OFF",
+          "zwave": {
+            "index": 4,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "'ALL ON' / 'ALL OFF'",
+            "nl": "'Alles AAN' / 'Alles UIT'"
+          },
+          "hint": {
+            "en": "Define how the dimmer responds to an 'ALL ON' or 'ALL OFF' command.",
+            "nl": "Bepaal hoe de dimmer reageert op een 'Alles AAN' of 'Alles UIT' commando."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Forbid 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', blokkeer 'Alles UIT'"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Forbid 'ALL ON', allow 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', sta 'Alles UIT' toe"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Allow 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Sta 'Alles AAN' toe, blokker 'Alles UIT'"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Allow 'ALL ON', allow 'ALL OFF' (Default)",
+                "nl": "Sta 'Alles AAN' toe, sta 'Alles UIT' toe (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "minimum_brightness_level",
+          "zwave": {
+            "index": 5,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "Minimum brightness level",
+            "nl": "Minimale helderheidsniveau"
+          },
+          "value": 1,
+          "attr": {
+            "min": 1,
+            "max": 98
+          },
+          "hint": {
+            "en": "This parameter sets the minimal brightness level. Range: 1 - 98, default value: 1.",
+            "nl": "Deze parameter zet het minimale helderheidsniveau. Bereik: 1 - 98, standaard waarde: 1."
+          }
+        },
+        {
+          "id": "maximum_brightness",
+          "zwave": {
+            "index": 6,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "Maximum brightness level",
+            "nl": "Maximaal helderheidsniveau"
+          },
+          "value": 99,
+          "attr": {
+            "min": 2,
+            "max": 99
+          },
+          "hint": {
+            "en": "This parameter sets the maximal brightness level. Range: 2 - 99, default value: 99.",
+            "nl": "Deze parameter zet het maximale helderheidsniveau. Bereik: 2 - 99, standaard waarde: 99."
+          }
+        },
+        {
+          "id": "dimming_step_auto",
+          "zwave": {
+            "index": 10,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "The percentage of a dimming step at automatic control",
+            "nl": "Percentage van dim stap bij automatische besturing"
+          },
+          "value": 1,
+          "attr": {
+            "min": 1,
+            "max": 99
+          },
+          "hint": {
+            "en": "The percentage (1-99) of a dimming step at automatic control. Range: 1 - 99, default value: 1.",
+            "nl": "Het percentage (1-99) per dim stap bij automatische besturing. Bereik: 1 - 99, standaard waarde: 1."
+          }
+        },
+        {
+          "id": "time_dimming_step_auto",
+          "zwave": {
+            "index": 9,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Time of a dimming step at automatic control",
+            "nl": "Tijd per dim stap bij automatische besturing"
+          },
+          "value": 3,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Time of a dimming step at automatic control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+            "nl": "Tijd per dim stap bij automatische besturing van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+          }
+        },
+        {
+          "id": "dimming_step_manual",
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "The percentage of a dimming step at manual control",
+            "nl": "Percentage van dim stap bij handmatige bediening"
+          },
+          "value": 1,
+          "attr": {
+            "min": 1,
+            "max": 99
+          },
+          "hint": {
+            "en": "The percentage (1-99) of a dimming step at manual control. Range: 1 - 99, default value: 1.",
+            "nl": "Het percentage (1-99) per dim stap bij handmatige bediening. Bereik: 1 - 99, standaard waarde: 1."
+          }
+        },
+        {
+          "id": "time_dimming_step_manual",
+          "zwave": {
+            "index": 7,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Time of a dimming step at manual control",
+            "nl": "Tijd per dim stap bij handmatige bediening"
+          },
+          "value": 3,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Time of a dimming step at manual control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+            "nl": "Tijd per dim stap bij handmatige bediening van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+          }
+        },
+        {
+          "id": "timer_functionality",
+          "zwave": {
+            "index": 11,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Timer functionality (auto - off) in seconds",
+            "nl": "Automatisch uitschakelen na (seconden)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Dimmer 2 is installed in the stairway. 0 - Function disabled (default) 1-255 - time to turn off measured in seconds (1s-255s). Range: 0 - 255, default value: 0.",
+            "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 255, standaard waarde: 0 (uitgeschakeld)."
+          }
+        },
+        {
+          "id": "S1_single_click",
+          "zwave": {
+            "index": 13,
+            "size": 1
+          },
+          "type": "number",
+          "label": {
+            "en": "S1 single click",
+            "nl": "S1 enkele klik"
+          },
+          "value": 99,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Set the brightness level to switch to last saved brightness level or to the set value. \nRange: 0 = last dim level, 1-99 = dim-level",
+            "nl": "Stel helderheid in op om te schakelen naar de laatst bekende dim-level or de ingestelde waarde. \nStandaard: 0 = laatste dim level, 1-99 = dim-level"
+          }
+        },
+        {
+          "id": "S1_double_click",
+          "zwave": {
+            "index": 14,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "S1 double click",
+            "nl": "S1 dubbel klik"
+          },
+          "hint": {
+            "en": "Define the double click behavior.",
+            "nl": "Bepaal hoe een dubbele klik reageert."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Double click disabled",
+                "nl": "Dubbele klik uitgeschakeld"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Double click reach max brightness level (Default)",
+                "nl": "Dubbele klik naar maximale dim-level (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_function",
+          "zwave": {
+            "index": 17,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "S2 funtion",
+            "nl": "S2 functie"
+          },
+          "hint": {
+            "en": "Define function of S2 switch.",
+            "nl": "Bepaal de functie van de S2 schakelaar."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Roller blinds switch",
+                "nl": "Rolgordijn schakelaar"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
+                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Send Scene Activation only",
+                "nl": "Stuur enkel Scene Activation"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Send Basic Set ON/OFF to AG4 only",
+                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Disable S2 function (Default)",
+                "nl": "Schakel S2 functie uit (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S1_operation_report",
+          "zwave": {
+            "index": 16,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "S1 association report AG2",
+            "nl": "S1 association report AG2"
+          },
+          "hint": {
+            "en": "Define the S1 association report for association group 2.",
+            "nl": "Bepaal het S1 association rapport voor association group 2."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Basic Set On, carried Value is 255 (0xFF)",
+                "nl": "Basic Set On, gebruikte waarde is 255 (0xFF)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Basic Set On, carried value is dim-level (Default)",
+                "nl": "Basic Set On, gebruikte waarde is dim-level (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_operation_report",
+          "zwave": {
+            "index": 18,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "S2 association report AG4",
+            "nl": "S2 association report AG4"
+          },
+          "hint": {
+            "en": "Define the S2 association report for association group 4.",
+            "nl": "Bepaal het S2 association rapport voor association group 4."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Send Basic ON or Basic OFF to AG4 when turn on/off S2 (Default)",
+                "nl": "Stuur Basic ON of Basic OFF naar AG4 wanneer S2 in- of uitgeschakeld wordt (Standaard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Only send Basic Set On",
+                "nl": "Stuur enkel Basic ON"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Only send Basic Set Off",
+                "nl": "Stuur enkel Basic Off"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Disabled: no report to AG4",
+                "nl": "uitgeschakeld: geen rapport naar AG4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_sceneID_single_click",
+          "zwave": {
+            "index": 19,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (1x click)",
+            "nl": "S2 Scene ID (1x klik)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 clicked once. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 een keer geactiveerd wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        },
+        {
+          "id": "S2_sceneID_double_click",
+          "zwave": {
+            "index": 20,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (2x click)",
+            "nl": "S2 Scene ID (2x klik)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 clicked twice. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 twee keer geactiveerd wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        },
+        {
+          "id": "S2_sceneID_hold",
+          "zwave": {
+            "index": 21,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (hold)",
+            "nl": "S2 Scene ID (vasthouden)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 held. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 ingedrukt wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Micro-Switch",
+      "name": {
+        "en": "Micro Switch"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          8705
+        ],
+        "productId": [
+          4689,
+          4690,
+          4691,
+          4695,
+          4697,
+          4698
+        ],
+        "learnmode": {
+          "image": "/drivers/Micro-Switch/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk de puls drukknop op de schakelaar, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Micro-Switch/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
+            "nl": "1. Zet de controller in verwijder modus\n2.Druk de puls drukknop op de schakelaar, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "reports device’s dimming state. It supports only one Node ID. A controller/gateway SHOULD be associated to this AG"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S1’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S2’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          }
+        }
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "icon": "/drivers/Micro-Switch/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Micro-Switch/assets/images/large.png",
+        "small": "/drivers/Micro-Switch/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "Switch_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Switch state saved",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the Switch keep the last state after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off after a power failure",
+                "nl": "Herstelt toestand na spanningsuitval"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Resume last state after a power failure (Default)",
+                "nl": "UIT na spanningsuitval (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Switch_type",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Switch type",
+            "nl": "Schakelaar type"
+          },
+          "hint": {
+            "en": "Choose between momentary switch and toggle switch. Default value: Momentary switch.",
+            "nl": "Kies tussen kortstondige schakelaar en tuimelschakelaar. Standaard waarde: Pulsdruk schakelaar."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Momentary switch (Default)",
+                "nl": "Pulsdruk schakelaar (Standaard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle switch",
+                "nl": "Tuimel schakelaar"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Two_state_switch",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Toggle switch",
+            "nl": "Tuimel schakelaar"
+          },
+          "hint": {
+            "en": "Define the toggle switch behavior.",
+            "nl": "Bepaal hoe de tuimelschakelaar reageert."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Toggle Switch without specified on/off position",
+                "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle Switch with specified on/off position (Default)",
+                "nl": "Schakel Switch met gedefinieerde aan/uit positie (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "All_ON_All_OFF",
+          "zwave": {
+            "index": 6,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "'ALL ON' / 'ALL OFF'",
+            "nl": "'Alles AAN' / 'Alles UIT'"
+          },
+          "hint": {
+            "en": "Define how the Switch responds to an 'ALL ON' or 'ALL OFF' command.",
+            "nl": "Bepaal hoe de Switch reageert op een 'Alles AAN' of 'Alles UIT' commando."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Forbid 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', blokkeer 'Alles UIT'"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Forbid 'ALL ON', allow 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', sta 'Alles UIT' toe"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Allow 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Sta 'Alles AAN' toe, blokker 'Alles UIT'"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Allow 'ALL ON', allow 'ALL OFF' (Default)",
+                "nl": "Sta 'Alles AAN' toe, sta 'Alles UIT' toe (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "timer_functionality",
+          "zwave": {
+            "index": 5,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Timer functionality (auto - off) in seconds",
+            "nl": "Automatisch uitschakelen na (seconden)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 65535
+          },
+          "hint": {
+            "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Switch 2 is installed in the stairway. 0 - Function disabled (default) 1-65535 - time to turn off measured in seconds (1s-255s). Range: 0 - 65535, default value: 0.",
+            "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 65535, standaard waarde: 0 (uitgeschakeld)."
+          }
+        },
+        {
+          "id": "S2_function",
+          "zwave": {
+            "index": 9,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "S2 funtion",
+            "nl": "S2 functie"
+          },
+          "hint": {
+            "en": "Define function of S2 switch.",
+            "nl": "Bepaal de functie van de S2 schakelaar."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Send Scene Activation and send Basic Set ON/OFF to AG3",
+                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG3"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Send Scene Activation only",
+                "nl": "Stuur enkel Scene Activation"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Send Basic Set ON/OFF to AG4 only",
+                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Disable S2 function (Default)",
+                "nl": "Schakel S2 functie uit (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S1_operation_report",
+          "zwave": {
+            "index": 8,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "S1 association report AG2",
+            "nl": "S1 association report AG2"
+          },
+          "hint": {
+            "en": "Define the S1 association report for association group 2.",
+            "nl": "Bepaal het S1 association rapport voor association group 2."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Report ON/OFF state of S1 to AG2 (Default)",
+                "nl": "Rapporteer AAN/UIT toestand van S1 naar AG2 (Standaard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Report ON state of S1 to AG2",
+                "nl": "Rapporteer AAN toestand van S1 naar AG2"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report OFF state of S1 to AG2",
+                "nl": "Rapporteer UIT toestand van S1 naar AG2"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "No report to AG2",
+                "nl": "Rapporteer niets naar AG2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_operation_report",
+          "zwave": {
+            "index": 10,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "S2 association report AG3",
+            "nl": "S2 association report AG3"
+          },
+          "hint": {
+            "en": "Define the S2 association report for association group 3.",
+            "nl": "Bepaal het S2 association rapport voor association group 3."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Send Basic ON or Basic OFF to AG4 when turn on/off S2",
+                "nl": "Stuur Basic ON of Basic OFF naar AG4 wanneer S2 in- of uitgeschakeld wordt"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Only send Basic Set On (Default)",
+                "nl": "Stuur enkel Basic ON (Standaard)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Only send Basic Set Off",
+                "nl": "Stuur enkel Basic Off"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Disabled: no report to AG4",
+                "nl": "uitgeschakeld: geen rapport naar AG4"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_sceneID_single_click",
+          "zwave": {
+            "index": 11,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (1x click)",
+            "nl": "S2 Scene ID (1x klik)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 clicked once. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 een keer geactiveerd wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        },
+        {
+          "id": "S2_sceneID_double_click",
+          "zwave": {
+            "index": 12,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (2x click)",
+            "nl": "S2 Scene ID (2x klik)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 clicked twice. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 twee keer geactiveerd wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        },
+        {
+          "id": "S2_sceneID_hold",
+          "zwave": {
+            "index": 13,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "S2 Scene ID (hold)",
+            "nl": "S2 Scene ID (vasthouden)"
+          },
+          "value": 0,
+          "attr": {
+            "min": 0,
+            "max": 255
+          },
+          "hint": {
+            "en": "Scene ID sent to AG1 when S2 held. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+            "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 ingedrukt wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+          }
+        }
+      ]
+    },
+    {
       "id": "Switch-1-Plus",
       "name": {
         "en": "Touch Switch (1) Plus"
@@ -469,10 +1602,23 @@
           351
         ],
         "productTypeId": [
-          12562
+          12561,
+          12562,
+          16657,
+          16658,
+          20753,
+          20754
         ],
         "productId": [
-          20738
+          20737,
+          20738,
+          20739,
+          20740,
+          20741,
+          20742,
+          20744,
+          20745,
+          20746
         ],
         "learnmode": {
           "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
@@ -574,22 +1720,30 @@
           351
         ],
         "productTypeId": [
-          12546,
           12561,
-          16642,
+          12562,
           16657,
           16658,
-          20753
+          20753,
+          20754,
+          12546,
+          16642
         ],
         "productId": [
-          513,
           4866,
+          4867,
           4098,
+          4099,
           4101,
+          4866,
+          4867,
           5121,
           5122,
           5126,
-          5128
+          5128,
+          5129,
+          5130,
+          513
         ],
         "learnmode": {
           "image": "/drivers/Switch-1/assets/learnmode.svg",
@@ -678,10 +1832,20 @@
         ],
         "productTypeId": [
           12577,
-          12578
+          12578,
+          16673,
+          20769
         ],
         "productId": [
-          20738
+          20737,
+          20738,
+          20739,
+          20740,
+          20741,
+          20742,
+          20744,
+          20745,
+          20746
         ],
         "learnmode": {
           "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
@@ -801,22 +1965,27 @@
           351
         ],
         "productTypeId": [
-          12546,
           12577,
           12578,
+          20769,
+          12546,
           16642,
-          16673,
-          20769
+          16673
         ],
         "productId": [
-          514,
           4866,
+          4867,
           4869,
+          4874,
           4098,
           4100,
+          4106,
           5121,
           5122,
-          5126
+          5126,
+          5129,
+          5130,
+          514
         ],
         "learnmode": {
           "image": "/drivers/Switch-2/assets/learnmode.svg",
@@ -915,6 +2084,140 @@
       ]
     },
     {
+      "id": "Switch-3-Plus",
+      "name": {
+        "en": "Touch panel switch (3) Z-Wave Plus"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          20785,
+          20786
+        ],
+        "productId": [
+          20737,
+          20738,
+          20742,
+          20745,
+          20746
+        ],
+        "learnmode": {
+          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          4
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Switch 1 - control associated devices",
+              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Switch 2 - control associated devices",
+              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "Switch 3 - control associated devices",
+              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        },
+        "multiChannelNodes": {
+          "2": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-3-Plus/assets/icon_2.svg",
+            "name": {
+              "en": "Switch 2",
+              "nl": "Schakelaar 2"
+            },
+            "settings": []
+          },
+          "3": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-3-Plus/assets/icon_3.svg",
+            "name": {
+              "en": "Switch 3",
+              "nl": "Schakelaar 3"
+            },
+            "settings": []
+          }
+        }
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "icon": "/drivers/Switch-3-Plus/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Switch-3-Plus/assets/images/large.png",
+        "small": "/drivers/Switch-3-Plus/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "Power_off_status",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "State after power loss",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the switch reacts after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "Switch-3",
       "name": {
         "en": "Touch panel switch (3)"
@@ -924,13 +2227,18 @@
           351
         ],
         "productTypeId": [
-          20738,
           20785,
+          20738,
           5121,
           5122,
           5126
         ],
         "productId": [
+          5121,
+          5122,
+          5126,
+          5129,
+          5130,
           259,
           260,
           264
@@ -1062,7 +2370,11 @@
           12609
         ],
         "productId": [
-          20738
+          20737,
+          20738,
+          20740,
+          20741,
+          20746
         ],
         "learnmode": {
           "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
@@ -1218,14 +2530,15 @@
           351
         ],
         "productTypeId": [
-          12546,
-          12609
+          12609,
+          12546
         ],
         "productId": [
-          516,
           4866,
           4868,
-          4869
+          4869,
+          4874,
+          516
         ],
         "learnmode": {
           "image": "/drivers/Switch-4/assets/learnmode.svg",
