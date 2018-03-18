@@ -48,23 +48,23 @@ A glass panel dimmer with 2 capacitive touch buttons.
 * Touch panel dimmer 2x: MH-DT311
 
 ### MCOHome Micro-dimmer
-A Z-Wave enabled 1-load dimmer
+A Z-Wave enabled 1-load in-wall dimmer   
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Micro-Dimmer/assets/icon.svg" width="10%" height="10%">
-</a>
+</a>   
 **Supported devices:**   
 * Micro dimmer: MH-P220   
 
 ### MCOHome Micro-switch
-A Z-Wave enabled 1-load relay
+A Z-Wave enabled 1-load in-wall relay   
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Micro-Switch/assets/icon.svg" width="10%" height="10%">
-</a>
+</a>   
 **Supported devices:**   
 * Micro switch: MH-S220   
 
 ### MCOHome CO2 monitor     
-Monitor CO2 concentration in air.  
+Monitor CO2 concentration in air.    
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/MH9-CO2/assets/icon.svg" width="10%" height="10%">
 </a>  
