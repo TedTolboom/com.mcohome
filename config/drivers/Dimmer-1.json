@@ -9,10 +9,10 @@
       351
     ],
 		"productTypeId": [
-      20762
+      12570, 16666, 20762
     ],
 		"productId": [
-      5202
+      5201, 5202, 5203, 5204, 5206, 5209
     ],
 		"learnmode": {
 			"image": "/drivers/Dimmer-1/assets/learnmode.svg",
@@ -49,6 +49,16 @@
 	"capabilities": [
     "dim"
   ],
+	"capabilitiesOptions": {
+		"onoff": {
+			"setOnDim": false
+		},
+		"dim": {
+			"opts": {
+				"duration": true
+			}
+		}
+	},
 	"icon": "/drivers/Dimmer-1/assets/icon.svg",
 	"images": {
 		"large": "/drivers/Dimmer-1/assets/images/large.jpg",
