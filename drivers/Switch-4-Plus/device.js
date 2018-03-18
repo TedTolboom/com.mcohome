@@ -2,7 +2,7 @@
 
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
-class TouchPanelSwitch2Plus extends ZwaveDevice {
+class TouchPanelSwitch4Plus extends ZwaveDevice {
 	onMeshInit() {
 
 		// enable debugging
@@ -17,4 +17,4 @@ class TouchPanelSwitch2Plus extends ZwaveDevice {
 	}
 }
 
-module.exports = TouchPanelSwitch2Plus;
+module.exports = TouchPanelSwitch4Plus;

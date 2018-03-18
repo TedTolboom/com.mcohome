@@ -2,7 +2,7 @@
 
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
-class TouchPanelSwitch2Plus extends ZwaveDevice {
+class TouchPanelDimmerPlus extends ZwaveDevice {
 	onMeshInit() {
 
 		// enable debugging
@@ -16,12 +16,13 @@ class TouchPanelSwitch2Plus extends ZwaveDevice {
 			report: 'BASIC_REPORT',
 			reportParser(report) {
 
-				if (report['Value'] > 0){
+				if (report['Value'] > 0) {
 					this.setCapabilityValue('onoff', true);
-				}else{
+				}
+				else {
 					this.setCapabilityValue('onoff', false);
 				}
-				this.setCapabilityValue('dim', report['Value']/100);
+				this.setCapabilityValue('dim', report['Value'] / 100);
 				return null;
 			}
 		});
@@ -30,4 +31,4 @@ class TouchPanelSwitch2Plus extends ZwaveDevice {
 	}
 }
 
-module.exports = TouchPanelSwitch2Plus;
+module.exports = TouchPanelDimmerPlus;
