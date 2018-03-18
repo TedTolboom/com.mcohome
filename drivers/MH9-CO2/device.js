@@ -18,7 +18,18 @@ class CO2monitor extends ZwaveDevice {
 				getOnStart: true, // get the initial value on app start
 				//pollInterval: 'poll_interval' // maps to device settings
 			},
+			report: 'SENSOR_MULTILEVEL_REPORT',
+			reportParser: report => {
+				if (report && report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'CO2-level (version 3)') {
+						this.setCapabilityValue('alarm_co2', report['Sensor Value (Parsed)'] >= (this.getSetting('CO2_notification') || 1200));
+						return report['Sensor Value (Parsed)'];
+					}
+				}
+				return null;
+			},
 		});
+
 		// register device capabilities
 		this.registerCapability('alarm_co2', 'NOTIFICATION', {
 			getOpts: {
