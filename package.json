@@ -7,7 +7,7 @@
 	"dependencies": {
 		"git-branch": "^1.0.0",
 		"homey-log": "^1.0.1",
-		"homey-meshdriver": "^1.2.4"
+		"homey-meshdriver": "^1.2.9"
 	},
 	"devDependencies": {},
 	"scripts": {

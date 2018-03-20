@@ -6,8 +6,8 @@
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [12546, 12609],
-		"productId": [516, 4866, 4868, 4869],
+		"productTypeId": [12609, 12546],
+		"productId": [4866, 4868, 4869, 4874, 516],
 		"learnmode": {
 			"image": "/drivers/Switch-4/assets/learnmode.svg",
 			"instruction": {
