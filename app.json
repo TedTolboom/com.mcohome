@@ -1543,6 +1543,200 @@
       ]
     },
     {
+      "id": "Shutter-Panel",
+      "name": {
+        "en": "Shutter Panel"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          49953
+        ],
+        "productId": [
+          20738
+        ],
+        "learnmode": {
+          "image": "/drivers/Shutter-Panel/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.Press the button on the device for 8 seconds.",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk gedurende 8 seconden op de knop op het apparaat."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Shutter-Panel/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.Press the button on the device for 8 seconds.",
+            "nl": "1. Zet de controller in verwijder modus\n2.Druk gedurende 8 seconden op de knop op het apparaat."
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "reports device’s dimming state. It supports only one Node ID. A controller/gateway SHOULD be associated to this AG"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S1’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S1’s state changes, it will send “Multi-level Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "to control the associated devices synchronously. When S2’s state changes, it will send “Basic Set Command” to these devices. It supports upto 5 Node IDs."
+            }
+          }
+        }
+      },
+      "class": "windowcoverings",
+      "capabilities": [
+        "windowcoverings_state",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "icon": "/drivers/Shutter-Panel/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Shutter-Panel/assets/images/large.jpg",
+        "small": "/drivers/Shutter-Panel/assets/images/small.jpg"
+      },
+      "settings": [
+        {
+          "id": "watt_meter_report_period",
+          "zwave": {
+            "index": 1,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "Watt Meter Report Period"
+          },
+          "value": 720,
+          "attr": {
+            "min": 1,
+            "max": 32767
+          },
+          "hint": {
+            "en": "This value is in units of 5 seconds. (i.e 720 x 5 sec = 1 hour)"
+          }
+        },
+        {
+          "id": "kwh_meter_report_period",
+          "zwave": {
+            "index": 2,
+            "size": 2
+          },
+          "type": "number",
+          "label": {
+            "en": "KWH Meter Report Period"
+          },
+          "value": 6,
+          "attr": {
+            "min": 1,
+            "max": 32767
+          },
+          "hint": {
+            "en": "This value is in units of 10 minutes. (i.e 6 x 10 min = 1 hour)"
+          }
+        },
+        {
+          "id": "level_report_mode",
+          "zwave": {
+            "index": 5,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "2",
+          "label": {
+            "en": "Level Report Mode"
+          },
+          "hint": {
+            "en": "Duration of level reporting"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report level every 5 seconds while running"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report level every 10 percent while running"
+              }
+            }
+          ]
+        },
+        {
+          "id": "led_backlit_brightness",
+          "zwave": {
+            "index": 8,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "LED Backlight Brightness"
+          },
+          "value": 10,
+          "attr": {
+            "min": 0,
+            "max": 10
+          },
+          "hint": {
+            "en": "0 - Disabled, 10 - Maximum brightness"
+          }
+        },
+        {
+          "id": "calibration",
+          "zwave": {
+            "index": 10,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Auto Calibration"
+          },
+          "hint": {
+            "en": "Activate auto calibration. Resets to 0 after calibration."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Deactivated"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Activated"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "Switch-1-Plus",
       "name": {
         "en": "Touch Switch (1) Plus"

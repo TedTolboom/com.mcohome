@@ -47,6 +47,16 @@ A glass panel dimmer with 2 capacitive touch buttons.
 * Touch panel dimmer 1x: MH-P311, MH-P411, MH-P511  
 * Touch panel dimmer 2x: MH-DT311
 
+### MCOHome Shutter Panel  
+A glass panel dimmer with 2 capacitive touch buttons.   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Shutter-Panel/assets/icon.svg" width="10%" height="10%">
+</a>
+
+**Supported devices:**     
+* Touch panel dimmer 1x: MH-C321
+
+
 ### MCOHome Micro-dimmer
 A Z-Wave enabled 1-load in-wall dimmer   
 <a href="https://github.com/TedTolboom/com.mcohome">
