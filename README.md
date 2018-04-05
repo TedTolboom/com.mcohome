@@ -1,7 +1,7 @@
 # MCOHome
 This app adds support for Z-wave devices made by [MCOHome](http://www.mcohome.com).  
 <a href="https://github.com/TedTolboom/com.mcohome">
-  <img src="https://raw.githubusercontent.com/TedTolboom/com.mcohome/master/assets/images/small.jpg">
+  <img src="https://raw.githubusercontent.com/TedTolboom/com.mcohome/master/assets/images/small.png">
 </a>  
 
 ## Links:
@@ -46,6 +46,16 @@ A glass panel dimmer with 2 capacitive touch buttons.
 **Supported devices:**     
 * Touch panel dimmer 1x: MH-P311, MH-P411, MH-P511  
 * Touch panel dimmer 2x: MH-DT311
+
+### MCOHome Shutter Panel  
+A glass panel dimmer with 2 capacitive touch buttons.   
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Shutter-Panel/assets/icon.svg" width="10%" height="10%">
+</a>
+
+**Supported devices:**     
+* Touch panel dimmer 1x: MH-C321
+
 
 ### MCOHome Micro-dimmer
 A Z-Wave enabled 1-load in-wall dimmer   
