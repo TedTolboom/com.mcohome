@@ -48,14 +48,13 @@ A glass panel dimmer with 2 capacitive touch buttons.
 * Touch panel dimmer 2x: MH-DT311
 
 ### MCOHome Shutter Panel  
-A glass panel dimmer with 2 capacitive touch buttons.   
+A glass shutter panel with 2 capacitive touch buttons.   
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/Shutter-Panel/assets/icon.svg" width="10%" height="10%">
 </a>
 
 **Supported devices:**     
-* Touch panel dimmer 1x: MH-C321
-
+* Touch shutter panel: MH-C321
 
 ### MCOHome Micro-dimmer
 A Z-Wave enabled 1-load in-wall dimmer   
@@ -112,6 +111,9 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:     
+### v1.1.1
+* Add support for Touch shutter panel: MH-C321
+* Update Homey meshdriver to 1.2.11  
 
 ### v1.1.0
 * Add Athom community forum link to app      
