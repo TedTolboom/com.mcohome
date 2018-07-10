@@ -371,56 +371,6 @@
       ]
     },
     {
-      "id": "MH7-EH",
-      "name": {
-        "en": "MH7 Thermostat"
-      },
-      "zwave": {
-        "manufacturerId": [
-          351
-        ],
-        "productTypeId": [
-          1793
-        ],
-        "productId": [
-          20738
-        ],
-        "learnmode": {
-          "image": "/drivers/MH7-EH/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
-          }
-        },
-        "unlearnmode": {
-          "image": "/drivers/MH7-EH/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
-          }
-        },
-        "associationGroups": [
-          1
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Lifeline group"
-            }
-          }
-        }
-      },
-      "class": "thermostat",
-      "capabilities": [
-        "measure_temperature",
-        "target_temperature"
-      ],
-      "icon": "/drivers/MH7-EH/assets/icon.svg",
-      "images": {
-        "large": "/drivers/MH7-EH/assets/images/large.jpg",
-        "small": "/drivers/MH7-EH/assets/images/small.jpg"
-      },
-      "settings": []
-    },
-    {
       "id": "MH9-CO2",
       "name": {
         "en": "CO2 Monitor"
