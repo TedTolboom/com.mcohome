@@ -47,6 +47,7 @@
 	},
 	"class": "light",
 	"capabilities": [
+		"onoff",
     "dim"
   ],
 	"capabilitiesOptions": {

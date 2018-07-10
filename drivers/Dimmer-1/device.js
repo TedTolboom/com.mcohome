@@ -13,6 +13,8 @@ class TouchPanelDimmer extends ZwaveDevice {
 
 		// register capabilities for this device
 		this.registerCapability('onoff', 'BASIC', {
+			get: 'BASIC_GET',
+			set: 'BASIC_SET',
 			report: 'BASIC_REPORT',
 			reportParser(report) {
 
