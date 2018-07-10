@@ -110,7 +110,11 @@ If possible, please report issues at the [issues section on Github](https://gith
 ### Donate:
 If you like the app, consider a donation to support development    
 
-## Changelog:     
+## Changelog:  
+
+### v1.1.2
+* Fix missing on off feature on mobile card for touch dimmers
+
 ### v1.1.1
 * Add support for Touch shutter panel: MH-C321
 * Update Homey meshdriver to 1.2.11  
