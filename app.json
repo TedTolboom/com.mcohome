@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.1.1",
+  "version": "1.1.2",
   "compatibility": ">=1.5.2",
   "athomForumDiscussionId": 3463,
   "author": {
@@ -130,6 +130,7 @@
       },
       "class": "light",
       "capabilities": [
+        "onoff",
         "dim"
       ],
       "capabilitiesOptions": {
@@ -238,6 +239,7 @@
       },
       "class": "light",
       "capabilities": [
+        "onoff",
         "dim"
       ],
       "capabilitiesOptions": {
