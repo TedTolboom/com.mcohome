@@ -113,7 +113,7 @@ If you like the app, consider a donation to support development
 ## Changelog:  
 
 ### v1.1.2
-* Fix missing on off feature on mobile card for touch dimmers
+* Fix missing on off feature on mobile card for touch dimmers (re-inclusion required)
 
 ### v1.1.1
 * Add support for Touch shutter panel: MH-C321
