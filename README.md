@@ -104,13 +104,19 @@ Monitor the air quality in terms of Atmospheric particulate matter (PM2.5).
 * U.S./Canada/Mexico        
 
 ## Feedback:
-Any requests please post them in the [MCOHome app topic on the Athom Forum](https://forum.athom.com/discussion/3463/) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)    
+Any requests please post them in the [MCOHome app topic on the Athom Community Forum](https://community.athom.com/t/159) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)    
 If possible, please report issues at the [issues section on Github](https://github.com/TedTolboom/com.mcohome/issues) otherwise in the above mentioned topic.     
 
 ### Donate:
 If you like the app, consider a donation to support development    
 
-## Changelog:  
+## Changelog:    
+
+### v1.1.3
+* Add support for a "Start dim level change" and "Stop dim level change" action card for the dimmer devices   
+* Add link to [MCO home app topic](https://community.athom.com/t/159) on community.athom.com   
+**update:**   
+* Update Homey meshdriver to 1.2.28    
 
 ### v1.1.2
 * Fix missing on off feature on mobile card for touch dimmers (re-inclusion required)
