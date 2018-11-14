@@ -116,7 +116,7 @@ If you like the app, consider a donation to support development
 * Add support for a "Start dim level change" and "Stop dim level change" action card for the dimmer devices   
 * Add link to [MCO home app topic](https://community.athom.com/t/159) on community.athom.com   
 **update:**   
-* Update Homey meshdriver to 1.2.27    
+* Update Homey meshdriver to 1.2.28    
 
 ### v1.1.2
 * Fix missing on off feature on mobile card for touch dimmers (re-inclusion required)
