@@ -6,15 +6,15 @@ class ShutterPanel extends ZwaveDevice {
 	onMeshInit() {
 
 		// enable debugging
-		this.enableDebug();
+		// this.enableDebug();
 
 		// print the node's info to the console
-		this.printNode();
+		// this.printNode();
 
 		this.registerCapability('windowcoverings_state', 'BASIC', {
 			get: 'BASIC_GET',
 			set: 'BASIC_SET',
-			setParserV2 : value =>{
+			setParserV2: value => {
 
 				let invertDirection = false;
 				// if (node.hasOwnProperty('settings') && node.settings.hasOwnProperty('invert_direction')) {
@@ -32,13 +32,14 @@ class ShutterPanel extends ZwaveDevice {
 				// An anticipated offset is being used until a better solution is found
 				if (value === 'idle') {
 					result = null;
-					let currentLevel  = parseInt(this.getCapabilityValue('dim')*100);
+					let currentLevel = parseInt(this.getCapabilityValue('dim') * 100);
 					console.log(currentLevel);
 					if (state === 'up') {
 						result = currentLevel + offset;
 						if (result > 99)
 							result = 99;
-					} else if (state === 'down'){
+					}
+					else if (state === 'down') {
 						result = currentLevel - offset;
 						if (result < 1)
 							result = 1;
