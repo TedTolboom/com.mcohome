@@ -72,7 +72,7 @@ A Z-Wave enabled 1-load in-wall relay
 **Supported devices:**   
 * Micro switch: MH-S220   
 
-### MCOHome MH7 Thermostat     
+### MCOHome MH7(H) Thermostat     
 Z-Wave enabled programmable heating thermostat.    
 <a href="https://github.com/TedTolboom/com.mcohome">
   <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/MH7/assets/icon.svg" width="10%" height="10%">
