@@ -72,7 +72,7 @@
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [1793, 1794],
+		"productTypeId": [1793],
 		"productId": [20738, 20742],
 		"learnmode": {
 			"image": "/drivers/MH7/assets/learnmode.svg",
@@ -145,7 +145,7 @@
 				"size": 1
 			},
 			"type": "dropdown",
-			"value": "2",
+			"value": "3",
 			"label": {
 				"en": "Temperature reporting",
 				"nl": "Temperatuur rapportage"
@@ -193,12 +193,12 @@
 			},
 			"value": 0.5,
 			"label": {
-				"en": "Temperature threshold",
-				"nl": "Temperatuur drempelwaarde"
+				"en": "Temperature reporting threshold (°C/°F)",
+				"nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
 			},
 			"hint": {
-				"en": "Determines the minimum temperature value change before reporting changes.",
-				"nl": "Bepaald de minimum verandering in waarde voordat er gerapporteerd wordt."
+				"en": "Determines the minimum temperature value change (°C/°F) before reporting changes.",
+				"nl": "Bepaald de minimum verandering in waarde (°C/°F) voordat er gerapporteerd wordt."
 			},
 			"attr": {
 				"min": 0.3,
@@ -207,7 +207,7 @@
 			"type": "number"
 		},
 		{
-			"id": "temperature_reporting_interval",
+			"id": "reporting_interval",
 			"zwave": {
 				"index": 4,
 				"size": 2,
@@ -215,12 +215,12 @@
 			},
 			"value": 30,
 			"label": {
-				"en": "Reporting interval",
-				"nl": "Reportage inteval"
+				"en": "Temperature reporting interval (s)",
+				"nl": "Temperatuur reportage interval (s)"
 			},
 			"hint": {
-				"en": "Determines the time between temperature reports to Homey.",
-				"nl": "Bepaald de tijd tussen temperatuur rapportages naar Homey."
+				"en": "Determines the time (s) between temperature reports to Homey.",
+				"nl": "Bepaald de tijd (s) tussen temperatuur rapportages naar Homey."
 			},
 			"attr": {
 				"min": 10,
