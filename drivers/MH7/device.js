@@ -54,7 +54,11 @@ class Thermostat_MH7 extends ZwaveDevice {
 			report: 'THERMOSTAT_OPERATING_STATE_REPORT',
 			reportParser: report => {
 				if (report && report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Operating State')) {
-					return report.Level['Operating State'] === 'Heating';
+					const thermostat_onoff_state = report.Level['Operating State'] === 'Heating';
+					if (thermostat_onoff_state !== this.getCapabilityValue('thermostat_onoff')) {
+						Homey.app[`triggerThermostatOnoff${thermostat_onoff_state ? 'True' : 'False'}`].trigger(this, {}, {});
+						return thermostat_onoff_state;
+					}
 				}
 				return null;
 			}
@@ -94,6 +98,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 					// 4. Update onoff state when the thermostat mode is off
 					if (thermostatMode === 'Off') {
 						this.setCapabilityValue('thermostat_onoff', false);
+						Homey.app[`triggerThermostatOnoffFalse`].trigger(this, {}, {});
 					}
 				}
 				// 5. Return setParser object and update thermostat_mode_custom capability
@@ -270,6 +275,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 			.register()
 			.registerRunListener(this._actionThermostatChangeSetpointRunListener.bind(this));
 
+		this.log('MH7 device driver MeshInit completed');
 	}
 
 	// thermostat_change_mode_setpoint
