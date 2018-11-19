@@ -56,7 +56,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 				if (report && report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Operating State')) {
 					const thermostat_onoff_state = report.Level['Operating State'] === 'Heating';
 					if (thermostat_onoff_state !== this.getCapabilityValue('thermostat_onoff')) {
-						Homey.app[`triggerThermostatOnoff${thermostat_onoff_state ? 'True' : 'False'}`].trigger(this, {}, {});
+						// Homey.app[`triggerThermostatOnoff${thermostat_onoff_state ? 'True' : 'False'}`].trigger(this, {}, {});
 						return thermostat_onoff_state;
 					}
 				}
@@ -98,7 +98,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 					// 4. Update onoff state when the thermostat mode is off
 					if (thermostatMode === 'Off') {
 						this.setCapabilityValue('thermostat_onoff', false);
-						Homey.app[`triggerThermostatOnoffFalse`].trigger(this, {}, {});
+						// Homey.app[`triggerThermostatOnoffFalse`].trigger(this, {}, {});
 					}
 				}
 				// 5. Return setParser object and update thermostat_mode_custom capability
