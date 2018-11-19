@@ -15,6 +15,17 @@ class MCOhomeApp extends Homey.App {
 		this.actionStopDimLevelChange = new Homey.FlowCardAction('action_DIM_stopLevelChange')
 			.register()
 			.registerRunListener(this._actionStopDimLevelChangeRunListener.bind(this));
+
+		//thermostat_onoff trigger cards
+		this.triggerThermostatOnoffTrue = new Homey.FlowCardTriggerDevice('thermostat_onoff_true').register();
+		this.triggerThermostatOnoffFalse = new Homey.FlowCardTriggerDevice('thermostat_onoff_false').register();
+
+		// Register conditions for flows
+		this.triggerThermostatOnoffOn = new Homey.FlowCardCondition('thermostat_onoff_on')
+			.register()
+			.registerRunListener((args, state) => {
+				return args.device.getCapabilityValue('thermostat_onoff');
+			});
 	}
 
 	async _actionStartDimLevelChangeRunListener(args, state) {

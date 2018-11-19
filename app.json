@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.1.3",
+  "version": "1.2.0",
   "compatibility": ">=1.5.2",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
@@ -81,6 +81,65 @@
       "Z-wave"
     ]
   },
+  "capabilities": {
+    "thermostat_mode_custom": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat"
+      },
+      "values": [
+        {
+          "id": "Heat",
+          "title": {
+            "en": "Manual",
+            "nl": "Manueel"
+          }
+        },
+        {
+          "id": "Energy Save Heat",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "AWAY",
+          "title": {
+            "en": "Away",
+            "nl": "Afwezig"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "thermostat_onoff": {
+      "type": "boolean",
+      "title": {
+        "en": "State",
+        "nl": "Status"
+      },
+      "desc": {
+        "en": "State of the thermostat",
+        "nl": "Status van de thermostaat"
+      },
+      "getable": true,
+      "setable": false,
+      "greyout": true
+    }
+  },
   "flow": {
     "actions": [
       {
@@ -137,6 +196,243 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=Micro-Dimmer|Dimmer-1|Dimmer-1-Plus"
+          }
+        ]
+      },
+      {
+        "id": "change_thermostat_mode",
+        "title": {
+          "en": "Set the thermostat mode",
+          "nl": "Stel de thermostaat modus in"
+        },
+        "hint": {
+          "en": "Set the thermostat mode (Comfort / Energy Saving / Off / Cooling) and activate instantly",
+          "nl": "Stel de thermostaat modus (Comfort / Energiebesparing / Uit / Koelen) in en activeer direct"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Heat",
+                "label": {
+                  "en": "Manual",
+                  "nl": "Manueel"
+                }
+              },
+              {
+                "id": "Energy Save Heat",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "Off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "AWAY",
+                "label": {
+                  "en": "Away",
+                  "nl": "Afwezig"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "change_thermostat_mode_setpoint",
+        "title": {
+          "en": "Set a setpoint of a thermostat mode",
+          "nl": "Stel de temperatuur in van een thermostaat modus"
+        },
+        "hint": {
+          "en": "Change the setpoint of a specific thermostat mode (Comfort / Energy Saving / Heating). Note: does NOT activate this mode",
+          "nl": "Stel de temperatuur in van een thermostaat modus (Comfort / Energy Saving / Heating). Let op: activeert deze modus niet"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          },
+          {
+            "name": "setpointMode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Heat",
+                "label": {
+                  "en": "Manual",
+                  "nl": "Manueel"
+                }
+              },
+              {
+                "id": "Energy Save Heat",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "AWAY",
+                "label": {
+                  "en": "Away",
+                  "nl": "Afwezig"
+                }
+              }
+            ]
+          },
+          {
+            "name": "setpointValue",
+            "type": "range",
+            "min": 5,
+            "max": 37,
+            "step": 0.5,
+            "label": "°C",
+            "labelDecimals": 1
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "thermostat_onoff_true",
+        "title": {
+          "en": "Thermostat turned on",
+          "nl": "Thermostaat aangezet"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ]
+      },
+      {
+        "id": "thermostat_onoff_false",
+        "title": {
+          "en": "Thermostat turned off",
+          "nl": "Thermostaat uitgezet"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ]
+      },
+      {
+        "id": "thermostat_mode_changed",
+        "title": {
+          "en": "Thermostat mode has changed",
+          "nl": "Thermostaat modus is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "Heat"
+            }
+          },
+          {
+            "name": "mode_name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam"
+            },
+            "example": {
+              "en": "Comfort",
+              "nl": "Comfort"
+            }
+          }
+        ]
+      },
+      {
+        "id": "thermostat_mode_changed_to",
+        "title": {
+          "en": "Thermostat mode has changed to",
+          "nl": "Thermostaat modus is veranderd naar"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Heat",
+                "label": {
+                  "en": "Manual",
+                  "nl": "Manueel"
+                }
+              },
+              {
+                "id": "Energy Save Heat",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "Off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "AWAY",
+                "label": {
+                  "en": "Away",
+                  "nl": "Afwezig"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "thermostat_onoff_on",
+        "title": {
+          "en": "Thermostat is !{{on|off}}",
+          "nl": "Thermostat is !{{aan|uit}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
           }
         ]
       }
@@ -428,6 +724,506 @@
             "en": "PM2.5 Notification threshold 1 to 999 ug/m3.\nDefault: 800\nRange 1 - 999 ug/m3",
             "nl": "PM2.5 Notificatie drempelwaarde 1 to 999 ug/m3.\nStandaard: 800\nBereik 1 - 999 ug/m3"
           }
+        }
+      ]
+    },
+    {
+      "id": "MH7",
+      "name": {
+        "en": "MH7 Thermostat"
+      },
+      "icon": "/drivers/MH7/assets/icon.svg",
+      "images": {
+        "large": "/drivers/MH7/assets/images/large.jpg",
+        "small": "/drivers/MH7/assets/images/small.jpg"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "thermostat_mode_custom",
+        "thermostat_onoff",
+        "target_temperature"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 37,
+          "step": 0.5
+        },
+        "thermostat_onoff": {
+          "greyout": true
+        }
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_temperature",
+              "thermostat_onoff"
+            ],
+            "options": {
+              "icons": {
+                "thermostat_onoff": "/drivers/MH7/assets/thermostat_onoff.svg"
+              },
+              "thermostat_onoff": {
+                "noblink": false,
+                "greyout": true,
+                "label": {
+                  "true": {
+                    "en": "Active"
+                  },
+                  "false": {
+                    "en": "Idle"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "picker",
+            "capabilities": [
+              "thermostat_mode_custom"
+            ]
+          },
+          {
+            "id": "thermostat",
+            "capabilities": [
+              "target_temperature"
+            ]
+          }
+        ]
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          1793
+        ],
+        "productId": [
+          20738,
+          20742
+        ],
+        "learnmode": {
+          "image": "/drivers/MH7/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/MH7/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_format",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "2",
+          "label": {
+            "en": "Temperature unit",
+            "nl": "Temperatuur eenheid"
+          },
+          "hint": {
+            "en": "Determines in which unit the temperature measurements are reported.",
+            "nl": "Bepaald in welke eenheid de temperatuur gerapporteerd wordt."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "In degrees Celcius (°C)",
+                "nl": "In graden Celcius (°C)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "In degrees Fahrenheit (°F)",
+                "nl": "In graden Fahrenheit (°F)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Follow the thermostat device settings (default)",
+                "nl": "Volg de instellingen op de thermostaat (standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_humidity_reporting",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "3",
+          "label": {
+            "en": "Temperature reporting",
+            "nl": "Temperatuur rapportage"
+          },
+          "hint": {
+            "en": "Determines with which method the temperature measurements are reported.",
+            "nl": "Bepaald op welke manier de temperatuur gerapporteerd wordt."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Temperature threshold",
+                "nl": "Temperatuur drempelwaarde"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Temperature interval",
+                "nl": "Temperatuur interval"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Temperature threshold & time interval (default)",
+                "nl": "Temperatuur drempelwaarde & interval (standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_reporting_threshold",
+          "zwave": {
+            "index": 3,
+            "size": 2
+          },
+          "value": 0.5,
+          "label": {
+            "en": "Temperature reporting threshold (°C/°F)",
+            "nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
+          },
+          "hint": {
+            "en": "Determines the minimum temperature value change (°C/°F) before reporting changes.",
+            "nl": "Bepaald de minimum verandering in waarde (°C/°F) voordat er gerapporteerd wordt."
+          },
+          "attr": {
+            "min": 0.3,
+            "max": 100
+          },
+          "type": "number"
+        },
+        {
+          "id": "reporting_interval",
+          "zwave": {
+            "index": 4,
+            "size": 2,
+            "signed": false
+          },
+          "value": 30,
+          "label": {
+            "en": "Temperature reporting interval (s)",
+            "nl": "Temperatuur reportage interval (s)"
+          },
+          "hint": {
+            "en": "Determines the time (s) between temperature reports to Homey.",
+            "nl": "Bepaald de tijd (s) tussen temperatuur rapportages naar Homey."
+          },
+          "attr": {
+            "min": 10,
+            "max": 65535
+          },
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": "MH7H",
+      "name": {
+        "en": "MH7H Thermostat (+ humidity sensor)"
+      },
+      "icon": "/drivers/MH7H/assets/icon.svg",
+      "images": {
+        "large": "/drivers/MH7H/assets/images/large.jpg",
+        "small": "/drivers/MH7H/assets/images/small.jpg"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "thermostat_mode_custom",
+        "thermostat_onoff",
+        "target_temperature"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 37,
+          "step": 0.5
+        },
+        "thermostat_onoff": {
+          "greyout": true
+        }
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "measure_temperature",
+              "measure_humidity",
+              "thermostat_onoff"
+            ],
+            "options": {
+              "icons": {
+                "thermostat_onoff": "/drivers/MH7H/assets/thermostat_onoff.svg"
+              },
+              "thermostat_onoff": {
+                "noblink": false,
+                "greyout": true,
+                "label": {
+                  "true": {
+                    "en": "Active"
+                  },
+                  "false": {
+                    "en": "Idle"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "picker",
+            "capabilities": [
+              "thermostat_mode_custom"
+            ]
+          },
+          {
+            "id": "thermostat",
+            "capabilities": [
+              "target_temperature"
+            ]
+          }
+        ]
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          1794
+        ],
+        "productId": [
+          20738,
+          20742
+        ],
+        "learnmode": {
+          "image": "/drivers/MH7H/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/MH7H/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_format",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "3",
+          "label": {
+            "en": "Temperature unit",
+            "nl": "Temperatuur eenheid"
+          },
+          "hint": {
+            "en": "Determines in which unit the temperature measurements are reported.",
+            "nl": "Bepaald in welke eenheid de temperatuur gerapporteerd wordt."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "In degrees Celcius (°C)",
+                "nl": "In graden Celcius (°C)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "In degrees Fahrenheit (°F)",
+                "nl": "In graden Fahrenheit (°F)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Follow the thermostat device settings (default)",
+                "nl": "Volg de instellingen op de thermostaat (standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_humidity_reporting",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "2",
+          "label": {
+            "en": "Temperature reporting",
+            "nl": "Temperatuur rapportage"
+          },
+          "hint": {
+            "en": "Determines with which method the temperature measurements are reported.",
+            "nl": "Bepaald op welke manier de temperatuur gerapporteerd wordt."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Temperature threshold",
+                "nl": "Temperatuur drempelwaarde"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Temperature interval",
+                "nl": "Temperatuur interval"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Temperature threshold & time interval (default)",
+                "nl": "Temperatuur drempelwaarde & interval (standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_reporting_threshold",
+          "zwave": {
+            "index": 3,
+            "size": 2
+          },
+          "value": 0.5,
+          "label": {
+            "en": "Temperature reporting threshold (°C/°F)",
+            "nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
+          },
+          "hint": {
+            "en": "Determines the minimum temperature value change before reporting changes.",
+            "nl": "Bepaald de minimum verandering in waarde voordat er gerapporteerd wordt."
+          },
+          "attr": {
+            "min": 0.3,
+            "max": 100
+          },
+          "type": "number"
+        },
+        {
+          "id": "humidity_reporting_threshold",
+          "zwave": {
+            "index": 5,
+            "size": 1,
+            "signed": false
+          },
+          "value": 3,
+          "label": {
+            "en": "Humidity reporting threshold (%)",
+            "nl": "Luchtvochtigheids rapportage drempelwaarde (%)"
+          },
+          "hint": {
+            "en": "Determines the minimum humidity value change before reporting changes.",
+            "nl": "Bepaald de minimum verandering in waarde van de luchtvochtigheid voordat er gerapporteerd wordt."
+          },
+          "attr": {
+            "min": 2,
+            "max": 255
+          },
+          "type": "number"
+        },
+        {
+          "id": "reporting_interval",
+          "zwave": {
+            "index": 4,
+            "size": 2,
+            "signed": false
+          },
+          "value": 30,
+          "label": {
+            "en": "Temperature / Humitidy reporting interval (s)",
+            "nl": "Temperatuur / Luchtvochtigheids reportage inteval (s)"
+          },
+          "hint": {
+            "en": "Determines the time between temperature and humidity reports to Homey.",
+            "nl": "Bepaald de tijd tussen temperatuur en luchtvochtigheids rapportages naar Homey."
+          },
+          "attr": {
+            "min": 10,
+            "max": 65535
+          },
+          "type": "number"
         }
       ]
     },

@@ -1,0 +1,107 @@
+[{
+		"id": "change_thermostat_mode",
+		"title": {
+			"en": "Set the thermostat mode",
+			"nl": "Stel de thermostaat modus in"
+		},
+		"hint": {
+			"en": "Set the thermostat mode (Comfort / Energy Saving / Off / Cooling) and activate instantly",
+			"nl": "Stel de thermostaat modus (Comfort / Energiebesparing / Uit / Koelen) in en activeer direct"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=MH7|MH7H"
+			},
+			{
+				"name": "mode",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "Heat",
+						"label": {
+							"en": "Manual",
+							"nl": "Manueel"
+						}
+					},
+					{
+						"id": "Energy Save Heat",
+						"label": {
+							"en": "Auto",
+							"nl": "Auto"
+						}
+					},
+					{
+						"id": "Off",
+						"label": {
+							"en": "Off",
+							"nl": "Uit"
+						}
+					},
+					{
+						"id": "AWAY",
+						"label": {
+							"en": "Away",
+							"nl": "Afwezig"
+						}
+	        }
+				]
+			}
+		]
+	},
+	{
+		"id": "change_thermostat_mode_setpoint",
+		"title": {
+			"en": "Set a setpoint of a thermostat mode",
+			"nl": "Stel de temperatuur in van een thermostaat modus"
+		},
+		"hint": {
+			"en": "Change the setpoint of a specific thermostat mode (Comfort / Energy Saving / Heating). Note: does NOT activate this mode",
+			"nl": "Stel de temperatuur in van een thermostaat modus (Comfort / Energy Saving / Heating). Let op: activeert deze modus niet"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=MH7|MH7H"
+			},
+			{
+				"name": "setpointMode",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "Heat",
+						"label": {
+							"en": "Manual",
+							"nl": "Manueel"
+						}
+					},
+					{
+						"id": "Energy Save Heat",
+						"label": {
+							"en": "Auto",
+							"nl": "Auto"
+						}
+					},
+					{
+						"id": "AWAY",
+						"label": {
+							"en": "Away",
+							"nl": "Afwezig"
+						}
+					}
+				]
+			},
+			{
+				"name": "setpointValue",
+				"type": "range",
+				"min": 5,
+				"max": 37,
+				"step": 0.5,
+				"label": "°C",
+				"labelDecimals": 1
+			}
+		]
+	}
+]
