@@ -74,7 +74,7 @@
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [1794],
+		"productTypeId": [1794, 1810],
 		"productId": [20738, 20742],
 		"learnmode": {
 			"image": "/drivers/MH7H/assets/learnmode.svg",

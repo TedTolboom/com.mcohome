@@ -4,8 +4,9 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.2.0",
+  "version": "1.2.1",
   "compatibility": ">=1.5.2",
+  "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
   "author": {
@@ -84,6 +85,7 @@
   "capabilities": {
     "thermostat_mode_custom": {
       "type": "enum",
+      "uiComponent": "picker",
       "title": {
         "en": "Thermostat mode",
         "nl": "Thermostaat modus"
@@ -127,6 +129,8 @@
     },
     "thermostat_onoff": {
       "type": "boolean",
+      "uiComponent": "sensor",
+      "icon": "/assets/thermostat_onoff.svg",
       "title": {
         "en": "State",
         "nl": "Status"
@@ -803,7 +807,8 @@
           351
         ],
         "productTypeId": [
-          1793
+          1793,
+          1809
         ],
         "productId": [
           20738,
@@ -1043,7 +1048,8 @@
           351
         ],
         "productTypeId": [
-          1794
+          1794,
+          1810
         ],
         "productId": [
           20738,

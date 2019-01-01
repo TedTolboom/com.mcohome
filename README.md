@@ -122,6 +122,10 @@ If you like the app, consider a donation to support development
 
 ## Changelog:    
 
+### v1.2.1
+* Add additional productTypeID's for MH7(H) Thermostats   
+* Minor (cosmetical) modifications to make the app Homey SW v2.0.0 compatible     
+
 ### v1.2.0
 * Add support for the MH7 Thermostats   
 * Add support for the MH7H Thermostats      
