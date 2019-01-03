@@ -24,7 +24,13 @@
 			"step": 0.5
 		},
 		"thermostat_onoff": {
-			"greyout": true
+			"greyout": true,
+			"titleTrue": {
+				"en": "Active"
+			},
+			"titleFalse": {
+				"en": "Idle"
+			}
 		}
 	},
 	"mobile": {
