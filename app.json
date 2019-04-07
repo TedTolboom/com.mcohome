@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.2.1",
+  "version": "1.2.2",
   "compatibility": ">=1.5.2",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -1256,6 +1256,7 @@
         ],
         "productTypeId": [
           2305,
+          2306,
           2309
         ],
         "productId": [
@@ -1263,7 +1264,8 @@
           12546,
           12547,
           12548,
-          513
+          513,
+          20738
         ],
         "learnmode": {
           "image": "/drivers/MH9-CO2/assets/learnmode.svg",

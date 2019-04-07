@@ -122,6 +122,11 @@ If you like the app, consider a donation to support development
 
 ## Changelog:    
 
+### v1.2.2
+* Add additional productTypeID's for MH9 CO2 monitor   
+**update:**   
+* Update Homey meshdriver to 1.2.32     
+
 ### v1.2.1
 * Add additional productTypeID's for MH7(H) Thermostats   
 * Minor (cosmetical) modifications to make the app Homey SW v2.0.0 compatible     
