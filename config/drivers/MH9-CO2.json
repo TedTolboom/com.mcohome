@@ -6,8 +6,8 @@
 	},
 	"zwave": {
 		"manufacturerId": [351],
-		"productTypeId": [2305, 2309],
-		"productId": [12545, 12546, 12547, 12548, 513],
+		"productTypeId": [2305, 2306, 2309],
+		"productId": [12545, 12546, 12547, 12548, 513, 20738],
 		"learnmode": {
 			"image": "/drivers/MH9-CO2/assets/learnmode.svg",
 			"instruction": {
