@@ -122,6 +122,9 @@ If you like the app, consider a donation to support development
 
 ## Changelog:    
 
+### v1.2.3
+* Add additional productTypeID's for Micro dimmer (MH-P220)      
+
 ### v1.2.2
 * Add additional productTypeID's for MH9 CO2 monitor   
 **update:**   

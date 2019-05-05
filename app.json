@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome Z-wave"
   },
-  "version": "1.2.2",
+  "version": "1.2.3",
   "compatibility": ">=1.5.2",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -1354,7 +1354,8 @@
           4949,
           4950,
           4953,
-          4954
+          4954,
+          20738
         ],
         "learnmode": {
           "image": "/drivers/Micro-Dimmer/assets/learnmode.svg",
