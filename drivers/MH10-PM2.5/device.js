@@ -7,10 +7,10 @@ class PM25monitor extends ZwaveDevice {
 	async onMeshInit() {
 
 		// enable debugging
-		this.enableDebug();
+		// this.enableDebug();
 
 		// print the node's info to the console
-		this.printNode();
+		// this.printNode();
 
 		// register device capabilities
 		this.registerCapability('measure_pm25', 'SENSOR_MULTILEVEL', {

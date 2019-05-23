@@ -210,7 +210,8 @@
 			"id": "timer_functionality",
 			"zwave": {
 				"index": 5,
-				"size": 2
+				"size": 2,
+				"signed": false
 			},
 			"type": "number",
 			"label": {

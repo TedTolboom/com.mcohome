@@ -12,7 +12,7 @@
       8714
     ],
 		"productId": [
-			4945, 4946, 4947, 4948, 4949, 4950, 4953, 4954
+			4945, 4946, 4947, 4948, 4949, 4950, 4953, 4954, 20738
     ],
 		"learnmode": {
 			"image": "/drivers/Micro-Dimmer/assets/learnmode.svg",
@@ -380,7 +380,8 @@
 			"id": "S1_single_click",
 			"zwave": {
 				"index": 13,
-				"size": 1
+				"size": 1,
+				"signed": false
 			},
 			"type": "number",
 			"label": {

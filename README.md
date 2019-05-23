@@ -72,6 +72,16 @@ A Z-Wave enabled 1-load in-wall relay
 **Supported devices:**   
 * Micro switch: MH-S220   
 
+### MCOHome MH7(H) Thermostat     
+Z-Wave enabled programmable heating thermostat.    
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://rawgit.com/TedTolboom/com.mcohome/master/drivers/MH7/assets/icon.svg" width="10%" height="10%">
+</a>  
+
+**Supported devices:**    
+* Heating thermostat (MH7): MH7-EH, MH7-WH   
+* Heating thermostat (MH7H): MH7H-EH, MH7H-WH    
+
 ### MCOHome CO2 monitor     
 Monitor CO2 concentration in air.    
 <a href="https://github.com/TedTolboom/com.mcohome">
@@ -104,16 +114,38 @@ Monitor the air quality in terms of Atmospheric particulate matter (PM2.5).
 * U.S./Canada/Mexico        
 
 ## Feedback:
-Any requests please post them in the [MCOHome app topic on the Athom Forum](https://forum.athom.com/discussion/3463/) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)    
+Any requests please post them in the [MCOHome app topic on the Athom Community Forum](https://community.athom.com/t/159) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)    
 If possible, please report issues at the [issues section on Github](https://github.com/TedTolboom/com.mcohome/issues) otherwise in the above mentioned topic.     
 
 ### Donate:
 If you like the app, consider a donation to support development    
 
-## Changelog:  
+## Changelog:    
+
+### v1.2.3
+* Add additional productTypeID's for Micro dimmer (MH-P220)      
+
+### v1.2.2
+* Add additional productTypeID's for MH9 CO2 monitor   
+**update:**   
+* Update Homey meshdriver to 1.2.32     
+
+### v1.2.1
+* Add additional productTypeID's for MH7(H) Thermostats   
+* Minor (cosmetical) modifications to make the app Homey SW v2.0.0 compatible     
+
+### v1.2.0
+* Add support for the MH7 Thermostats   
+* Add support for the MH7H Thermostats      
+
+### v1.1.3
+* Add support for a "Start dim level change" and "Stop dim level change" action card for the dimmer devices   
+* Add link to [MCO home app topic](https://community.athom.com/t/159) on community.athom.com   
+**update:**   
+* Update Homey meshdriver to 1.2.28    
 
 ### v1.1.2
-* Fix missing on off feature on mobile card for touch dimmers
+* Fix missing on off feature on mobile card for touch dimmers (re-inclusion required)
 
 ### v1.1.1
 * Add support for Touch shutter panel: MH-C321

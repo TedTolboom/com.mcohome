@@ -1,0 +1,238 @@
+{
+	"id": "MH7",
+	"branch": "master",
+	"name": {
+		"en": "MH7 Thermostat"
+	},
+	"icon": "/drivers/MH7/assets/icon.svg",
+	"images": {
+		"large": "/drivers/MH7/assets/images/large.jpg",
+		"small": "/drivers/MH7/assets/images/small.jpg"
+	},
+	"class": "thermostat",
+	"capabilities": [
+		"measure_temperature",
+		"thermostat_mode_custom",
+		"thermostat_onoff",
+		"target_temperature"
+	],
+	"capabilitiesOptions": {
+		"target_temperature": {
+			"min": 5,
+			"max": 37,
+			"step": 0.5
+		},
+		"thermostat_onoff": {
+			"greyout": true,
+			"titleTrue": {
+				"en": "Active"
+			},
+			"titleFalse": {
+				"en": "Idle"
+			}
+		}
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+      },
+			{
+				"id": "sensor",
+				"capabilities": [
+          "measure_temperature",
+          "thermostat_onoff"
+        ],
+				"options": {
+					"icons": {
+						"thermostat_onoff": "/drivers/MH7/assets/thermostat_onoff.svg"
+					},
+					"thermostat_onoff": {
+						"noblink": false,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Active"
+							},
+							"false": {
+								"en": "Idle"
+							}
+						}
+					}
+				}
+      },
+			{
+				"id": "picker",
+				"capabilities": [
+          "thermostat_mode_custom"
+        ]
+      },
+			{
+				"id": "thermostat",
+				"capabilities": [
+          "target_temperature"
+        ]
+      }
+    ]
+	},
+	"zwave": {
+		"manufacturerId": [351],
+		"productTypeId": [1793, 1809],
+		"productId": [20738, 20742],
+		"learnmode": {
+			"image": "/drivers/MH7/assets/learnmode.svg",
+			"instruction": {
+				"en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+			}
+		},
+		"unlearnmode": {
+			"image": "/drivers/MH7/assets/learnmode.svg",
+			"instruction": {
+				"en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+			}
+		},
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Lifeline group"
+				}
+			}
+		}
+	},
+	"settings": [
+		{
+			"id": "temperature_format",
+			"zwave": {
+				"index": 1,
+				"size": 1
+			},
+			"type": "dropdown",
+			"value": "2",
+			"label": {
+				"en": "Temperature unit",
+				"nl": "Temperatuur eenheid"
+			},
+			"hint": {
+				"en": "Determines in which unit the temperature measurements are reported.",
+				"nl": "Bepaald in welke eenheid de temperatuur gerapporteerd wordt."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "In degrees Celcius (°C)",
+						"nl": "In graden Celcius (°C)"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "In degrees Fahrenheit (°F)",
+						"nl": "In graden Fahrenheit (°F)"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Follow the thermostat device settings (default)",
+						"nl": "Volg de instellingen op de thermostaat (standaard)"
+					}
+				}
+			]
+		},
+		{
+			"id": "temperature_humidity_reporting",
+			"zwave": {
+				"index": 2,
+				"size": 1
+			},
+			"type": "dropdown",
+			"value": "3",
+			"label": {
+				"en": "Temperature reporting",
+				"nl": "Temperatuur rapportage"
+			},
+			"hint": {
+				"en": "Determines with which method the temperature measurements are reported.",
+				"nl": "Bepaald op welke manier de temperatuur gerapporteerd wordt."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "OFF",
+						"nl": "Uit"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Temperature threshold",
+						"nl": "Temperatuur drempelwaarde"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Temperature interval",
+						"nl": "Temperatuur interval"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Temperature threshold & time interval (default)",
+						"nl": "Temperatuur drempelwaarde & interval (standaard)"
+					}
+				}
+			]
+		},
+		{
+			"id": "temperature_reporting_threshold",
+			"zwave": {
+				"index": 3,
+				"size": 2
+			},
+			"value": 0.5,
+			"label": {
+				"en": "Temperature reporting threshold (°C/°F)",
+				"nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
+			},
+			"hint": {
+				"en": "Determines the minimum temperature value change (°C/°F) before reporting changes.",
+				"nl": "Bepaald de minimum verandering in waarde (°C/°F) voordat er gerapporteerd wordt."
+			},
+			"attr": {
+				"min": 0.3,
+				"max": 100
+			},
+			"type": "number"
+		},
+		{
+			"id": "reporting_interval",
+			"zwave": {
+				"index": 4,
+				"size": 2,
+				"signed": false
+			},
+			"value": 30,
+			"label": {
+				"en": "Temperature reporting interval (s)",
+				"nl": "Temperatuur reportage interval (s)"
+			},
+			"hint": {
+				"en": "Determines the time (s) between temperature reports to Homey.",
+				"nl": "Bepaald de tijd (s) tussen temperatuur rapportages naar Homey."
+			},
+			"attr": {
+				"min": 10,
+				"max": 65535
+			},
+			"type": "number"
+		}
+	  ]
+}
