@@ -3456,7 +3456,7 @@
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
+            "icon": "/drivers/Switch-4-Plus/assets/icon_1.svg",
             "name": {
               "en": "Switch 2",
               "nl": "Schakelaar 2"
