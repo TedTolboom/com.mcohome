@@ -14,7 +14,7 @@ class ShutterPanel extends ZwaveDevice {
 		this.registerCapability('windowcoverings_state', 'BASIC', {
 			get: 'BASIC_GET',
 			set: 'BASIC_SET',
-			setParserV2: value => {
+			setParser: value => {
 
 				let invertDirection = false;
 				// if (node.hasOwnProperty('settings') && node.settings.hasOwnProperty('invert_direction')) {
