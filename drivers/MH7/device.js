@@ -1,4 +1,4 @@
-Buffer.from('use strict';
+'use strict';
 
 const Homey = require('homey');
 const { ZwaveDevice } = require('homey-meshdriver');
