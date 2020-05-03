@@ -1,29 +1,29 @@
 'use strict';
 
-const Thermostat_MH7 = require('./../MH7/device');
+const Thermostat_MH7 = require('../MH7/device');
 
 class Thermostat_MH7H extends Thermostat_MH7 {
-	async onMeshInit() {
-		await super.onMeshInit();
 
-		// enable debugging
-		this.enableDebug();
+  async onMeshInit() {
+    await super.onMeshInit();
 
-		// print the node's info to the console
-		this.printNode();
+    // enable debugging
+    this.enableDebug();
 
-		// registerCapability for measure_temperature for FW <=18.
-		this.registerCapability('measure_humidity', 'SENSOR_MULTILEVEL', {
-			getOpts: {
-				getOnStart: true,
-				pollInterval: 'poll_interval_HUMIDITY',
-				pollMultiplication: 60000,
-			},
-		});
+    // print the node's info to the console
+    this.printNode();
 
-		this.log('MH7H device driver MeshInit completed');
+    // registerCapability for measure_temperature for FW <=18.
+    this.registerCapability('measure_humidity', 'SENSOR_MULTILEVEL', {
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 'poll_interval_HUMIDITY',
+        pollMultiplication: 60000,
+      },
+    });
 
-	}
+    this.log('MH7H device driver MeshInit completed');
+  }
 
 }
 

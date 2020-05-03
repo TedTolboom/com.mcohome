@@ -1,0 +1,46 @@
+{
+  "zwave": {
+    "index": 2,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "3",
+  "label": {
+    "en": "Temperature reporting",
+    "nl": "Temperatuur rapportage"
+  },
+  "hint": {
+    "en": "Determines with which method the temperature measurements are reported.",
+    "nl": "Bepaald op welke manier de temperatuur gerapporteerd wordt."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "OFF",
+        "nl": "Uit"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Temperature threshold",
+        "nl": "Temperatuur drempelwaarde"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Temperature interval",
+        "nl": "Temperatuur interval"
+      }
+    },
+    {
+      "id": "3",
+      "label": {
+        "en": "Temperature threshold & time interval (default)",
+        "nl": "Temperatuur drempelwaarde & interval (standaard)"
+      }
+    }
+  ]
+}

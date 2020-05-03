@@ -1,0 +1,20 @@
+{
+  "zwave": {
+    "index": 11,
+    "size": 2
+  },
+  "type": "number",
+  "label": {
+    "en": "Timer functionality (auto - off) in seconds",
+    "nl": "Automatisch uitschakelen na (seconden)"
+  },
+  "value": 0,
+  "attr": {
+    "min": 0,
+    "max": 255
+  },
+  "hint": {
+    "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Dimmer 2 is installed in the stairway. 0 - Function disabled (default) 1-255 - time to turn off measured in seconds (1s-255s). Range: 0 - 255, default value: 0.",
+    "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 255, standaard waarde: 0 (uitgeschakeld)."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": {
+    "en": "Touch Dimmer Z-Wave Plus"
+  },
+  "zwave": {
+    "manufacturerId": [
+      351
+    ],
+    "productTypeId": [
+      54033
+    ],
+    "productId": [
+      20738
+    ],
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+        "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+        "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+      }
+    },
+    "associationGroups": [
+      1
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Switch 1 - control associated devices",
+          "nl": "schakelaar 1 - schakel gekoppelde apparaten"
+        }
+      },
+      "2": {
+        "hint": {
+          "en": "Lifeline group"
+        }
+      }
+    }
+  },
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dim"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "setOnDim": false
+    },
+    "dim": {
+      "opts": {
+        "duration": true
+      }
+    }
+  },
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  }
+}

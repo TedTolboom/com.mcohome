@@ -1,0 +1,44 @@
+{
+  "type": "enum",
+  "uiComponent": "picker",
+  "title": {
+    "en": "Thermostat mode",
+    "nl": "Thermostaat modus"
+  },
+  "desc": {
+    "en": "Mode of the thermostat",
+    "nl": "Modus van de thermostaat"
+  },
+  "values": [
+    {
+      "id": "Heat",
+      "title": {
+        "en": "Manual",
+        "nl": "Manueel"
+      }
+    },
+    {
+      "id": "Energy Save Heat",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto"
+      }
+    },
+    {
+      "id": "Off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit"
+      }
+    },
+    {
+      "id": "AWAY",
+      "title": {
+        "en": "Away",
+        "nl": "Afwezig"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

@@ -1,0 +1,42 @@
+{
+  "type": "dropdown",
+  "value": "0",
+  "label": {
+    "en": "S2 association report AG4",
+    "nl": "S2 association report AG4"
+  },
+  "hint": {
+    "en": "Define the S2 association report for association group 4.",
+    "nl": "Bepaal het S2 association rapport voor association group 4."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Send Basic ON or Basic OFF to AG4 when turn on/off S2 (Default)",
+        "nl": "Stuur Basic ON of Basic OFF naar AG4 wanneer S2 in- of uitgeschakeld wordt (Standaard)"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Only send Basic Set On",
+        "nl": "Stuur enkel Basic ON"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Only send Basic Set Off",
+        "nl": "Stuur enkel Basic Off"
+      }
+    },
+    {
+      "id": "255",
+      "label": {
+        "en": "Disabled: no report to AG4",
+        "nl": "uitgeschakeld: geen rapport naar AG4"
+      }
+    }
+  ]
+}

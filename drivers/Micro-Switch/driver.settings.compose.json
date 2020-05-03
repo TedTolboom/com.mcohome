@@ -1,0 +1,86 @@
+[
+  {
+    "$extends": "powerOffStatus",
+    "id": "Switch_state_saved"
+  },
+  {
+    "$extends": "switchType",
+    "id": "Switch_type"
+  },
+  {
+    "$extends": "twoStateSwitch",
+    "id": "Two_state_switch"
+  },
+  {
+    "$extends": "allOnAllOff",
+    "id": "All_ON_All_OFF",
+    "zwave": {
+      "index": 6,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "timerFunctionality",
+    "id": "timer_functionality",
+    "zwave": {
+      "index": 5,
+      "size": 2,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s1OperationReport",
+    "id": "S1_operation_report",
+    "zwave": {
+      "index": 8,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2Function",
+    "id": "S2_function",
+    "zwave": {
+      "index": 9,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2OperationReport",
+    "id": "S2_operation_report",
+    "zwave": {
+      "index": 10,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends" : "s2SceneIDSingleClick",
+    "id": "S2_sceneID_single_click",
+    "zwave": {
+      "index": 11,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2SceneIDDoubleClick",
+    "id": "S2_sceneID_double_click",
+    "zwave": {
+      "index": 12,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2SceneIDHold",
+    "id": "S2_sceneID_hold",
+    "zwave": {
+      "index": 13,
+      "size": 1,
+      "signed": false
+    }
+  }
+]

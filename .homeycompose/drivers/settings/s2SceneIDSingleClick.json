@@ -1,0 +1,21 @@
+{
+  "zwave": {
+    "index": 19,
+    "size": 1,
+    "signed": false
+  },
+  "type": "number",
+  "label": {
+    "en": "S2 Scene ID (1x click)",
+    "nl": "S2 Scene ID (1x klik)"
+  },
+  "value": 0,
+  "attr": {
+    "min": 0,
+    "max": 255
+  },
+  "hint": {
+    "en": "Scene ID sent to AG1 when S2 clicked once. \nRange: 0 = scene ID disabled, 1-255 = send Activation CC to AG1 with specified Scene ID",
+    "nl": "Scene ID dat naar AG1 gestuurd wordt wanneer S2 een keer geactiveerd wordt. \nStandaard: 0 = scene ID uitgeschakeld, 1-255 = stuur Activation CC naar AG1 met ingestelde Scene ID"
+  }
+}

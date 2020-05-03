@@ -1,0 +1,32 @@
+{
+  "zwave": {
+    "index": 1,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "0",
+  "label": {
+    "en": "State after power loss",
+    "nl": "Toestand na spanningsuitval"
+  },
+  "hint": {
+    "en": "Define how the switch reacts after the power supply is back on.",
+    "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+  },
+  "values": [
+    {
+      "id": "1",
+      "label": {
+        "en": "Restores state after a power failure (default)",
+        "nl": "Herstelt toestand na spanningsuitval (default)"
+      }
+    },
+    {
+      "id": "0",
+      "label": {
+        "en": "OFF after a power failure",
+        "nl": "UIT na spanningsuitval"
+      }
+    }
+  ]
+}

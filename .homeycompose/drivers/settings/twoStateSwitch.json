@@ -1,0 +1,32 @@
+{
+  "zwave": {
+    "index": 3,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "1",
+  "label": {
+    "en": "Toggle switch",
+    "nl": "Tuimel schakelaar"
+  },
+  "hint": {
+    "en": "Define the toggle switch behavior.",
+    "nl": "Bepaal hoe de tuimelschakelaar reageert."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Toggle Dimmer without specified on/off position",
+        "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Toggle Dimmer with specified on/off position (Default)",
+        "nl": "Schakel dimmer met gedefinieerde aan/uit positie (Standaard)"
+      }
+    }
+  ]
+}

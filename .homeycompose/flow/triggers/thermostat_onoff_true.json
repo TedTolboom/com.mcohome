@@ -1,0 +1,14 @@
+{
+  "id": "thermostat_onoff_true",
+  "title": {
+    "en": "Thermostat turned on",
+    "nl": "Thermostaat aangezet"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=MH7|MH7H"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "zwave": {
+    "index": 1,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "2",
+  "label": {
+    "en": "Temperature unit",
+    "nl": "Temperatuur eenheid"
+  },
+  "hint": {
+    "en": "Determines in which unit the temperature measurements are reported.",
+    "nl": "Bepaald in welke eenheid de temperatuur gerapporteerd wordt."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "In degrees Celcius (°C)",
+        "nl": "In graden Celcius (°C)"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "In degrees Fahrenheit (°F)",
+        "nl": "In graden Fahrenheit (°F)"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Follow the thermostat device settings (default)",
+        "nl": "Volg de instellingen op de thermostaat (standaard)"
+      }
+    }
+  ]
+}
