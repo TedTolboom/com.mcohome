@@ -85,7 +85,7 @@ class Thermostat_MH7 extends ZwaveDevice {
         }
 
         // 3. Trigger mode trigger cards if the mode is actually changed
-        if (this.getCapabilityValue('thermostat_mode_custom') != thermostatMode) {
+        if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
           const thermostatModeObj = {
             mode: thermostatMode,
             mode_name: Homey.__(`mode.${thermostatMode}`),
@@ -125,7 +125,7 @@ class Thermostat_MH7 extends ZwaveDevice {
           }
 
           // 3. Trigger mode trigger cards if the mode is actually changed
-          if (this.getCapabilityValue('thermostat_mode_custom') != thermostatMode) {
+          if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
             const thermostatModeObj = {
               mode: thermostatMode,
               mode_name: Homey.__(`mode.${thermostatMode}`),
@@ -176,7 +176,7 @@ class Thermostat_MH7 extends ZwaveDevice {
           this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
 
           // 4. Return setParser object and update thermostat mode
-          const bufferValue = Buffer.from(2);
+          const bufferValue = Buffer.alloc(2);
           bufferValue.writeUInt16BE((Math.round(setpointValue * 2) / 2 * 10).toFixed(0));
 
           return {
@@ -197,10 +197,10 @@ class Thermostat_MH7 extends ZwaveDevice {
       report: 'THERMOSTAT_SETPOINT_REPORT',
       reportParser: report => {
         if (report && report.hasOwnProperty('Level2')
-					&& report.Level2.hasOwnProperty('Scale')
-					&& report.Level2.hasOwnProperty('Precision')
-					&& report.Level2.Scale === 0
-					&& typeof report.Level2.Size !== 'undefined') {
+          && report.Level2.hasOwnProperty('Scale')
+          && report.Level2.hasOwnProperty('Precision')
+          && report.Level2.Scale === 0
+          && typeof report.Level2.Size !== 'undefined') {
           // 1. Try to read the readValue
           let readValue;
           try {
@@ -272,9 +272,9 @@ class Thermostat_MH7 extends ZwaveDevice {
   // thermostat_change_mode_setpoint
 
   async _actionThermostatChangeSetpointRunListener(args, state) {
-    if (!args.hasOwnProperty('setpointMode')) return Promise.reject('setpointMode_property_missing');
-    if (!args.hasOwnProperty('setpointValue')) return Promise.reject('setpointValue_property_missing');
-    if (typeof args.setpointValue !== 'number') return Promise.reject('setpointValue_is_not_a_number');
+    if (!args.hasOwnProperty('setpointMode')) return Promise.reject(new Error('setpointMode_property_missing'));
+    if (!args.hasOwnProperty('setpointValue')) return Promise.reject(new Error('setpointValue_property_missing'));
+    if (typeof args.setpointValue !== 'number') return Promise.reject(new Error('setpointValue_is_not_a_number'));
 
     // 1. Retrieve the setpointType based on the thermostat mode
     const setpointType = mapMode2Setpoint[args.setpointMode];
@@ -291,11 +291,11 @@ class Thermostat_MH7 extends ZwaveDevice {
     }
 
     // 6. Trigger command to update device setpoint
-    const bufferValue = Buffer.from(2);
+    const bufferValue = Buffer.alloc(2);
     bufferValue.writeUInt16BE((Math.round(setpointValue * 2) / 2 * 10).toFixed(0));
 
     if (args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT) {
-      return await args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT.THERMOSTAT_SETPOINT_SET({
+      return args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT.THERMOSTAT_SETPOINT_SET({
         Level: {
           'Setpoint Type': setpointType,
         },
@@ -306,9 +306,8 @@ class Thermostat_MH7 extends ZwaveDevice {
         },
         Value: bufferValue,
       });
-
-      return Promise.reject('unknown_error');
     }
+    return Promise.reject(new Error('unknown_error'));
   }
 
 }
