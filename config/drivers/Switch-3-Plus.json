@@ -96,8 +96,8 @@
 	],
 	"icon": "/drivers/Switch-3-Plus/assets/icon.svg",
 	"images": {
-		"large": "/drivers/Switch-3-Plus/assets/images/large.jpg",
-		"small": "/drivers/Switch-3-Plus/assets/images/small.jpg"
+		"large": "/drivers/Switch-3-Plus/assets/images/large.png",
+		"small": "/drivers/Switch-3-Plus/assets/images/small.png"
 	},
 	"settings": [
 		{
