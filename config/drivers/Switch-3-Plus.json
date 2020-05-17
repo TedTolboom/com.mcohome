@@ -7,7 +7,7 @@
 	"zwave": {
 		"manufacturerId": [351],
 		"productTypeId": [20785, 20786],
-		"productId": [20737, 20738, 20738, 20742, 20745, 20746],
+		"productId": [20737, 20738, 20739, 20742, 20745, 20746],
 		"learnmode": {
 			"image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
 			"instruction": {
@@ -23,34 +23,47 @@
 			}
 		},
 		"associationGroups": [
-			4
+			1
 		],
 		"associationGroupsOptions": {
+
 			"1": {
+				"hint": {
+					"en": "Lifeline group"
+				}
+			},
+			"2": {
 				"hint": {
 					"en": "Switch 1 - control associated devices",
 					"nl": "Schakelaar 1 - schakel gekoppelde apparaten"
 				}
 			},
-			"2": {
+			"5": {
 				"hint": {
 					"en": "Switch 2 - control associated devices",
-					"nl": "schakelaar 2 - schakel gekoppelde apparaten"
+					"nl": "Schakelaar 2 - schakel gekoppelde apparaten"
 				}
 			},
-			"3": {
+			"8": {
 				"hint": {
 					"en": "Switch 3 - control associated devices",
-					"nl": "schakelaar 3 - schakel gekoppelde apparaten"
-				}
-			},
-			"4": {
-				"hint": {
-					"en": "Lifeline group"
+					"nl": "Schakelaar 3 - schakel gekoppelde apparaten"
 				}
 			}
 		},
 		"multiChannelNodes": {
+			"1": {
+				"class": "socket",
+				"capabilities": [
+					"onoff"
+				],
+				"icon": "/drivers/Switch-3-Plus/assets/icon_1.svg",
+				"name": {
+					"en": "Switch 1",
+					"nl": "Schakelaar 1"
+				},
+				"settings": []
+			},
 			"2": {
 				"class": "socket",
 				"capabilities": [
@@ -120,5 +133,5 @@
 			]
 		}
 
-	  ]
+	 ]
 }
