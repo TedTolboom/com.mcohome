@@ -4,7 +4,7 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.3.3",
+  "version": "1.3.4",
   "compatibility": ">=4.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -3080,34 +3080,51 @@
           }
         },
         "associationGroups": [
-          4
+          1
         ],
         "associationGroupsOptions": {
           "1": {
             "hint": {
-              "en": "Switch 1 - control associated devices",
-              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+              "en": "Lifeline group"
             }
           },
           "2": {
             "hint": {
-              "en": "Switch 2 - control associated devices",
-              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
-            }
-          },
-          "3": {
-            "hint": {
-              "en": "Switch 3 - control associated devices",
-              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
+              "en": "Switch 1 - control associated devices",
+              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
             }
           },
           "4": {
             "hint": {
               "en": "Lifeline group"
             }
+          },
+          "5": {
+            "hint": {
+              "en": "Switch 2 - control associated devices",
+              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+            }
+          },
+          "8": {
+            "hint": {
+              "en": "Switch 3 - control associated devices",
+              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
+            }
           }
         },
         "multiChannelNodes": {
+          "1": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-3-Plus/assets/icon_1.svg",
+            "name": {
+              "en": "Switch 1",
+              "nl": "Schakelaar 1"
+            },
+            "settings": []
+          },
           "2": {
             "class": "socket",
             "capabilities": [

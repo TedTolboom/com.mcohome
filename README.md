@@ -116,6 +116,10 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:    
+### v1.3.4
+* Fix issue with Switch-3-Plus devices   
+* Removed config folder (obsolete)   
+* Update Homey meshdriver to 1.3.23
 
 ### v1.3.0
 * Add additional productTypeID's for Switch 3 - Plus, thanks Kevin   
