@@ -8,6 +8,7 @@
     ],
     "productTypeId": [
       2561,
+      2562,
       2565
     ],
     "productId": [
@@ -15,6 +16,7 @@
       12546,
       12547,
       12548,
+      20738,
       513
     ],
     "learnmode": {
@@ -53,5 +55,5 @@
   "images": {
     "large": "{{driverAssetsPath}}/images/large.jpg",
     "small": "{{driverAssetsPath}}/images/small.jpg"
-  } 
+  }
 }
