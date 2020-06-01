@@ -116,6 +116,9 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:    
+### v1.3.5
+* Add additional productTypeID's for PM2.5 sensor      
+
 ### v1.3.4
 * Fix issue with Switch-3-Plus devices   
 * Removed config folder (obsolete)   
