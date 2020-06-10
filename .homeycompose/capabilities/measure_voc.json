@@ -1,0 +1,13 @@
+{
+      "type": "number",
+      "title": {
+        "en": "VOC",
+        "nl": "VOC"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "uiComponent": "sensor",
+      "icon": "/assets/voc.svg",
+      "uiQuickAction": false
+      }
