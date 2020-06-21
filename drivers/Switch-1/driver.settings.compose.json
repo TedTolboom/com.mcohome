@@ -1,0 +1,6 @@
+[
+    {
+      "$extends": "powerOffStatus",
+      "id": "Power_off_status"
+     }
+  ]

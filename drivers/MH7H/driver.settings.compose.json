@@ -1,0 +1,48 @@
+[
+  {
+    "$extends": "temperatureFormat",
+    "id": "temperature_format"
+  },
+  {
+    "$extends": "temperatureHumidityReporting",
+    "id": "temperature_humidity_reporting"
+  },
+  {
+    "$extends": "temperatureReportingThreshold",
+    "id": "temperature_reporting_threshold"
+  },
+    {
+      "id": "humidity_reporting_threshold",
+      "zwave": {
+        "index": 5,
+        "size": 1,
+        "signed": false
+      },
+      "value": 3,
+      "label": {
+        "en": "Humidity reporting threshold (%)",
+        "nl": "Luchtvochtigheids rapportage drempelwaarde (%)"
+      },
+      "hint": {
+        "en": "Determines the minimum humidity value change before reporting changes.",
+        "nl": "Bepaald de minimum verandering in waarde van de luchtvochtigheid voordat er gerapporteerd wordt."
+      },
+      "attr": {
+        "min": 2,
+        "max": 255
+      },
+      "type": "number"
+    },
+    {
+      "$extends": "temperatureReportingInterval",
+      "id": "reporting_interval",
+      "label": {
+        "en": "Temperature / Humidity reporting interval (s)",
+        "nl": "Temperatuur / Luchtvochtigheids reportage inteval (s)"
+      },
+      "hint": {
+        "en": "Determines the time between temperature and humidity reports to Homey.",
+        "nl": "Bepaald de tijd tussen temperatuur en luchtvochtigheids rapportages naar Homey."
+      }
+    } 
+  ]

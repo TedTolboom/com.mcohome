@@ -8,9 +8,6 @@ This app adds support for Z-wave devices made by [MCOHome](http://www.mcohome.co
 [MCOHome app Athom apps](https://apps.athom.com/app/com.mcohome)                    
 [MCOHome app Github repository](https://github.com/TedTolboom/com.mcohome)   
 
-**Note:** This app is using [HomeyConfig composer](https://www.npmjs.com/package/node-homey-config-composer).   
-Please file Pull Requests on the *development* branch of this repository and with respect to the refactored files in _/drivers_ and _/config_ folders.   
-
 ## Supported devices:
 ### MCOHome Touch Panel Switches (1 - 4x)    
 A glass panel switch with 1 - 4 capacitive touch buttons.    
@@ -100,8 +97,6 @@ Monitor the air quality in terms of Atmospheric particulate matter (PM2.5).
 **Supported devices:**    
 * PM2.5 monitor (MH10-PM2.5): MH10-PM2.5-WA, MH10-PM2.5-WD    
 
-## Future developments :
-### MCOHome Heating Thermostat (MH7 series)    
 
 ## Supported Languages:
 * English   
@@ -121,6 +116,20 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:    
+### v1.3.5
+* Add additional productTypeID's for PM2.5 sensor      
+
+### v1.3.4
+* Fix issue with Switch-3-Plus devices   
+* Removed config folder (obsolete)   
+* Update Homey meshdriver to 1.3.23
+
+### v1.3.0
+* Add additional productTypeID's for Switch 3 - Plus, thanks Kevin   
+* Fix issue with Shutter panel, thanks Geurt   
+* Updated app to new app store requirements (incl. icon)
+* Update Homey meshdriver to 1.3.22
+* Removed mobile interface (Homey v1.x) and bumped app requirement to 4.x   
 
 ### v1.2.3
 * Add additional productTypeID's for Micro dimmer (MH-P220)      

@@ -1,0 +1,6 @@
+[
+    {
+      "$extends": "powerOffStatus",
+      "id": "Dimmer_state_saved"
+    }
+  ]

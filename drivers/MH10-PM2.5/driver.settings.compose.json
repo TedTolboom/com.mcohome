@@ -1,0 +1,19 @@
+[
+    {
+      "id": "PM2.5_notification",
+      "type": "number",
+      "value": 800,
+      "attr": {
+        "min": 1,
+        "max": 999
+      },
+      "label": {
+        "en": "PM2.5 notification threshold",
+        "nl": "PM2.5 notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "PM2.5 Notification threshold 1 to 999 ug/m3.\nDefault: 800\nRange 1 - 999 ug/m3",
+        "nl": "PM2.5 Notificatie drempelwaarde 1 to 999 ug/m3.\nStandaard: 800\nBereik 1 - 999 ug/m3"
+      }
+    }
+  ]

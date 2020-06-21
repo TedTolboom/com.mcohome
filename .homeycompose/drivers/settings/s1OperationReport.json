@@ -1,0 +1,32 @@
+{
+  "zwave": {
+    "index": 16,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "1",
+  "label": {
+    "en": "S1 association report AG2",
+    "nl": "S1 association report AG2"
+  },
+  "hint": {
+    "en": "Define the S1 association report for association group 2.",
+    "nl": "Bepaal het S1 association rapport voor association group 2."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Basic Set On, carried Value is 255 (0xFF)",
+        "nl": "Basic Set On, gebruikte waarde is 255 (0xFF)"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Basic Set On, carried value is dim-level (Default)",
+        "nl": "Basic Set On, gebruikte waarde is dim-level (Standaard)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "zwave": {
+    "index": 2,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "0",
+  "label": {
+    "en": "Switch type",
+    "nl": "Schakelaar type"
+  },
+  "hint": {
+    "en": "Choose between momentary switch and toggle switch. Default value: Momentary switch.",
+    "nl": "Kies tussen kortstondige schakelaar en tuimelschakelaar. Standaard waarde: Pulsdruk schakelaar."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Momentary switch (Default)",
+        "nl": "Pulsdruk schakelaar (Standaard)"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Toggle switch",
+        "nl": "Tuimel schakelaar"
+      }
+    }
+  ]
+}

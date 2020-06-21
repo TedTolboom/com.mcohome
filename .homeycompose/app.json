@@ -1,0 +1,86 @@
+{
+  "id": "com.mcohome",
+  "sdk": 2,
+  "name": {
+    "en": "MCOHome"
+  },
+  "version": "1.3.5",
+  "compatibility": ">=4.0.0",
+  "brandColor": "#d0031a",
+  "athomForumDiscussionId": 3463,
+  "homeyCommunityTopicId": 159,
+  "author": {
+    "name": "Ted Tolboom",
+    "email": "dTNL.Homey@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Mike Lim (Automate Asia)",
+        "email": "mike.lim@automate.asia"
+      },
+      {
+        "name": "Ted Tolboom",
+        "email": "dTNL.Homey@gmail.com"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "TedTolboom"
+      }
+    }
+  },
+  "source": "https://github.com/TedTolboom/com.mcohome",
+  "description": {
+    "en": "Adds support for MCOHome Z-wave devices",
+    "nl": "Voegt ondersteuning toe voor de MCOHome Z-wave apparaten"
+  },
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "category": [
+    "climate",
+    "appliances",
+    "lights"
+  ],
+  "tags": {
+    "en": [
+      "light switch",
+      "touch panel",
+      "CO2",
+      "Carbon Dioxide",
+      "PM2.5",
+      "particulate matter",
+      "sensor",
+      "electrical floor heating",
+      "thermostat",
+      "temperature control",
+      "underfloor heating",
+      "heat",
+      "cooling",
+      "MCOHome",
+      "Z-wave"
+    ],
+    "nl": [
+      "licht schakelaar",
+      "touch panel",
+      "CO2",
+      "Koolstofdioxide",
+      "PM2.5",
+      "particulate matter",
+      "fijn stof",
+      "sensor",
+      "electrische vloerverwarming",
+      "thermostaat",
+      "temperatuur regeling",
+      "vloerverwarming",
+      "warmte",
+      "koelen",
+      "MCOHome",
+      "Z-wave"
+    ]
+  }
+}

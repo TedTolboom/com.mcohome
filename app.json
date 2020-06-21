@@ -2,10 +2,10 @@
   "id": "com.mcohome",
   "sdk": 2,
   "name": {
-    "en": "MCOHome Z-wave"
+    "en": "MCOHome"
   },
-  "version": "1.2.3",
-  "compatibility": ">=1.5.2",
+  "version": "1.3.5",
+  "compatibility": ">=4.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
@@ -32,6 +32,7 @@
       }
     }
   },
+  "source": "https://github.com/TedTolboom/com.mcohome",
   "description": {
     "en": "Adds support for MCOHome Z-wave devices",
     "nl": "Voegt ondersteuning toe voor de MCOHome Z-wave apparaten"
@@ -82,69 +83,138 @@
       "Z-wave"
     ]
   },
-  "capabilities": {
-    "thermostat_mode_custom": {
-      "type": "enum",
-      "uiComponent": "picker",
-      "title": {
-        "en": "Thermostat mode",
-        "nl": "Thermostaat modus"
-      },
-      "desc": {
-        "en": "Mode of the thermostat",
-        "nl": "Modus van de thermostaat"
-      },
-      "values": [
-        {
-          "id": "Heat",
-          "title": {
-            "en": "Manual",
-            "nl": "Manueel"
-          }
-        },
-        {
-          "id": "Energy Save Heat",
-          "title": {
-            "en": "Auto",
-            "nl": "Auto"
-          }
-        },
-        {
-          "id": "Off",
-          "title": {
-            "en": "Off",
-            "nl": "Uit"
-          }
-        },
-        {
-          "id": "AWAY",
-          "title": {
-            "en": "Away",
-            "nl": "Afwezig"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true
-    },
-    "thermostat_onoff": {
-      "type": "boolean",
-      "uiComponent": "sensor",
-      "icon": "/assets/thermostat_onoff.svg",
-      "title": {
-        "en": "State",
-        "nl": "Status"
-      },
-      "desc": {
-        "en": "State of the thermostat",
-        "nl": "Status van de thermostaat"
-      },
-      "getable": true,
-      "setable": false,
-      "greyout": true
-    }
-  },
   "flow": {
+    "triggers": [
+      {
+        "id": "thermostat_mode_changed",
+        "title": {
+          "en": "Thermostat mode has changed",
+          "nl": "Thermostaat modus is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mode",
+            "title": {
+              "en": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "Heat"
+            }
+          },
+          {
+            "name": "mode_name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam"
+            },
+            "example": {
+              "en": "Comfort",
+              "nl": "Comfort"
+            }
+          }
+        ]
+      },
+      {
+        "id": "thermostat_mode_changed_to",
+        "title": {
+          "en": "Thermostat mode has changed to",
+          "nl": "Thermostaat modus is veranderd naar"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Heat",
+                "label": {
+                  "en": "Manual",
+                  "nl": "Manueel"
+                }
+              },
+              {
+                "id": "Energy Save Heat",
+                "label": {
+                  "en": "Auto",
+                  "nl": "Auto"
+                }
+              },
+              {
+                "id": "Off",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              },
+              {
+                "id": "AWAY",
+                "label": {
+                  "en": "Away",
+                  "nl": "Afwezig"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thermostat_onoff_false",
+        "title": {
+          "en": "Thermostat turned off",
+          "nl": "Thermostaat uitgezet"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ]
+      },
+      {
+        "id": "thermostat_onoff_true",
+        "title": {
+          "en": "Thermostat turned on",
+          "nl": "Thermostaat aangezet"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "thermostat_onoff_on",
+        "title": {
+          "en": "Thermostat is !{{on|off}}",
+          "nl": "Thermostat is !{{aan|uit}}"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "action_DIM_startLevelChange",
@@ -309,244 +379,10 @@
           }
         ]
       }
-    ],
-    "triggers": [
-      {
-        "id": "thermostat_onoff_true",
-        "title": {
-          "en": "Thermostat turned on",
-          "nl": "Thermostaat aangezet"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=MH7|MH7H"
-          }
-        ]
-      },
-      {
-        "id": "thermostat_onoff_false",
-        "title": {
-          "en": "Thermostat turned off",
-          "nl": "Thermostaat uitgezet"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=MH7|MH7H"
-          }
-        ]
-      },
-      {
-        "id": "thermostat_mode_changed",
-        "title": {
-          "en": "Thermostat mode has changed",
-          "nl": "Thermostaat modus is veranderd"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=MH7|MH7H"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "mode",
-            "title": {
-              "en": "ID",
-              "nl": "ID"
-            },
-            "example": {
-              "en": "Heat"
-            }
-          },
-          {
-            "name": "mode_name",
-            "title": {
-              "en": "Name",
-              "nl": "Naam"
-            },
-            "example": {
-              "en": "Comfort",
-              "nl": "Comfort"
-            }
-          }
-        ]
-      },
-      {
-        "id": "thermostat_mode_changed_to",
-        "title": {
-          "en": "Thermostat mode has changed to",
-          "nl": "Thermostaat modus is veranderd naar"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=MH7|MH7H"
-          },
-          {
-            "name": "mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "Heat",
-                "label": {
-                  "en": "Manual",
-                  "nl": "Manueel"
-                }
-              },
-              {
-                "id": "Energy Save Heat",
-                "label": {
-                  "en": "Auto",
-                  "nl": "Auto"
-                }
-              },
-              {
-                "id": "Off",
-                "label": {
-                  "en": "Off",
-                  "nl": "Uit"
-                }
-              },
-              {
-                "id": "AWAY",
-                "label": {
-                  "en": "Away",
-                  "nl": "Afwezig"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "conditions": [
-      {
-        "id": "thermostat_onoff_on",
-        "title": {
-          "en": "Thermostat is !{{on|off}}",
-          "nl": "Thermostat is !{{aan|uit}}"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=MH7|MH7H"
-          }
-        ]
-      }
     ]
   },
   "drivers": [
     {
-      "id": "Dimmer-1-Plus",
-      "name": {
-        "en": "Touch Dimmer Z-Wave Plus"
-      },
-      "zwave": {
-        "manufacturerId": [
-          351
-        ],
-        "productTypeId": [
-          54033
-        ],
-        "productId": [
-          20738
-        ],
-        "learnmode": {
-          "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
-          }
-        },
-        "unlearnmode": {
-          "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
-          }
-        },
-        "associationGroups": [
-          1
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Switch 1 - control associated devices",
-              "nl": "schakelaar 1 - schakel gekoppelde apparaten"
-            }
-          },
-          "2": {
-            "hint": {
-              "en": "Lifeline group"
-            }
-          }
-        }
-      },
-      "class": "light",
-      "capabilities": [
-        "onoff",
-        "dim"
-      ],
-      "capabilitiesOptions": {
-        "onoff": {
-          "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        }
-      },
-      "icon": "/drivers/Dimmer-1-Plus/assets/icon.svg",
-      "images": {
-        "large": "/drivers/Dimmer-1-Plus/assets/images/large.jpg",
-        "small": "/drivers/Dimmer-1-Plus/assets/images/small.jpg"
-      },
-      "settings": [
-        {
-          "id": "Dimmer_state_saved",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "1",
-          "label": {
-            "en": "Dimmer state saved",
-            "nl": "Toestand na spanningsuitval"
-          },
-          "hint": {
-            "en": "Define how the dimmer keep the last state after the power supply is back on.",
-            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off after a power failure",
-                "nl": "Herstelt toestand na spanningsuitval"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Resume last state after a power failure (Default)",
-                "nl": "UIT na spanningsuitval"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Dimmer-1",
       "name": {
         "en": "Touch panel dimmer"
       },
@@ -618,6 +454,7 @@
         "large": "/drivers/Dimmer-1/assets/images/large.jpg",
         "small": "/drivers/Dimmer-1/assets/images/small.jpg"
       },
+      "id": "Dimmer-1",
       "settings": [
         {
           "id": "Dimmer_state_saved",
@@ -626,27 +463,27 @@
             "size": 1
           },
           "type": "dropdown",
-          "value": "1",
+          "value": "0",
           "label": {
-            "en": "Dimmer state saved",
+            "en": "State after power loss",
             "nl": "Toestand na spanningsuitval"
           },
           "hint": {
-            "en": "Define how the dimmer keep the last state after the power supply is back on.",
+            "en": "Define how the switch reacts after the power supply is back on.",
             "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
           },
           "values": [
             {
-              "id": "0",
+              "id": "1",
               "label": {
-                "en": "Off after a power failure",
-                "nl": "Herstelt toestand na spanningsuitval"
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
               }
             },
             {
-              "id": "1",
+              "id": "0",
               "label": {
-                "en": "Resume last state after a power failure (Default)",
+                "en": "OFF after a power failure",
                 "nl": "UIT na spanningsuitval"
               }
             }
@@ -655,7 +492,108 @@
       ]
     },
     {
-      "id": "MH10-PM2.5",
+      "name": {
+        "en": "Touch Dimmer Z-Wave Plus"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          54033
+        ],
+        "productId": [
+          20738
+        ],
+        "learnmode": {
+          "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Dimmer-1-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.On off the Touch Dimmer 3 times.\n",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Switch 1 - control associated devices",
+              "nl": "schakelaar 1 - schakel gekoppelde apparaten"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "icon": "/drivers/Dimmer-1-Plus/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Dimmer-1-Plus/assets/images/large.jpg",
+        "small": "/drivers/Dimmer-1-Plus/assets/images/small.jpg"
+      },
+      "id": "Dimmer-1-Plus",
+      "settings": [
+        {
+          "id": "Dimmer_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "State after power loss",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the switch reacts after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": {
         "en": "PM2.5 Monitor"
       },
@@ -665,6 +603,7 @@
         ],
         "productTypeId": [
           2561,
+          2562,
           2565
         ],
         "productId": [
@@ -672,6 +611,7 @@
           12546,
           12547,
           12548,
+          20738,
           513
         ],
         "learnmode": {
@@ -711,6 +651,7 @@
         "large": "/drivers/MH10-PM2.5/assets/images/large.jpg",
         "small": "/drivers/MH10-PM2.5/assets/images/small.jpg"
       },
+      "id": "MH10-PM2.5",
       "settings": [
         {
           "id": "PM2.5_notification",
@@ -732,14 +673,13 @@
       ]
     },
     {
-      "id": "MH7",
       "name": {
         "en": "MH7 Thermostat"
       },
-      "icon": "/drivers/MH7/assets/icon.svg",
+      "icon": "//drivers/MH7/assets/icon.svg",
       "images": {
-        "large": "/drivers/MH7/assets/images/large.jpg",
-        "small": "/drivers/MH7/assets/images/small.jpg"
+        "large": "//drivers/MH7/assets/images/large.jpg",
+        "small": "//drivers/MH7/assets/images/small.jpg"
       },
       "class": "thermostat",
       "capabilities": [
@@ -764,50 +704,6 @@
           }
         }
       },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature",
-              "thermostat_onoff"
-            ],
-            "options": {
-              "icons": {
-                "thermostat_onoff": "/drivers/MH7/assets/thermostat_onoff.svg"
-              },
-              "thermostat_onoff": {
-                "noblink": false,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Active"
-                  },
-                  "false": {
-                    "en": "Idle"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "picker",
-            "capabilities": [
-              "thermostat_mode_custom"
-            ]
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
-      },
       "zwave": {
         "manufacturerId": [
           351
@@ -821,13 +717,13 @@
           20742
         ],
         "learnmode": {
-          "image": "/drivers/MH7/assets/learnmode.svg",
+          "image": "//drivers/MH7/assets/learnmode.svg",
           "instruction": {
             "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
           }
         },
         "unlearnmode": {
-          "image": "/drivers/MH7/assets/learnmode.svg",
+          "image": "//drivers/MH7/assets/learnmode.svg",
           "instruction": {
             "en": "1. Press and hold the ^ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
           }
@@ -843,6 +739,7 @@
           }
         }
       },
+      "id": "MH7",
       "settings": [
         {
           "id": "temperature_format",
@@ -962,11 +859,11 @@
           "value": 30,
           "label": {
             "en": "Temperature reporting interval (s)",
-            "nl": "Temperatuur reportage interval (s)"
+            "nl": "Temperatuur reportage inteval (s)"
           },
           "hint": {
-            "en": "Determines the time (s) between temperature reports to Homey.",
-            "nl": "Bepaald de tijd (s) tussen temperatuur rapportages naar Homey."
+            "en": "Determines the time between temperature reports to Homey.",
+            "nl": "Bepaald de tijd tussen temperatuur rapportages naar Homey."
           },
           "attr": {
             "min": 10,
@@ -977,7 +874,6 @@
       ]
     },
     {
-      "id": "MH7H",
       "name": {
         "en": "MH7H Thermostat (+ humidity sensor)"
       },
@@ -1009,51 +905,6 @@
             "en": "Idle"
           }
         }
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature",
-              "measure_humidity",
-              "thermostat_onoff"
-            ],
-            "options": {
-              "icons": {
-                "thermostat_onoff": "/drivers/MH7H/assets/thermostat_onoff.svg"
-              },
-              "thermostat_onoff": {
-                "noblink": false,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Active"
-                  },
-                  "false": {
-                    "en": "Idle"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "picker",
-            "capabilities": [
-              "thermostat_mode_custom"
-            ]
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
       },
       "zwave": {
         "manufacturerId": [
@@ -1090,6 +941,7 @@
           }
         }
       },
+      "id": "MH7H",
       "settings": [
         {
           "id": "temperature_format",
@@ -1098,7 +950,7 @@
             "size": 1
           },
           "type": "dropdown",
-          "value": "3",
+          "value": "2",
           "label": {
             "en": "Temperature unit",
             "nl": "Temperatuur eenheid"
@@ -1138,7 +990,7 @@
             "size": 1
           },
           "type": "dropdown",
-          "value": "2",
+          "value": "3",
           "label": {
             "en": "Temperature reporting",
             "nl": "Temperatuur rapportage"
@@ -1190,8 +1042,8 @@
             "nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
           },
           "hint": {
-            "en": "Determines the minimum temperature value change before reporting changes.",
-            "nl": "Bepaald de minimum verandering in waarde voordat er gerapporteerd wordt."
+            "en": "Determines the minimum temperature value change (°C/°F) before reporting changes.",
+            "nl": "Bepaald de minimum verandering in waarde (°C/°F) voordat er gerapporteerd wordt."
           },
           "attr": {
             "min": 0.3,
@@ -1223,20 +1075,20 @@
         },
         {
           "id": "reporting_interval",
-          "zwave": {
-            "index": 4,
-            "size": 2,
-            "signed": false
-          },
-          "value": 30,
           "label": {
-            "en": "Temperature / Humitidy reporting interval (s)",
+            "en": "Temperature / Humidity reporting interval (s)",
             "nl": "Temperatuur / Luchtvochtigheids reportage inteval (s)"
           },
           "hint": {
             "en": "Determines the time between temperature and humidity reports to Homey.",
             "nl": "Bepaald de tijd tussen temperatuur en luchtvochtigheids rapportages naar Homey."
           },
+          "zwave": {
+            "index": 4,
+            "size": 2,
+            "signed": false
+          },
+          "value": 30,
           "attr": {
             "min": 10,
             "max": 65535
@@ -1246,7 +1098,6 @@
       ]
     },
     {
-      "id": "MH9-CO2",
       "name": {
         "en": "CO2 Monitor"
       },
@@ -1310,6 +1161,7 @@
         "large": "/drivers/MH9-CO2/assets/images/large.jpg",
         "small": "/drivers/MH9-CO2/assets/images/small.jpg"
       },
+      "id": "MH9-CO2",
       "settings": [
         {
           "id": "CO2_notification",
@@ -1335,7 +1187,6 @@
       ]
     },
     {
-      "id": "Micro-Dimmer",
       "name": {
         "en": "Micro Dimmer"
       },
@@ -1417,161 +1268,8 @@
         "large": "/drivers/Micro-Dimmer/assets/images/large.png",
         "small": "/drivers/Micro-Dimmer/assets/images/small.png"
       },
+      "id": "Micro-Dimmer",
       "settings": [
-        {
-          "id": "Dimmer_state_saved",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "1",
-          "label": {
-            "en": "Dimmer state saved",
-            "nl": "Toestand na spanningsuitval"
-          },
-          "hint": {
-            "en": "Define how the dimmer keep the last state after the power supply is back on.",
-            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off after a power failure",
-                "nl": "Herstelt toestand na spanningsuitval"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Resume last state after a power failure (Default)",
-                "nl": "UIT na spanningsuitval (Standaard)"
-              }
-            }
-          ]
-        },
-        {
-          "id": "Switch_type",
-          "zwave": {
-            "index": 2,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "0",
-          "label": {
-            "en": "Switch type",
-            "nl": "Schakelaar type"
-          },
-          "hint": {
-            "en": "Choose between momentary switch and toggle switch. Default value: Momentary switch.",
-            "nl": "Kies tussen kortstondige schakelaar en tuimelschakelaar. Standaard waarde: Pulsdruk schakelaar."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Momentary switch (Default)",
-                "nl": "Pulsdruk schakelaar (Standaard)"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Toggle switch",
-                "nl": "Tuimel schakelaar"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Roller blind Switch (UP | DOWN)",
-                "nl": "Rolgordijn schakelaar (OP | NEER)"
-              }
-            }
-          ]
-        },
-        {
-          "id": "Two_state_switch",
-          "zwave": {
-            "index": 3,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "1",
-          "label": {
-            "en": "Toggle switch",
-            "nl": "Tuimel schakelaar"
-          },
-          "hint": {
-            "en": "Define the toggle switch behavior.",
-            "nl": "Bepaal hoe de tuimelschakelaar reageert."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Toggle Dimmer without specified on/off position",
-                "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Toggle Dimmer with specified on/off position (Default)",
-                "nl": "Schakel dimmer met gedefinieerde aan/uit positie (Standaard)"
-              }
-            }
-          ]
-        },
-        {
-          "id": "All_ON_All_OFF",
-          "zwave": {
-            "index": 4,
-            "size": 1,
-            "signed": false
-          },
-          "type": "dropdown",
-          "value": "255",
-          "label": {
-            "en": "'ALL ON' / 'ALL OFF'",
-            "nl": "'Alles AAN' / 'Alles UIT'"
-          },
-          "hint": {
-            "en": "Define how the dimmer responds to an 'ALL ON' or 'ALL OFF' command.",
-            "nl": "Bepaal hoe de dimmer reageert op een 'Alles AAN' of 'Alles UIT' commando."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Forbid 'ALL ON', forbid 'ALL OFF'",
-                "nl": "Blokkeer 'Alles AAN', blokkeer 'Alles UIT'"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Forbid 'ALL ON', allow 'ALL OFF'",
-                "nl": "Blokkeer 'Alles AAN', sta 'Alles UIT' toe"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Allow 'ALL ON', forbid 'ALL OFF'",
-                "nl": "Sta 'Alles AAN' toe, blokker 'Alles UIT'"
-              }
-            },
-            {
-              "id": "255",
-              "label": {
-                "en": "Allow 'ALL ON', allow 'ALL OFF' (Default)",
-                "nl": "Sta 'Alles AAN' toe, sta 'Alles UIT' toe (Standaard)"
-              }
-            }
-          ]
-        },
         {
           "id": "minimum_brightness_level",
           "zwave": {
@@ -1699,6 +1397,215 @@
           }
         },
         {
+          "id": "Switch_type",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Momentary switch (Default)",
+                "nl": "Pulsdruk schakelaar (Standaard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle switch",
+                "nl": "Tuimel schakelaar"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Roller blind Switch (UP | DOWN)",
+                "nl": "Rolgordijn schakelaar (OP | NEER)"
+              }
+            }
+          ],
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Switch type",
+            "nl": "Schakelaar type"
+          },
+          "hint": {
+            "en": "Choose between momentary switch and toggle switch. Default value: Momentary switch.",
+            "nl": "Kies tussen kortstondige schakelaar en tuimelschakelaar. Standaard waarde: Pulsdruk schakelaar."
+          }
+        },
+        {
+          "id": "Two_state_switch",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Toggle switch",
+            "nl": "Tuimel schakelaar"
+          },
+          "hint": {
+            "en": "Define the toggle switch behavior.",
+            "nl": "Bepaal hoe de tuimelschakelaar reageert."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Toggle Dimmer without specified on/off position",
+                "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Toggle Dimmer with specified on/off position (Default)",
+                "nl": "Schakel dimmer met gedefinieerde aan/uit positie (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_function",
+          "zwave": {
+            "index": 17,
+            "size": 1,
+            "signed": false
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Roller blinds switch",
+                "nl": "Rolgordijn schakelaar"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
+                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Send Scene Activation only",
+                "nl": "Stuur enkel Scene Activation"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Send Basic Set ON/OFF to AG4 only",
+                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Disable S2 function (Default)",
+                "nl": "Schakel S2 functie uit (Standaard)"
+              }
+            }
+          ],
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "S2 funtion",
+            "nl": "S2 functie"
+          },
+          "hint": {
+            "en": "Define function of S2 switch.",
+            "nl": "Bepaal de functie van de S2 schakelaar."
+          }
+        },
+        {
+          "id": "Dimmer_state_saved",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "State after power loss",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the switch reacts after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        },
+        {
+          "id": "All_ON_All_OFF",
+          "zwave": {
+            "index": 4,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "'ALL ON' / 'ALL OFF'",
+            "nl": "'Alles AAN' / 'Alles UIT'"
+          },
+          "hint": {
+            "en": "Define how the Switch responds to an 'ALL ON' or 'ALL OFF' command.",
+            "nl": "Bepaal hoe de Switch reageert op een 'Alles AAN' of 'Alles UIT' commando."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Forbid 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', blokkeer 'Alles UIT'"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Forbid 'ALL ON', allow 'ALL OFF'",
+                "nl": "Blokkeer 'Alles AAN', sta 'Alles UIT' toe"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Allow 'ALL ON', forbid 'ALL OFF'",
+                "nl": "Sta 'Alles AAN' toe, blokker 'Alles UIT'"
+              }
+            },
+            {
+              "id": "255",
+              "label": {
+                "en": "Allow 'ALL ON', allow 'ALL OFF' (Default)",
+                "nl": "Sta 'Alles AAN' toe, sta 'Alles UIT' toe (Standaard)"
+              }
+            }
+          ]
+        },
+        {
           "id": "timer_functionality",
           "zwave": {
             "index": 11,
@@ -1718,6 +1625,39 @@
             "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Dimmer 2 is installed in the stairway. 0 - Function disabled (default) 1-255 - time to turn off measured in seconds (1s-255s). Range: 0 - 255, default value: 0.",
             "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 255, standaard waarde: 0 (uitgeschakeld)."
           }
+        },
+        {
+          "id": "S1_operation_report",
+          "zwave": {
+            "index": 16,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "S1 association report AG2",
+            "nl": "S1 association report AG2"
+          },
+          "hint": {
+            "en": "Define the S1 association report for association group 2.",
+            "nl": "Bepaal het S1 association rapport voor association group 2."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Basic Set On, carried Value is 255 (0xFF)",
+                "nl": "Basic Set On, gebruikte waarde is 255 (0xFF)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Basic Set On, carried value is dim-level (Default)",
+                "nl": "Basic Set On, gebruikte waarde is dim-level (Standaard)"
+              }
+            }
+          ]
         },
         {
           "id": "S1_single_click",
@@ -1770,94 +1710,6 @@
               "label": {
                 "en": "Double click reach max brightness level (Default)",
                 "nl": "Dubbele klik naar maximale dim-level (Standaard)"
-              }
-            }
-          ]
-        },
-        {
-          "id": "S2_function",
-          "zwave": {
-            "index": 17,
-            "size": 1,
-            "signed": false
-          },
-          "type": "dropdown",
-          "value": "255",
-          "label": {
-            "en": "S2 funtion",
-            "nl": "S2 functie"
-          },
-          "hint": {
-            "en": "Define function of S2 switch.",
-            "nl": "Bepaal de functie van de S2 schakelaar."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Roller blinds switch",
-                "nl": "Rolgordijn schakelaar"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
-                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Send Scene Activation only",
-                "nl": "Stuur enkel Scene Activation"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
-                "en": "Send Basic Set ON/OFF to AG4 only",
-                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
-              }
-            },
-            {
-              "id": "255",
-              "label": {
-                "en": "Disable S2 function (Default)",
-                "nl": "Schakel S2 functie uit (Standaard)"
-              }
-            }
-          ]
-        },
-        {
-          "id": "S1_operation_report",
-          "zwave": {
-            "index": 16,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "1",
-          "label": {
-            "en": "S1 association report AG2",
-            "nl": "S1 association report AG2"
-          },
-          "hint": {
-            "en": "Define the S1 association report for association group 2.",
-            "nl": "Bepaal het S1 association rapport voor association group 2."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Basic Set On, carried Value is 255 (0xFF)",
-                "nl": "Basic Set On, gebruikte waarde is 255 (0xFF)"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Basic Set On, carried value is dim-level (Default)",
-                "nl": "Basic Set On, gebruikte waarde is dim-level (Standaard)"
               }
             }
           ]
@@ -1979,7 +1831,6 @@
       ]
     },
     {
-      "id": "Micro-Switch",
       "name": {
         "en": "Micro Switch"
       },
@@ -2042,6 +1893,7 @@
         "large": "/drivers/Micro-Switch/assets/images/large.png",
         "small": "/drivers/Micro-Switch/assets/images/small.png"
       },
+      "id": "Micro-Switch",
       "settings": [
         {
           "id": "Switch_state_saved",
@@ -2050,28 +1902,28 @@
             "size": 1
           },
           "type": "dropdown",
-          "value": "1",
+          "value": "0",
           "label": {
-            "en": "Switch state saved",
+            "en": "State after power loss",
             "nl": "Toestand na spanningsuitval"
           },
           "hint": {
-            "en": "Define how the Switch keep the last state after the power supply is back on.",
+            "en": "Define how the switch reacts after the power supply is back on.",
             "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
           },
           "values": [
             {
-              "id": "0",
+              "id": "1",
               "label": {
-                "en": "Off after a power failure",
-                "nl": "Herstelt toestand na spanningsuitval"
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
               }
             },
             {
-              "id": "1",
+              "id": "0",
               "label": {
-                "en": "Resume last state after a power failure (Default)",
-                "nl": "UIT na spanningsuitval (Standaard)"
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
               }
             }
           ]
@@ -2129,15 +1981,15 @@
             {
               "id": "0",
               "label": {
-                "en": "Toggle Switch without specified on/off position",
+                "en": "Toggle Dimmer without specified on/off position",
                 "nl": "Schakel Dimemr zonder gedefinieerde aan/uit positie"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Toggle Switch with specified on/off position (Default)",
-                "nl": "Schakel Switch met gedefinieerde aan/uit positie (Standaard)"
+                "en": "Toggle Dimmer with specified on/off position (Default)",
+                "nl": "Schakel dimmer met gedefinieerde aan/uit positie (Standaard)"
               }
             }
           ]
@@ -2205,60 +2057,12 @@
           "value": 0,
           "attr": {
             "min": 0,
-            "max": 65535
+            "max": 255
           },
           "hint": {
-            "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Switch 2 is installed in the stairway. 0 - Function disabled (default) 1-65535 - time to turn off measured in seconds (1s-255s). Range: 0 - 65535, default value: 0.",
-            "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 65535, standaard waarde: 0 (uitgeschakeld)."
+            "en": "This parameter allows to automatically switch off the device after specified time from switching on the light source. It may be useful when the Dimmer 2 is installed in the stairway. 0 - Function disabled (default) 1-255 - time to turn off measured in seconds (1s-255s). Range: 0 - 255, default value: 0.",
+            "nl": "Deze parameter laat de schakelaar automatisch uitschakelen na de ingestelde tijd, stel 0 in om dit uit te schakelen. Bereik: 0 - 255, standaard waarde: 0 (uitgeschakeld)."
           }
-        },
-        {
-          "id": "S2_function",
-          "zwave": {
-            "index": 9,
-            "size": 1,
-            "signed": false
-          },
-          "type": "dropdown",
-          "value": "255",
-          "label": {
-            "en": "S2 funtion",
-            "nl": "S2 functie"
-          },
-          "hint": {
-            "en": "Define function of S2 switch.",
-            "nl": "Bepaal de functie van de S2 schakelaar."
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Send Scene Activation and send Basic Set ON/OFF to AG3",
-                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG3"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Send Scene Activation only",
-                "nl": "Stuur enkel Scene Activation"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Send Basic Set ON/OFF to AG4 only",
-                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
-              }
-            },
-            {
-              "id": "255",
-              "label": {
-                "en": "Disable S2 function (Default)",
-                "nl": "Schakel S2 functie uit (Standaard)"
-              }
-            }
-          ]
         },
         {
           "id": "S1_operation_report",
@@ -2281,29 +2085,63 @@
             {
               "id": "0",
               "label": {
-                "en": "Report ON/OFF state of S1 to AG2 (Default)",
-                "nl": "Rapporteer AAN/UIT toestand van S1 naar AG2 (Standaard)"
+                "en": "Basic Set On, carried Value is 255 (0xFF)",
+                "nl": "Basic Set On, gebruikte waarde is 255 (0xFF)"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Report ON state of S1 to AG2",
-                "nl": "Rapporteer AAN toestand van S1 naar AG2"
+                "en": "Basic Set On, carried value is dim-level (Default)",
+                "nl": "Basic Set On, gebruikte waarde is dim-level (Standaard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S2_function",
+          "zwave": {
+            "index": 9,
+            "size": 1,
+            "signed": false
+          },
+          "type": "dropdown",
+          "value": "255",
+          "label": {
+            "en": "S2 funtion",
+            "nl": "S2 functie"
+          },
+          "hint": {
+            "en": "Define function of S2 switch.",
+            "nl": "Bepaal de functie van de S2 schakelaar."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
+                "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Report OFF state of S1 to AG2",
-                "nl": "Rapporteer UIT toestand van S1 naar AG2"
+                "en": "Send Scene Activation only",
+                "nl": "Stuur enkel Scene Activation"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Send Basic Set ON/OFF to AG4 only",
+                "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
               }
             },
             {
               "id": "255",
               "label": {
-                "en": "No report to AG2",
-                "nl": "Rapporteer niets naar AG2"
+                "en": "Disable S2 function (Default)",
+                "nl": "Schakel S2 functie uit (Standaard)"
               }
             }
           ]
@@ -2316,28 +2154,28 @@
             "signed": false
           },
           "type": "dropdown",
-          "value": "1",
+          "value": "0",
           "label": {
-            "en": "S2 association report AG3",
-            "nl": "S2 association report AG3"
+            "en": "S2 association report AG4",
+            "nl": "S2 association report AG4"
           },
           "hint": {
-            "en": "Define the S2 association report for association group 3.",
-            "nl": "Bepaal het S2 association rapport voor association group 3."
+            "en": "Define the S2 association report for association group 4.",
+            "nl": "Bepaal het S2 association rapport voor association group 4."
           },
           "values": [
             {
               "id": "0",
               "label": {
-                "en": "Send Basic ON or Basic OFF to AG4 when turn on/off S2",
-                "nl": "Stuur Basic ON of Basic OFF naar AG4 wanneer S2 in- of uitgeschakeld wordt"
+                "en": "Send Basic ON or Basic OFF to AG4 when turn on/off S2 (Default)",
+                "nl": "Stuur Basic ON of Basic OFF naar AG4 wanneer S2 in- of uitgeschakeld wordt (Standaard)"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Only send Basic Set On (Default)",
-                "nl": "Stuur enkel Basic ON (Standaard)"
+                "en": "Only send Basic Set On",
+                "nl": "Stuur enkel Basic ON"
               }
             },
             {
@@ -2425,7 +2263,6 @@
       ]
     },
     {
-      "id": "Shutter-Panel",
       "name": {
         "en": "Shutter Panel"
       },
@@ -2616,128 +2453,10 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "id": "Switch-1-Plus",
-      "name": {
-        "en": "Touch Switch (1) Plus"
-      },
-      "zwave": {
-        "manufacturerId": [
-          351
-        ],
-        "productTypeId": [
-          12561,
-          12562,
-          16657,
-          16658,
-          20753,
-          20754
-        ],
-        "productId": [
-          20737,
-          20738,
-          20739,
-          20740,
-          20741,
-          20742,
-          20744,
-          20745,
-          20746
-        ],
-        "learnmode": {
-          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
-          }
-        },
-        "unlearnmode": {
-          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
-          "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
-          }
-        },
-        "associationGroups": [
-          1
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Lifeline group"
-            }
-          },
-          "2": {
-            "hint": {
-              "en": "Switch 1",
-              "nl": "schakelaar 1"
-            }
-          }
-        },
-        "multiChannelNodes": {
-          "1": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
-            "name": {
-              "en": "Switch 1",
-              "nl": "Schakelaar 1"
-            },
-            "settings": []
-          }
-        }
-      },
-      "class": "socket",
-      "capabilities": [
-        "onoff"
       ],
-      "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
-      "images": {
-        "large": "/drivers/Switch-1-Plus/assets/images/large.jpg",
-        "small": "/drivers/Switch-1-Plus/assets/images/small.jpg"
-      },
-      "settings": [
-        {
-          "id": "Power_off_status",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "0",
-          "label": {
-            "en": "State after power loss",
-            "nl": "Toestand na spanningsuitval"
-          },
-          "hint": {
-            "en": "Define how the switch reacts after the power supply is back on.",
-            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
-          },
-          "values": [
-            {
-              "id": "1",
-              "label": {
-                "en": "Restores state after a power failure (default)",
-                "nl": "Herstelt toestand na spanningsuitval (default)"
-              }
-            },
-            {
-              "id": "0",
-              "label": {
-                "en": "OFF after a power failure",
-                "nl": "UIT na spanningsuitval"
-              }
-            }
-          ]
-        }
-      ]
+      "id": "Shutter-Panel"
     },
     {
-      "id": "Switch-1",
       "name": {
         "en": "Touch panel switch (1)"
       },
@@ -2811,6 +2530,7 @@
         "large": "/drivers/Switch-1/assets/images/large.jpg",
         "small": "/drivers/Switch-1/assets/images/small.jpg"
       },
+      "id": "Switch-1",
       "settings": [
         {
           "id": "Power_off_status",
@@ -2848,19 +2568,20 @@
       ]
     },
     {
-      "id": "Switch-2-Plus",
       "name": {
-        "en": "Touch Switch (2) Z-Wave Plus"
+        "en": "Touch Switch (1) Plus"
       },
       "zwave": {
         "manufacturerId": [
           351
         ],
         "productTypeId": [
-          12577,
-          12578,
-          16673,
-          20769
+          12561,
+          12562,
+          16657,
+          16658,
+          20753,
+          20754
         ],
         "productId": [
           20737,
@@ -2874,14 +2595,14 @@
           20746
         ],
         "learnmode": {
-          "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
           "instruction": {
             "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
             "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
-          "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-1-Plus/assets/learnmode.svg",
           "instruction": {
             "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
             "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
@@ -2901,12 +2622,6 @@
               "en": "Switch 1",
               "nl": "schakelaar 1"
             }
-          },
-          "3": {
-            "hint": {
-              "en": "Switch 2",
-              "nl": "schakelaar 2"
-            }
           }
         },
         "multiChannelNodes": {
@@ -2915,24 +2630,11 @@
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-2-Plus/assets/icon_2.svg",
+            "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
             "name": {
               "en": "Switch 1",
-              "nl": "Schakelaar 2"
-            },
-            "settings": []
-          },
-          "2": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "icon": "/drivers/Switch-2-Plus/assets/icon_2.svg",
-            "name": {
-              "en": "Switch 2",
-              "nl": "Schakelaar"
-            },
-            "settings": []
+              "nl": "Schakelaar 1"
+            }
           }
         }
       },
@@ -2940,49 +2642,14 @@
       "capabilities": [
         "onoff"
       ],
-      "icon": "/drivers/Switch-2-Plus/assets/icon.svg",
+      "icon": "/drivers/Switch-1-Plus/assets/icon.svg",
       "images": {
-        "large": "/drivers/Switch-2-Plus/assets/images/large.jpg",
-        "small": "/drivers/Switch-2-Plus/assets/images/small.jpg"
+        "large": "/drivers/Switch-1-Plus/assets/images/large.jpg",
+        "small": "/drivers/Switch-1-Plus/assets/images/small.jpg"
       },
-      "settings": [
-        {
-          "id": "Power_off_status",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "type": "dropdown",
-          "value": "0",
-          "label": {
-            "en": "State after power loss",
-            "nl": "Toestand na spanningsuitval"
-          },
-          "hint": {
-            "en": "Define how the switch reacts after the power supply is back on.",
-            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
-          },
-          "values": [
-            {
-              "id": "1",
-              "label": {
-                "en": "Restores state after a power failure (default)",
-                "nl": "Herstelt toestand na spanningsuitval (default)"
-              }
-            },
-            {
-              "id": "0",
-              "label": {
-                "en": "OFF after a power failure",
-                "nl": "UIT na spanningsuitval"
-              }
-            }
-          ]
-        }
-      ]
+      "id": "Switch-1-Plus"
     },
     {
-      "id": "Switch-2",
       "name": {
         "en": "Touch panel switch (2)"
       },
@@ -3073,6 +2740,7 @@
         "large": "/drivers/Switch-2/assets/images/large.jpg",
         "small": "/drivers/Switch-2/assets/images/small.jpg"
       },
+      "id": "Switch-2",
       "settings": [
         {
           "id": "Power_off_status",
@@ -3110,91 +2778,88 @@
       ]
     },
     {
-      "id": "Switch-3-Plus",
       "name": {
-        "en": "Touch panel switch (3) Z-Wave Plus"
+        "en": "Touch Switch (2) Z-Wave Plus"
       },
       "zwave": {
         "manufacturerId": [
           351
         ],
         "productTypeId": [
-          20785,
-          20786
+          12577,
+          12578,
+          16673,
+          20769
         ],
         "productId": [
           20737,
           20738,
+          20739,
+          20740,
+          20741,
           20742,
+          20744,
           20745,
           20746
         ],
         "learnmode": {
-          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
-          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-2-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
           }
         },
         "associationGroups": [
-          4
+          1
         ],
         "associationGroupsOptions": {
           "1": {
             "hint": {
-              "en": "Switch 1 - control associated devices",
-              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+              "en": "Lifeline group"
             }
           },
           "2": {
             "hint": {
-              "en": "Switch 2 - control associated devices",
-              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+              "en": "Switch 1",
+              "nl": "schakelaar 1"
             }
           },
           "3": {
             "hint": {
-              "en": "Switch 3 - control associated devices",
-              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
-            }
-          },
-          "4": {
-            "hint": {
-              "en": "Lifeline group"
+              "en": "Switch 2",
+              "nl": "schakelaar 2"
             }
           }
         },
         "multiChannelNodes": {
+          "1": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-2-Plus/assets/icon_2.svg",
+            "name": {
+              "en": "Switch 1",
+              "nl": "Schakelaar 2"
+            }
+          },
           "2": {
             "class": "socket",
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-3-Plus/assets/icon_2.svg",
+            "icon": "/drivers/Switch-2-Plus/assets/icon_2.svg",
             "name": {
               "en": "Switch 2",
-              "nl": "Schakelaar 2"
-            },
-            "settings": []
-          },
-          "3": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "icon": "/drivers/Switch-3-Plus/assets/icon_3.svg",
-            "name": {
-              "en": "Switch 3",
-              "nl": "Schakelaar 3"
-            },
-            "settings": []
+              "nl": "Schakelaar"
+            }
           }
         }
       },
@@ -3202,11 +2867,12 @@
       "capabilities": [
         "onoff"
       ],
-      "icon": "/drivers/Switch-3-Plus/assets/icon.svg",
+      "icon": "/drivers/Switch-2-Plus/assets/icon.svg",
       "images": {
-        "large": "/drivers/Switch-3-Plus/assets/images/large.png",
-        "small": "/drivers/Switch-3-Plus/assets/images/small.png"
+        "large": "/drivers/Switch-2-Plus/assets/images/large.jpg",
+        "small": "/drivers/Switch-2-Plus/assets/images/small.jpg"
       },
+      "id": "Switch-2-Plus",
       "settings": [
         {
           "id": "Power_off_status",
@@ -3244,7 +2910,6 @@
       ]
     },
     {
-      "id": "Switch-3",
       "name": {
         "en": "Touch panel switch (3)"
       },
@@ -3321,8 +2986,7 @@
             "name": {
               "en": "Switch 2",
               "nl": "Schakelaar 2"
-            },
-            "settings": []
+            }
           },
           "3": {
             "class": "socket",
@@ -3333,8 +2997,7 @@
             "name": {
               "en": "Switch 3",
               "nl": "Schakelaar 3"
-            },
-            "settings": []
+            }
           }
         }
       },
@@ -3347,6 +3010,7 @@
         "large": "/drivers/Switch-3/assets/images/large.png",
         "small": "/drivers/Switch-3/assets/images/small.png"
       },
+      "id": "Switch-3",
       "settings": [
         {
           "id": "Power_off_status",
@@ -3384,36 +3048,37 @@
       ]
     },
     {
-      "id": "Switch-4-Plus",
       "name": {
-        "en": "Touch Switch (4) Z-Wave Plus"
+        "en": "Touch panel switch (3) Z-Wave Plus"
       },
       "zwave": {
         "manufacturerId": [
           351
         ],
         "productTypeId": [
-          12609
+          20785,
+          20786
         ],
         "productId": [
           20737,
           20738,
-          20740,
-          20741,
+          20739,
+          20742,
+          20745,
           20746
         ],
         "learnmode": {
-          "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
-            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+            "en": "1. Set the controller into INCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
           }
         },
         "unlearnmode": {
-          "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+          "image": "/drivers/Switch-3-Plus/assets/learnmode.svg",
           "instruction": {
-            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
-            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+            "en": "1. Set the controller into EXCLUSION mode\n2.Press and hold any key on the panel for 8 seconds.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Hou de aangegeven knop op het paneel 8 seconden ingedrukt.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
           }
         },
         "associationGroups": [
@@ -3431,22 +3096,21 @@
               "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
             }
           },
-          "3": {
-            "hint": {
-              "en": "Switch 2 - control associated devices",
-              "nl": "Schakelaar 2 - schakel gekoppelde apparaten"
-            }
-          },
           "4": {
             "hint": {
-              "en": "Switch 3 - control associated devices",
-              "nl": "Schakelaar 3 - schakel gekoppelde apparaten"
+              "en": "Lifeline group"
             }
           },
           "5": {
             "hint": {
-              "en": "Switch 4 - control associated devices",
-              "nl": "Schakelaar 4 - schakel gekoppelde apparaten"
+              "en": "Switch 2 - control associated devices",
+              "nl": "schakelaar 2 - schakel gekoppelde apparaten"
+            }
+          },
+          "8": {
+            "hint": {
+              "en": "Switch 3 - control associated devices",
+              "nl": "schakelaar 3 - schakel gekoppelde apparaten"
             }
           }
         },
@@ -3456,10 +3120,10 @@
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
+            "icon": "/drivers/Switch-3-Plus/assets/icon_1.svg",
             "name": {
-              "en": "Switch 2",
-              "nl": "Schakelaar 2"
+              "en": "Switch 1",
+              "nl": "Schakelaar 1"
             },
             "settings": []
           },
@@ -3468,36 +3132,22 @@
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
+            "icon": "/drivers/Switch-3-Plus/assets/icon_2.svg",
             "name": {
               "en": "Switch 2",
               "nl": "Schakelaar 2"
-            },
-            "settings": []
+            }
           },
           "3": {
             "class": "socket",
             "capabilities": [
               "onoff"
             ],
-            "icon": "/drivers/Switch-4-Plus/assets/icon_3.svg",
+            "icon": "/drivers/Switch-3-Plus/assets/icon_3.svg",
             "name": {
               "en": "Switch 3",
               "nl": "Schakelaar 3"
-            },
-            "settings": []
-          },
-          "4": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "icon": "/drivers/Switch-4-Plus/assets/icon_4.svg",
-            "name": {
-              "en": "Switch 4",
-              "nl": "Schakelaar 4"
-            },
-            "settings": []
+            }
           }
         }
       },
@@ -3505,11 +3155,12 @@
       "capabilities": [
         "onoff"
       ],
-      "icon": "/drivers/Switch-4-Plus/assets/icon.svg",
+      "icon": "/drivers/Switch-3-Plus/assets/icon.svg",
       "images": {
-        "large": "/drivers/Switch-4-Plus/assets/images/large.jpg",
-        "small": "/drivers/Switch-4-Plus/assets/images/small.jpg"
+        "large": "/drivers/Switch-3-Plus/assets/images/large.png",
+        "small": "/drivers/Switch-3-Plus/assets/images/small.png"
       },
+      "id": "Switch-3-Plus",
       "settings": [
         {
           "id": "Power_off_status",
@@ -3547,7 +3198,6 @@
       ]
     },
     {
-      "id": "Switch-4",
       "name": {
         "en": "Touch panel switch (4)"
       },
@@ -3624,8 +3274,7 @@
             "name": {
               "en": "Switch 2",
               "nl": "Schakelaar 2"
-            },
-            "settings": []
+            }
           },
           "3": {
             "class": "socket",
@@ -3636,8 +3285,7 @@
             "name": {
               "en": "Switch 3",
               "nl": "Schakelaar 3"
-            },
-            "settings": []
+            }
           },
           "4": {
             "class": "socket",
@@ -3648,8 +3296,7 @@
             "name": {
               "en": "Switch 4",
               "nl": "Schakelaar 4"
-            },
-            "settings": []
+            }
           }
         }
       },
@@ -3662,6 +3309,167 @@
         "large": "/drivers/Switch-4/assets/images/large.jpg",
         "small": "/drivers/Switch-4/assets/images/small.jpg"
       },
+      "id": "Switch-4",
+      "settings": [
+        {
+          "id": "Power_off_status",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "State after power loss",
+            "nl": "Toestand na spanningsuitval"
+          },
+          "hint": {
+            "en": "Define how the switch reacts after the power supply is back on.",
+            "nl": "Bepaal hoe de switch reageert na een spanningsuitval."
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Restores state after a power failure (default)",
+                "nl": "Herstelt toestand na spanningsuitval (default)"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "OFF after a power failure",
+                "nl": "UIT na spanningsuitval"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Touch Switch (4) Z-Wave Plus"
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          12609
+        ],
+        "productId": [
+          20737,
+          20738,
+          20740,
+          20741,
+          20746
+        ],
+        "learnmode": {
+          "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into INCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If inclusion is successful, INDICATION LED on the panel will turn green, and switch will turn on. ",
+            "nl": "1. Zet de controller in toevoeg modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het toevoegen succesvol is, zal de indicatie LED op het panneel groen worden en de schakelaar ingeschakeld worden. "
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Set the controller into EXCLUSION mode\n2.On and off any key on the panel 3 times.\nNote: If the exclusion is successful, INDICATION LED on the panel will turn orange, and switch will turn off. The exclusion will delete all association data",
+            "nl": "1. Zet de controller in de verwijder modus\n2.Druk 3 keer op een willekeurige toets op het paneel.\nNote: Wanneer het verwijderen succesvol is, zal de indicatie LED op het panneel orange worden en de schakelaar uitgeschakeld worden. "
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "Switch 1 - control associated devices",
+              "nl": "Schakelaar 1 - schakel gekoppelde apparaten"
+            }
+          },
+          "3": {
+            "hint": {
+              "en": "Switch 2 - control associated devices",
+              "nl": "Schakelaar 2 - schakel gekoppelde apparaten"
+            }
+          },
+          "4": {
+            "hint": {
+              "en": "Switch 3 - control associated devices",
+              "nl": "Schakelaar 3 - schakel gekoppelde apparaten"
+            }
+          },
+          "5": {
+            "hint": {
+              "en": "Switch 4 - control associated devices",
+              "nl": "Schakelaar 4 - schakel gekoppelde apparaten"
+            }
+          }
+        },
+        "multiChannelNodes": {
+          "1": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-4-Plus/assets/icon_1.svg",
+            "name": {
+              "en": "Switch 2",
+              "nl": "Schakelaar 2"
+            },
+            "settings": []
+          },
+          "2": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-4-Plus/assets/icon_2.svg",
+            "name": {
+              "en": "Switch 2",
+              "nl": "Schakelaar 2"
+            }
+          },
+          "3": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-4-Plus/assets/icon_3.svg",
+            "name": {
+              "en": "Switch 3",
+              "nl": "Schakelaar 3"
+            }
+          },
+          "4": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "icon": "/drivers/Switch-4-Plus/assets/icon_4.svg",
+            "name": {
+              "en": "Switch 4",
+              "nl": "Schakelaar 4"
+            }
+          }
+        }
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "icon": "/drivers/Switch-4-Plus/assets/icon.svg",
+      "images": {
+        "large": "/drivers/Switch-4-Plus/assets/images/large.jpg",
+        "small": "/drivers/Switch-4-Plus/assets/images/small.jpg"
+      },
+      "id": "Switch-4-Plus",
       "settings": [
         {
           "id": "Power_off_status",
@@ -3698,5 +3506,67 @@
         }
       ]
     }
-  ]
+  ],
+  "capabilities": {
+    "thermostat_mode_custom": {
+      "type": "enum",
+      "uiComponent": "picker",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat"
+      },
+      "values": [
+        {
+          "id": "Heat",
+          "title": {
+            "en": "Manual",
+            "nl": "Manueel"
+          }
+        },
+        {
+          "id": "Energy Save Heat",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto"
+          }
+        },
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit"
+          }
+        },
+        {
+          "id": "AWAY",
+          "title": {
+            "en": "Away",
+            "nl": "Afwezig"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "thermostat_onoff": {
+      "type": "boolean",
+      "uiComponent": "sensor",
+      "icon": "/assets/thermostat_onoff.svg",
+      "title": {
+        "en": "State",
+        "nl": "Status"
+      },
+      "desc": {
+        "en": "State of the thermostat",
+        "nl": "Status van de thermostaat"
+      },
+      "getable": true,
+      "setable": false,
+      "greyout": true
+    }
+  }
 }

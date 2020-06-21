@@ -1,0 +1,23 @@
+[
+    {
+      "id": "CO2_notification",
+      "zwave": {
+        "index": 1,
+        "size": 2
+      },
+      "type": "number",
+      "value": 1000,
+      "attr": {
+        "min": 1,
+        "max": 1200
+      },
+      "label": {
+        "en": "CO2 notification threshold",
+        "nl": "CO2 notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "CO2 Notification threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
+        "nl": "CO2 Notificatie drempelwaarde 1 to 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
+      }
+    }
+  ]

@@ -1,0 +1,47 @@
+{
+  "zwave": {
+    "index": 17,
+    "size": 1,
+    "signed": false
+  },
+  "type": "dropdown",
+  "value": "255",
+  "label": {
+    "en": "S2 funtion",
+    "nl": "S2 functie"
+  },
+  "hint": {
+    "en": "Define function of S2 switch.",
+    "nl": "Bepaal de functie van de S2 schakelaar."
+  },
+  "values": [
+    {
+      "id": "1",
+      "label": {
+        "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
+        "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Send Scene Activation only",
+        "nl": "Stuur enkel Scene Activation"
+      }
+    },
+    {
+      "id": "3",
+      "label": {
+        "en": "Send Basic Set ON/OFF to AG4 only",
+        "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
+      }
+    },
+    {
+      "id": "255",
+      "label": {
+        "en": "Disable S2 function (Default)",
+        "nl": "Schakel S2 functie uit (Standaard)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "zwave": {
+    "index": 3,
+    "size": 2
+  },
+  "value": 0.5,
+  "label": {
+    "en": "Temperature reporting threshold (°C/°F)",
+    "nl": "Temperatuur rapportage drempelwaarde (°C/°F)"
+  },
+  "hint": {
+    "en": "Determines the minimum temperature value change (°C/°F) before reporting changes.",
+    "nl": "Bepaald de minimum verandering in waarde (°C/°F) voordat er gerapporteerd wordt."
+  },
+  "attr": {
+    "min": 0.3,
+    "max": 100
+  },
+  "type": "number"
+}

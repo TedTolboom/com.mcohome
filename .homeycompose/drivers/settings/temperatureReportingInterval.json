@@ -1,0 +1,21 @@
+{
+  "zwave": {
+    "index": 4,
+    "size": 2,
+    "signed": false
+  },
+  "value": 30,
+  "label": {
+    "en": "Temperature reporting interval (s)",
+    "nl": "Temperatuur reportage inteval (s)"
+  },
+  "hint": {
+    "en": "Determines the time between temperature reports to Homey.",
+    "nl": "Bepaald de tijd tussen temperatuur rapportages naar Homey."
+  },
+  "attr": {
+    "min": 10,
+    "max": 65535
+  },
+  "type": "number"
+}

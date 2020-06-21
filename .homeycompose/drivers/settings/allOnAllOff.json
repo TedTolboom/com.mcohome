@@ -1,0 +1,47 @@
+{
+  "zwave": {
+    "index": 6,
+    "size": 1,
+    "signed": false
+  },
+  "type": "dropdown",
+  "value": "255",
+  "label": {
+    "en": "'ALL ON' / 'ALL OFF'",
+    "nl": "'Alles AAN' / 'Alles UIT'"
+  },
+  "hint": {
+    "en": "Define how the Switch responds to an 'ALL ON' or 'ALL OFF' command.",
+    "nl": "Bepaal hoe de Switch reageert op een 'Alles AAN' of 'Alles UIT' commando."
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Forbid 'ALL ON', forbid 'ALL OFF'",
+        "nl": "Blokkeer 'Alles AAN', blokkeer 'Alles UIT'"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "Forbid 'ALL ON', allow 'ALL OFF'",
+        "nl": "Blokkeer 'Alles AAN', sta 'Alles UIT' toe"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Allow 'ALL ON', forbid 'ALL OFF'",
+        "nl": "Sta 'Alles AAN' toe, blokker 'Alles UIT'"
+      }
+    },
+    {
+      "id": "255",
+      "label": {
+        "en": "Allow 'ALL ON', allow 'ALL OFF' (Default)",
+        "nl": "Sta 'Alles AAN' toe, sta 'Alles UIT' toe (Standaard)"
+      }
+    }
+  ]
+}

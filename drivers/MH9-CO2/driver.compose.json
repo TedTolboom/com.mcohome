@@ -1,0 +1,65 @@
+{
+  "name": {
+    "en": "CO2 Monitor"
+  },
+  "zwave": {
+    "manufacturerId": [
+      351
+    ],
+    "productTypeId": [
+      2305,
+      2306,
+      2309
+    ],
+    "productId": [
+      12545,
+      12546,
+      12547,
+      12548,
+      513,
+      20738
+    ],
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds.",
+        "nl": "1. Houdt de aangegeven knop op het paneel meer dan 3 seconden ingedrukt.\n2. Laat de knop los en druk dezelfde knop nogmaals in om het apparaat in toevoegings modus te zetten\r\nNote: Wanneer het toevoegen succesvol is, wordt de toegekende Node ID enkele seconden zichtbaar in het scherm."
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'",
+        "nl": "1. Houdt de aangegeven knop op het paneel meer dan 3 seconden ingedrukt.\n2. Laat de knop los en druk dezelfde knop nogmaals in om het apparaat in verwijderings modus te zetten\r\nNote: Wanneer het verwijderen succesvol is, wordt '---' enkele seconden zichtbaar in het scherm."
+      }
+    },
+    "associationGroups": [
+      1,
+      2
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Notification"
+        }
+      },
+      "2": {
+        "hint": {
+          "en": "Lifeline group"
+        }
+      }
+    }
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_co2",
+    "alarm_co2",
+    "measure_temperature",
+    "measure_humidity"
+  ],
+  "icon": "{{driverAssetsPath}}/icon.svg",
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  }
+}

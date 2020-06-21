@@ -1,0 +1,325 @@
+[ 
+  {
+    "id": "minimum_brightness_level",
+    "zwave": {
+      "index": 5,
+      "size": 1
+    },
+    "type": "number",
+    "label": {
+      "en": "Minimum brightness level",
+      "nl": "Minimale helderheidsniveau"
+    },
+    "value": 1,
+    "attr": {
+      "min": 1,
+      "max": 98
+    },
+    "hint": {
+      "en": "This parameter sets the minimal brightness level. Range: 1 - 98, default value: 1.",
+      "nl": "Deze parameter zet het minimale helderheidsniveau. Bereik: 1 - 98, standaard waarde: 1."
+    }
+  },
+  {
+    "id": "maximum_brightness",
+    "zwave": {
+      "index": 6,
+      "size": 1
+    },
+    "type": "number",
+    "label": {
+      "en": "Maximum brightness level",
+      "nl": "Maximaal helderheidsniveau"
+    },
+    "value": 99,
+    "attr": {
+      "min": 2,
+      "max": 99
+    },
+    "hint": {
+      "en": "This parameter sets the maximal brightness level. Range: 2 - 99, default value: 99.",
+      "nl": "Deze parameter zet het maximale helderheidsniveau. Bereik: 2 - 99, standaard waarde: 99."
+    }
+  },
+  {
+    "id": "dimming_step_auto",
+    "zwave": {
+      "index": 10,
+      "size": 1
+    },
+    "type": "number",
+    "label": {
+      "en": "The percentage of a dimming step at automatic control",
+      "nl": "Percentage van dim stap bij automatische besturing"
+    },
+    "value": 1,
+    "attr": {
+      "min": 1,
+      "max": 99
+    },
+    "hint": {
+      "en": "The percentage (1-99) of a dimming step at automatic control. Range: 1 - 99, default value: 1.",
+      "nl": "Het percentage (1-99) per dim stap bij automatische besturing. Bereik: 1 - 99, standaard waarde: 1."
+    }
+  },
+  {
+    "id": "time_dimming_step_auto",
+    "zwave": {
+      "index": 9,
+      "size": 2
+    },
+    "type": "number",
+    "label": {
+      "en": "Time of a dimming step at automatic control",
+      "nl": "Tijd per dim stap bij automatische besturing"
+    },
+    "value": 3,
+    "attr": {
+      "min": 0,
+      "max": 255
+    },
+    "hint": {
+      "en": "Time of a dimming step at automatic control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+      "nl": "Tijd per dim stap bij automatische besturing van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+    }
+  },
+  {
+    "id": "dimming_step_manual",
+    "zwave": {
+      "index": 8,
+      "size": 1
+    },
+    "type": "number",
+    "label": {
+      "en": "The percentage of a dimming step at manual control",
+      "nl": "Percentage van dim stap bij handmatige bediening"
+    },
+    "value": 1,
+    "attr": {
+      "min": 1,
+      "max": 99
+    },
+    "hint": {
+      "en": "The percentage (1-99) of a dimming step at manual control. Range: 1 - 99, default value: 1.",
+      "nl": "Het percentage (1-99) per dim stap bij handmatige bediening. Bereik: 1 - 99, standaard waarde: 1."
+    }
+  },
+  {
+    "id": "time_dimming_step_manual",
+    "zwave": {
+      "index": 7,
+      "size": 2
+    },
+    "type": "number",
+    "label": {
+      "en": "Time of a dimming step at manual control",
+      "nl": "Tijd per dim stap bij handmatige bediening"
+    },
+    "value": 3,
+    "attr": {
+      "min": 0,
+      "max": 255
+    },
+    "hint": {
+      "en": "Time of a dimming step at manual control for 1 to 255 (1s - 2,55s). Range: 0 - 255, default value: 3.",
+      "nl": "Tijd per dim stap bij handmatige bediening van 1 to 255 (1s - 2,55s). Bereik: 0 - 255, standaard waarde: 3."
+    }
+  },
+  {
+    "$extends": "switchType",
+    "id": "Switch_type",
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Momentary switch (Default)",
+          "nl": "Pulsdruk schakelaar (Standaard)"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Toggle switch",
+          "nl": "Tuimel schakelaar"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Roller blind Switch (UP | DOWN)",
+          "nl": "Rolgordijn schakelaar (OP | NEER)"
+        }
+      }
+    ]
+  },
+  {
+    "$extends": "twoStateSwitch",
+    "id": "Two_state_switch"
+  },
+  {
+    "$extends": "s2Function",
+    "id": "S2_function",
+    "zwave": {
+      "index": 17,
+      "size": 1,
+      "signed": false
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Roller blinds switch",
+          "nl": "Rolgordijn schakelaar"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Send Scene Activation and send Basic Set ON/OFF to AG4",
+          "nl": "Stuur Scene Activation en stuur Basic Set ON/OFF naar AG4"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Send Scene Activation only",
+          "nl": "Stuur enkel Scene Activation"
+        }
+      },
+      {
+        "id": "3",
+        "label": {
+          "en": "Send Basic Set ON/OFF to AG4 only",
+          "nl": "Stuur enkel Basic Set ON/OFF naar AG4"
+        }
+      },
+      {
+        "id": "255",
+        "label": {
+          "en": "Disable S2 function (Default)",
+          "nl": "Schakel S2 functie uit (Standaard)"
+        }
+      }
+    ]
+  },
+  {
+   "$extends": "powerOffStatus",
+      "id": "Dimmer_state_saved"
+  },  
+  {
+    "$extends": "allOnAllOff",
+    "id": "All_ON_All_OFF",
+    "zwave": {
+      "index": 4,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "timerFunctionality",
+    "id": "timer_functionality",
+    "zwave": {
+      "index": 11,
+      "size": 2
+    }
+  },
+  {
+    "$extends": "s1OperationReport",
+    "id": "S1_operation_report",
+    "zwave": {
+      "index": 16,
+      "size": 1
+    }
+  },
+  {
+    "id": "S1_single_click",
+    "zwave": {
+      "index": 13,
+      "size": 1,
+      "signed": false
+    },
+    "type": "number",
+    "label": {
+      "en": "S1 single click",
+      "nl": "S1 enkele klik"
+    },
+    "value": 99,
+    "attr": {
+      "min": 0,
+      "max": 255
+    },
+    "hint": {
+      "en": "Set the brightness level to switch to last saved brightness level or to the set value. \nRange: 0 = last dim level, 1-99 = dim-level",
+      "nl": "Stel helderheid in op om te schakelen naar de laatst bekende dim-level or de ingestelde waarde. \nStandaard: 0 = laatste dim level, 1-99 = dim-level"
+    }
+  },
+  {
+    "id": "S1_double_click",
+    "zwave": {
+      "index": 14,
+      "size": 1
+    },
+    "type": "dropdown",
+    "value": "1",
+    "label": {
+      "en": "S1 double click",
+      "nl": "S1 dubbel klik"
+    },
+    "hint": {
+      "en": "Define the double click behavior.",
+      "nl": "Bepaal hoe een dubbele klik reageert."
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Double click disabled",
+          "nl": "Dubbele klik uitgeschakeld"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Double click reach max brightness level (Default)",
+          "nl": "Dubbele klik naar maximale dim-level (Standaard)"
+        }
+      }
+    ]
+  },
+  {
+    "$extends": "s2OperationReport",
+    "id": "S2_operation_report",
+    "zwave": {
+      "index": 18,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends" : "s2SceneIDSingleClick",
+    "id": "S2_sceneID_single_click",
+    "zwave": {
+      "index": 19,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2SceneIDDoubleClick",
+    "id": "S2_sceneID_double_click",
+    "zwave": {
+      "index": 20,
+      "size": 1,
+      "signed": false
+    }
+  },
+  {
+    "$extends": "s2SceneIDHold",
+    "id": "S2_sceneID_hold",
+    "zwave": {
+      "index": 21,
+      "size": 1,
+      "signed": false
+    }
+  }
+]
