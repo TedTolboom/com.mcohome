@@ -1,0 +1,643 @@
+[
+
+  {
+    "type": "group",
+    "label": {
+      "en": "Notification threshold configuration",
+      "nl": "Notificatie drempelwaarde configuratie"
+    },
+    "collapsed": false,
+    "children": [
+
+    {
+      "id": "PM25_Delta_Level",
+      "zwave": {
+        "index": 1,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "PM2.5 Notification threshold",
+        "nl": "PM2.5 Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "PM2.5 Notification threshold 2 to 255 ug/m3.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 255 ug/m3",
+        "nl": "PM2.5 Notificatie drempelwaarde 2 tot 255 ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 255 ug/m3"
+      }
+      },
+      {
+      "id": "CO2_Delta_Level",
+      "zwave": {
+        "index": 2,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "CO2 Notification threshold",
+        "nl": "CO2 Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "CO2 Notification threshold 10 to 635 ppm.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 255\nValue x 5ppm",
+        "nl": "CO2 Notificatie drempelwaarde 10 tot 635 ppm ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 255\nWaarde x 5ppm"
+      }
+      },
+      {
+      "id": "Temp_Delta_Level",
+      "zwave": {
+        "index": 3,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "Temperature Notification threshold",
+        "nl": "Temperatuur Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "Temperature Notification threshold 0.5 to 63.\nTurn off: 0\nDefault: 0\nRange 1 - 255\nValue x 0.5",
+        "nl": "Temperatuur Notificatie drempelwaarde 0.5 tot 63.\nZet uit: 0\nStandaard: 0\nBereik 1 - 255\nWaarde x 0.5"
+      }
+      },
+      {
+      "id": "Humidity_Delta_Level",
+      "zwave": {
+        "index": 4,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "Humidity Notification threshold",
+        "nl": "Vochtigheid Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "Humidity Notification threshold 3 to 255.\nTurn off: 0\nDefault: 0\nRange 0, 3 - 255",
+        "nl": "Vochtigheid Notificatie drempelwaarde 3 tot 255.\nZet uit: 0\nStandaard: 0\nBereik 0, 3 - 255"
+      }
+      },
+      {
+      "id": "VOC_Delta_Level",
+      "zwave": {
+        "index": 5,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "VOC Notification threshold",
+        "nl": "VOC Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "VOC Notification threshold 5 to 635.\nTurn off: 0\nDefault: 0\nRange 1 - 255\nValue x 5ppb",
+        "nl": "VOC Notificatie drempelwaarde 5 tot 635.\nZet uit: 0\nStandaard: 0\nBereik 1 - 255\nWaarde x 5ppb"
+      }
+      },
+      {
+      "id": "Lux_Delta_Level",
+      "zwave": {
+        "index": 6,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Lux Notification threshold",
+        "nl": "Lux Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "Lux Notification threshold 20 to 32767.\nTurn off: 0\nDefault: 0\nRange 0, 20 - 32767",
+        "nl": "Lux Notificatie drempelwaarde 20 tot 32767.\nZet uit: 0\nStandaard: 0\nBereik 0, 20 - 32767"
+      }
+      },
+      {
+      "id": "dB_Delta_Level",
+      "zwave": {
+        "index": 7,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "Noise (dB) Notification threshold",
+        "nl": "Geluid (dB) Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "Noise (dB) Notification threshold 5 to 255.\nTurn off: 0\nDefault: 0\nRange 0, 5 - 255",
+        "nl": "Geluid (dB) Notificatie drempelwaarde 5 tot 255.\nZet uit: 0\nStandaard: 0\nBereik 0, 5 - 255"
+      }
+      },
+      {
+      "id": "PIR_Delta_Level",
+      "zwave": {
+        "index": 8,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "PIR Notification threshold",
+        "nl": "PIR Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "PIR Notification threshold 0 to 255.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 255",
+        "nl": "PIR Notificatie drempelwaarde 0 tot 255.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 255"
+      }
+      },
+      {
+      "id": "SMOKE_Delta_Level",
+      "zwave": {
+        "index": 9,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 255
+      },
+      "label": {
+        "en": "Smoke Sensor Notification threshold",
+        "nl": "Rookmelder Notificatie drempelwaarde"
+      },
+      "hint": {
+        "en": "Smoke Notification threshold 0 to 255.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 255",
+        "nl": "Rookmelder Notificatie drempelwaarde 0 tot 255.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 255"
+      }
+      }
+      ]
+  },
+    {
+    "type": "group",
+    "label": {
+      "en": "Notification timer configuration",
+      "nl": "Notificatie timer configuratie"
+    },
+    "collapsed": false,
+    "children": [
+
+      {
+      "id": "Smoke_Timer",
+      "zwave": {
+        "index": 10,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Smoke Sensor Timer",
+        "nl": "Rookmelder Timer"
+      },
+      "hint": {
+        "en": "Smoke Sensor Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "Rookmelder Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "PIR_Timer",
+      "zwave": {
+        "index": 11,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "PIR Timer",
+        "nl": "PIR Timer"
+      },
+      "hint": {
+        "en": "PIR Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "PIR Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "PM2.5_Timer",
+      "zwave": {
+        "index": 12,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "PM2.5 Timer",
+        "nl": "PM2.5 Timer"
+      },
+      "hint": {
+        "en": "PM2.5 Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "PM2.5 Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "CO2_Timer",
+      "zwave": {
+        "index": 13,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "CO2 Timer",
+        "nl": "CO2 Timer"
+      },
+      "hint": {
+        "en": "CO2 Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "CO2 Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "Temp_Timer",
+      "zwave": {
+        "index": 14,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Temperature Timer",
+        "nl": "Temperatuur Timer"
+      },
+      "hint": {
+        "en": "Temperature Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "Temperatuur Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "Humidity_Timer",
+      "zwave": {
+        "index": 14,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Humidity Timer",
+        "nl": "Vochtigheid Timer"
+      },
+      "hint": {
+        "en": "Humidity Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "Vochtigheid Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "VOC_Timer",
+      "zwave": {
+        "index": 16,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "VOC Timer",
+        "nl": "VOC Timer"
+      },
+      "hint": {
+        "en": "VOC Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "VOC Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "Lux_Timer",
+      "zwave": {
+        "index": 17,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Lux Timer",
+        "nl": "Lux Timer"
+      },
+      "hint": {
+        "en": "Lux Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "Lux Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      },
+      {
+      "id": "dB_Timer",
+      "zwave": {
+        "index": 18,
+        "size": 2
+      },
+      "type": "number",
+      "value": 0,
+      "attr": {
+        "min": 0,
+        "max": 32767
+      },
+      "label": {
+        "en": "Noise (dB) Timer",
+        "nl": "Geluid (dB) Timer"
+      },
+      "hint": {
+        "en": "Noise (dB) Notification timer in seconds.\nTurn off: 0\nDefault: 0\nRange 0, 10 - 32767",
+        "nl": "Geluid (dB) Notificatie timer in secondes.\nZet uit: 0\nStandaard: 0\nBereik 0, 10 - 32767"
+      }
+      }
+      ]
+    },
+    {
+    "type": "group",
+    "label": {
+      "en": "Settings and calibrations",
+      "nl": "Instellingen en kalibraties"
+    },
+    "collapsed": false,
+    "children": [
+    {
+      "id": "Temp. unit",
+      "zwave": {
+        "index": 47,
+        "size": 1
+      },
+      "type": "dropdown",
+      "value": "0",
+      "label": {
+        "en": "Temperature unit",
+        "nl": "Temperatuur eenheid"
+      },
+      "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "°C"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "°F"
+                  }
+                }
+              ],
+      "hint": {
+        "en": "Set temperature unit",
+        "nl": "Stel temperatuur eenheid in"
+      }
+      },
+      {
+      "id": "T_OffSet",
+      "zwave": {
+        "index": 50,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 100,
+      "attr": {
+        "min": 0,
+        "max": 200
+      },
+      "label": {
+        "en": "Temperature offset",
+        "nl": "Temperatuur offset"
+      },
+      "hint": {
+        "en": "Temperature offset -10.0 ~ 10.0°C.\nDefault: 100\nRange 0 - 200\n1 = 0.1°C",
+        "nl": "Temperatuur offset -10.0 ~ 10.0°C.\nStandaard: 100\nBereik 0 - 200\n1 = 0.1°C"
+      }
+      },
+      {
+      "id": "RH_OffSet",
+      "zwave": {
+        "index": 51,
+        "size": 1
+      },
+      "type": "number",
+      "value": 20,
+      "attr": {
+        "min": 0,
+        "max": 40
+      },
+      "label": {
+        "en": "Humidity offset",
+        "nl": "Vochtigheid offset"
+      },
+      "hint": {
+        "en": "Humidity offset -20 ~ 20%.\nDefault: 20\nRange 0 - 40\n1 = 1%",
+        "nl": "Vochtigheid offset -20 ~ 20%.\nStandaard: 20\nBereik 0 - 40\n1 = 1%"
+      }
+      },
+      {
+      "id": "CO2_OffSet",
+      "zwave": {
+        "index": 52,
+        "size": 2
+      },
+      "type": "number",
+      "value": 500,
+      "attr": {
+        "min": 0,
+        "max": 1000
+      },
+      "label": {
+        "en": "CO2 offset",
+        "nl": "CO2 offset"
+      },
+      "hint": {
+        "en": "CO2 offset -500 ~ 500ppm.\nDefault: 500\nRange 0 - 1000\n1 = 1ppm",
+        "nl": "CO2 offset -500 ~ 500ppm.\nStandaard: 500\nBereik 0 - 1000\n1 = 1ppm"
+      }
+      },
+      {
+      "id": "PM2.5_OffSet",
+      "zwave": {
+        "index": 53,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 100,
+      "attr": {
+        "min": 0,
+        "max": 200
+      },
+      "label": {
+        "en": "PM2.5 offset",
+        "nl": "PM2.5 offset"
+      },
+      "hint": {
+        "en": "PM2.5 offset -100 ~ 100ug/m3.\nDefault: 100\nRange 0 - 200\n1 = 1ug/m3",
+        "nl": "PM2.5 offset -100 ~ 100ug/m3.\nStandaard: 100\nBereik 0 - 200\n1 = 1ug/m3"
+      }
+      },
+      {
+      "id": "Lux_OffSet",
+      "zwave": {
+        "index": 54,
+        "size": 2
+      },
+      "type": "number",
+      "value": 5000,
+      "attr": {
+        "min": 0,
+        "max": 10000
+      },
+      "label": {
+        "en": "Lux offset",
+        "nl": "Lux offset"
+      },
+      "hint": {
+        "en": "Lux offset -5000 ~ 5000Lux.\nDefault: 5000\nRange 0 - 10000\n1 = 1lux",
+        "nl": "Lux offset -5000 ~ 5000Lux.\nStandaard: 5000\nBereik 0 - 10000\n1 = 1lux"
+      }
+      },
+      {
+      "id": "VOC_Correct",
+      "zwave": {
+        "index": 55,
+        "size": 1,
+        "signed": false
+      },
+      "type": "number",
+      "value": 100,
+      "attr": {
+        "min": 0,
+        "max": 200
+      },
+      "label": {
+        "en": "VOC offset",
+        "nl": "VOC offset"
+      },
+      "hint": {
+        "en": "VOC offset -100 ~ 100ppb.\nDefault: 100\nRange 0 - 200\n1 = 1ppb",
+        "nl": "VOC offset -100 ~ 100ppb.\nStandaard: 100\nBereik 0 - 200\n1 = 1ppb"
+      }
+      },
+      {
+      "id": "dB_Correct",
+      "zwave": {
+        "index": 50,
+        "size": 1
+      },
+      "type": "number",
+      "value": 50,
+      "attr": {
+        "min": 0,
+        "max": 100
+      },
+      "label": {
+        "en": "Noise (dB) offset",
+        "nl": "Geluid (dB) offset"
+      },
+      "hint": {
+        "en": "Noise (dB) offset -50 ~ 50dB.\nDefault: 50\nRange 0 - 100\n1 = 1dB",
+        "nl": "Geluid (dB) offset -50 ~ 50dB.\nStandaard: 50\nBereik 0 - 100\n1 = 1dB"
+      }
+      }
+    ]
+    },
+    {
+      "id": "Write Only",
+      "zwave": {
+        "index": 255,
+        "size": 1,
+        "signed": false
+      },
+      "type": "dropdown",
+      "value": "0",
+      "label": {
+        "en": "Restore",
+        "nl": "Herstel"
+      },
+      "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "None",
+                    "nl": "Geen"
+                  }
+                },
+                {
+                  "id": "85",
+                  "label": {
+                    "en": "Restore Factory Setting",
+                    "nl": "Herstel fabrieks instellingen"
+                  }
+                },
+                {
+                  "id": "170",
+                  "label": {
+                    "en": "Restore default parameters",
+                    "nl": "Herstel standaard parameters"
+                  }
+                }
+              ],
+      "hint": {
+        "en": "Restore settings",
+        "nl": "Herstel instellingen"
+      }
+      }
+  ]

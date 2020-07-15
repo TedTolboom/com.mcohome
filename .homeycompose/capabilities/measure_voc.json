@@ -4,6 +4,7 @@
         "en": "VOC",
         "nl": "VOC"
       },
+      "chartType": "spline",
       "getable": true,
       "setable": false,
       "units": {
@@ -11,7 +12,11 @@
         "nl": "ppb"
       },
       "insights": true,
+      "desc": {
+        "en": "Volatile Organic Compounds (ppb)",
+        "nl": "Vluchtige organische stoffen (ppb)"
+      },
       "uiComponent": "sensor",
-      "icon": "/assets/voc.svg",
+      "icon": "/assets/capabilities/voc.svg",
       "uiQuickAction": false
       }

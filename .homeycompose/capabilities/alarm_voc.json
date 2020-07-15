@@ -1,13 +1,22 @@
 {
       "type": "boolean",
       "title": {
-        "en": "VOC ALARM",
-        "nl": "VOC ALARM"
+        "en": "VOC alarm",
+        "nl": "VOC alarm"
+      },
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "VOC alarm turned on",
+        "nl": "VOC alarm ging af"
+      },
+      "insightsTitleFalse": {
+        "en": "VOC alarm turned off",
+        "nl": "VOC alarm ging uit"
       },
       "getable": true,
       "setable": false,
       "insights": true,
       "uiComponent": "sensor",
-      "icon": "/assets/voc.svg",
+      "icon": "/assets/capabilities/alarm_voc.svg",
       "uiQuickAction": false
       }

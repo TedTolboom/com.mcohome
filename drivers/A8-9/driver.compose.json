@@ -16,7 +16,7 @@
     "unlearnmode": {
       "image": "/drivers/A8-9/assets/learnmode.svg",
       "instruction": {
-        "en": "1. Press and hold the key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'",
+        "en": "1. Press and hold the F1 key on the panel for 3 seconds.\n2. Click F2 five times.\n3. Hold F2 and the device will enter learning mode\r\nNote: If inclusion is successful, the signal icon will stay solid gray.",
         "nl": "1. Houdt de F1 knop op het paneel meer dan 3 seconden ingedrukt.\n2. Druk 5 maal op de F2 knop.\n2. Houdt de F2 knop ingedruk en hij zal in verwijder modus gaan.\r\nNote: Wanneer het verwijderen succesvol is, wordt het signaal icoon grijs."
       }
     },
@@ -35,64 +35,20 @@
   "capabilities": [
     "measure_co2",
     "alarm_co2",
+    "measure_pm25",
+    "alarm_pm25",
+    "measure_voc",
+    "alarm_voc",
     "measure_temperature",
     "measure_humidity",
     "measure_luminance",
     "measure_noise",
     "alarm_motion",
-    "alarm_smoke",
-    "measure_pm25",
-    "alarm_pm25",
-    "measure_voc",
-    "alarm_voc"
+    "alarm_smoke"
   ],
   "icon": "/drivers/A8-9/assets/icon.svg",
   "images": {
     "large": "/drivers/A8-9/assets/images/large.jpg",
     "small": "/drivers/A8-9/assets/images/small.jpg"
-  },
-  "settings": [
-    {
-      "id": "PIR_Delta_Level",
-      "zwave": {
-        "index": 8,
-        "size": 1
-      },
-      "type": "number",
-      "value": 0,
-      "attr": {
-        "min": 0,
-        "max": 1
-      },
-      "label": {
-        "en": "PIR Actif",
-        "nl": "PIR actief"
-      },
-      "hint": {
-        "en": "CO2 Notification threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
-        "nl": "CO2 Notificatie drempelwaarde 1 to 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
-      }
-      },
-      {
-      "id": "PIR_Timer",
-      "zwave": {
-        "index": 11,
-        "size": 2
-      },
-      "type": "number",
-      "value": 60,
-      "attr": {
-        "min": 35,
-        "max": 32767
-      },
-      "label": {
-        "en": "PIR Actif",
-        "nl": "PIR actief"
-      },
-      "hint": {
-        "en": "CO2 Notification threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
-        "nl": "CO2 Notificatie drempelwaarde 1 to 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
-      }
-      }
-    ]
+  }
 }
