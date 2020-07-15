@@ -600,6 +600,75 @@
     ]
     },
     {
+    "type": "group",
+    "label": {
+      "en": "Alarm notification threshold",
+      "nl": "Alarm notificatie drempelwaarde"
+    },
+    "collapsed": false,
+    "children": [
+      {
+      "id": "CO2_notification",
+      "type": "number",
+      "value": 1000,
+      "attr": {
+        "min": 1,
+        "max": 1200
+      },
+      "label": {
+        "en": "CO2 alarm threshold",
+        "nl": "CO2 alarm drempelwaarde"
+      },
+      "hint": {
+        "en": "CO2 alarm threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
+        "nl": "CO2 alarm drempelwaarde 1 tot 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
+      }
+      },
+      {
+      "id": "voc_notification",
+      "type": "number",
+      "value": 2200,
+      "attr": {
+        "min": 1,
+        "max": 64000
+      },
+      "label": {
+        "en": "VOC alarm threshold",
+        "nl": "VOC alarm drempelwaarde"
+      },
+      "hint": {
+        "en": "VOC alarm threshold 1 to 64000ppb.\nDefault: 2200\nRange 1 - 64000ppb",
+        "nl": "VOC alarm drempelwaarde 1 tot 64000ppb.\nStandaard: 2200\nBereik 1 - 64000ppb"
+      }
+      },
+      {
+      "id": "PM2.5_notification",
+      "type": "number",
+      "value": 150,
+      "attr": {
+        "min": 1,
+        "max": 500
+      },
+      "label": {
+        "en": "PM2.5 alarm threshold",
+        "nl": "PM2.5 alarm drempelwaarde"
+      },
+      "hint": {
+        "en": "PM2.5 alarm threshold 1 to 500ug/m3.\nDefault: 2200\nRange 1 - 500ug/m3",
+        "nl": "PM2.5 alarm drempelwaarde 1 tot 500ug/m3.\nStandaard: 2200\nBereik 1 - 500ug/m3"
+      }
+      }
+    ]
+    },
+    {
+    "type": "group",
+    "label": {
+      "en": "Restore",
+      "nl": "Herstel"
+    },
+    "collapsed": true,
+    "children": [
+    {
       "id": "Write Only",
       "zwave": {
         "index": 255,
@@ -640,4 +709,6 @@
         "nl": "Herstel instellingen"
       }
       }
+      ]
+    }
   ]

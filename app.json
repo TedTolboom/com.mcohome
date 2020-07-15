@@ -387,8 +387,14 @@
   },
   "drivers": [
     {
+      "id": "A8-9",
       "name": {
         "en": "A8-9 Multi-Sensor"
+      },
+      "energy": {
+        "approximation": {
+          "usageConstant": 2.5
+        }
       },
       "zwave": {
         "manufacturerId": [
@@ -445,7 +451,6 @@
         "large": "/drivers/A8-9/assets/images/large.jpg",
         "small": "/drivers/A8-9/assets/images/small.jpg"
       },
-      "id": "A8-9",
       "settings": [
         {
           "type": "group",
@@ -459,105 +464,110 @@
               "id": "PM25_Delta_Level",
               "zwave": {
                 "index": 1,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "PM2.5 Notification threshold",
                 "nl": "PM2.5 Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "PM2.5 Notification threshold 2 to 127 ug/m3.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 127 ug/m3",
-                "nl": "PM2.5 Notificatie drempelwaarde 2 tot 127 ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 127 ug/m3"
+                "en": "PM2.5 Notification threshold 2 to 255 ug/m3.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 255 ug/m3",
+                "nl": "PM2.5 Notificatie drempelwaarde 2 tot 255 ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 255 ug/m3"
               }
             },
             {
               "id": "CO2_Delta_Level",
               "zwave": {
                 "index": 2,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "CO2 Notification threshold",
                 "nl": "CO2 Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "CO2 Notification threshold 10 to 635 ppm.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 127\nValue x 5ppm",
-                "nl": "CO2 Notificatie drempelwaarde 10 tot 635 ppm ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 127\nWaarde x 5ppm"
+                "en": "CO2 Notification threshold 10 to 635 ppm.\nTurn off: 0\nDefault: 0\nRange 0, 2 - 255\nValue x 5ppm",
+                "nl": "CO2 Notificatie drempelwaarde 10 tot 635 ppm ug/m3.\nZet uit: 0\nStandaard: 0\nBereik 0, 2 - 255\nWaarde x 5ppm"
               }
             },
             {
               "id": "Temp_Delta_Level",
               "zwave": {
                 "index": 3,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "Temperature Notification threshold",
                 "nl": "Temperatuur Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "Temperature Notification threshold 0.5 to 63.\nTurn off: 0\nDefault: 0\nRange 1 - 127\nValue x 0.5",
-                "nl": "Temperatuur Notificatie drempelwaarde 0.5 tot 63.\nZet uit: 0\nStandaard: 0\nBereik 1 - 127\nWaarde x 0.5"
+                "en": "Temperature Notification threshold 0.5 to 63.\nTurn off: 0\nDefault: 0\nRange 1 - 255\nValue x 0.5",
+                "nl": "Temperatuur Notificatie drempelwaarde 0.5 tot 63.\nZet uit: 0\nStandaard: 0\nBereik 1 - 255\nWaarde x 0.5"
               }
             },
             {
               "id": "Humidity_Delta_Level",
               "zwave": {
                 "index": 4,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "Humidity Notification threshold",
                 "nl": "Vochtigheid Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "Humidity Notification threshold 3 to 127.\nTurn off: 0\nDefault: 0\nRange 0, 3 - 127",
-                "nl": "Vochtigheid Notificatie drempelwaarde 3 tot 127.\nZet uit: 0\nStandaard: 0\nBereik 0, 3 - 127"
+                "en": "Humidity Notification threshold 3 to 255.\nTurn off: 0\nDefault: 0\nRange 0, 3 - 255",
+                "nl": "Vochtigheid Notificatie drempelwaarde 3 tot 255.\nZet uit: 0\nStandaard: 0\nBereik 0, 3 - 255"
               }
             },
             {
               "id": "VOC_Delta_Level",
               "zwave": {
                 "index": 5,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "VOC Notification threshold",
                 "nl": "VOC Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "VOC Notification threshold 5 to 635.\nTurn off: 0\nDefault: 0\nRange 1 - 127\nValue x 5ppb",
-                "nl": "VOC Notificatie drempelwaarde 5 tot 635.\nZet uit: 0\nStandaard: 0\nBereik 1 - 127\nWaarde x 5ppb"
+                "en": "VOC Notification threshold 5 to 635.\nTurn off: 0\nDefault: 0\nRange 1 - 255\nValue x 5ppb",
+                "nl": "VOC Notificatie drempelwaarde 5 tot 635.\nZet uit: 0\nStandaard: 0\nBereik 1 - 255\nWaarde x 5ppb"
               }
             },
             {
@@ -585,63 +595,66 @@
               "id": "dB_Delta_Level",
               "zwave": {
                 "index": 7,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "Noise (dB) Notification threshold",
                 "nl": "Geluid (dB) Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "Noise (dB) Notification threshold 5 to 127.\nTurn off: 0\nDefault: 0\nRange 0, 5 - 127",
-                "nl": "Geluid (dB) Notificatie drempelwaarde 5 tot 127.\nZet uit: 0\nStandaard: 0\nBereik 0, 5 - 127"
+                "en": "Noise (dB) Notification threshold 5 to 255.\nTurn off: 0\nDefault: 0\nRange 0, 5 - 255",
+                "nl": "Geluid (dB) Notificatie drempelwaarde 5 tot 255.\nZet uit: 0\nStandaard: 0\nBereik 0, 5 - 255"
               }
             },
             {
               "id": "PIR_Delta_Level",
               "zwave": {
                 "index": 8,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "PIR Notification threshold",
                 "nl": "PIR Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "PIR Notification threshold 0 to 127.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 127",
-                "nl": "PIR Notificatie drempelwaarde 0 tot 127.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 127"
+                "en": "PIR Notification threshold 0 to 255.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 255",
+                "nl": "PIR Notificatie drempelwaarde 0 tot 255.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 255"
               }
             },
             {
               "id": "SMOKE_Delta_Level",
               "zwave": {
                 "index": 9,
-                "size": 1
+                "size": 1,
+                "signed": false
               },
               "type": "number",
               "value": 0,
               "attr": {
                 "min": 0,
-                "max": 127
+                "max": 255
               },
               "label": {
                 "en": "Smoke Sensor Notification threshold",
                 "nl": "Rookmelder Notificatie drempelwaarde"
               },
               "hint": {
-                "en": "Smoke Notification threshold 0 to 127.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 127",
-                "nl": "Rookmelder Notificatie drempelwaarde 0 tot 127.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 127"
+                "en": "Smoke Notification threshold 0 to 255.\nTurn off: 0\nTurn on: >1\nDefault: 0\nRange 0 - 255",
+                "nl": "Rookmelder Notificatie drempelwaarde 0 tot 255.\nZet uit: 0\nZet aan: >1\nStandaard: 0\nBereik 0 - 255"
               }
             }
           ]
@@ -1037,45 +1050,116 @@
           ]
         },
         {
-          "id": "Write Only",
-          "zwave": {
-            "index": 255,
-            "size": 1,
-            "signed": false
+          "type": "group",
+          "label": {
+            "en": "Alarm notification threshold",
+            "nl": "Alarm notificatie drempelwaarde"
           },
-          "type": "dropdown",
-          "value": "0",
+          "collapsed": false,
+          "children": [
+            {
+              "id": "CO2_notification",
+              "type": "number",
+              "value": 1000,
+              "attr": {
+                "min": 1,
+                "max": 1200
+              },
+              "label": {
+                "en": "CO2 alarm threshold",
+                "nl": "CO2 alarm drempelwaarde"
+              },
+              "hint": {
+                "en": "CO2 alarm threshold 1 to 2000ppm.\nDefault: 1000\nRange 1 - 1200 ppm",
+                "nl": "CO2 alarm drempelwaarde 1 tot 2000ppm.\nStandaard: 1000\nBereik 1 - 1200 ppm"
+              }
+            },
+            {
+              "id": "voc_notification",
+              "type": "number",
+              "value": 2200,
+              "attr": {
+                "min": 1,
+                "max": 64000
+              },
+              "label": {
+                "en": "VOC alarm threshold",
+                "nl": "VOC alarm drempelwaarde"
+              },
+              "hint": {
+                "en": "VOC alarm threshold 1 to 64000ppb.\nDefault: 2200\nRange 1 - 64000ppb",
+                "nl": "VOC alarm drempelwaarde 1 tot 64000ppb.\nStandaard: 2200\nBereik 1 - 64000ppb"
+              }
+            },
+            {
+              "id": "PM2.5_notification",
+              "type": "number",
+              "value": 150,
+              "attr": {
+                "min": 1,
+                "max": 500
+              },
+              "label": {
+                "en": "PM2.5 alarm threshold",
+                "nl": "PM2.5 alarm drempelwaarde"
+              },
+              "hint": {
+                "en": "PM2.5 alarm threshold 1 to 500ug/m3.\nDefault: 2200\nRange 1 - 500ug/m3",
+                "nl": "PM2.5 alarm drempelwaarde 1 tot 500ug/m3.\nStandaard: 2200\nBereik 1 - 500ug/m3"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
           "label": {
             "en": "Restore",
             "nl": "Herstel"
           },
-          "values": [
+          "collapsed": true,
+          "children": [
             {
-              "id": "0",
+              "id": "Write Only",
+              "zwave": {
+                "index": 255,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "value": "0",
               "label": {
-                "en": "None",
-                "nl": "Geen"
-              }
-            },
-            {
-              "id": "85",
-              "label": {
-                "en": "Restore Factory Setting",
-                "nl": "Herstel fabrieks instellingen"
-              }
-            },
-            {
-              "id": "170",
-              "label": {
-                "en": "Restore default parameters",
-                "nl": "Herstal standaard parameters"
+                "en": "Restore",
+                "nl": "Herstel"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "None",
+                    "nl": "Geen"
+                  }
+                },
+                {
+                  "id": "85",
+                  "label": {
+                    "en": "Restore Factory Setting",
+                    "nl": "Herstel fabrieks instellingen"
+                  }
+                },
+                {
+                  "id": "170",
+                  "label": {
+                    "en": "Restore default parameters",
+                    "nl": "Herstel standaard parameters"
+                  }
+                }
+              ],
+              "hint": {
+                "en": "Restore settings",
+                "nl": "Herstel instellingen"
               }
             }
-          ],
-          "hint": {
-            "en": "Restore settings",
-            "nl": "Herstel instellingen"
-          }
+          ]
         }
       ]
     },

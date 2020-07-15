@@ -78,7 +78,7 @@ class A89Sensor extends ZwaveDevice {
 			report: 'SENSOR_MULTILEVEL_REPORT',
 			reportParser: report => {
 				if (report && report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
-					if (report['Sensor Value (Parsed)'] === 1 && report['Sensor Type'] === 'Smoke Density (v8)') return true; 
+					if (report['Sensor Value (Parsed)'] === 100 && report['Sensor Type'] === 'Smoke Density (v8)') return true; 
 					if (report['Sensor Value (Parsed)'] === 0 && report['Sensor Type'] === 'Smoke Density (v8)') return false;
 				
 				return null;
@@ -96,7 +96,7 @@ class A89Sensor extends ZwaveDevice {
 					if (report['Sensor Type'] === 'Volatile Organic Compound (v7)') {
 						const parsedRAW = report['Sensor Value (Parsed)'];
 						const parsedVOC = Math.round(parsedRAW * 1000);
-						this.setCapabilityValue('alarm_voc', report['Sensor Value (Parsed)'] >= (this.getSetting('voc_notification') || 2200));
+						this.setCapabilityValue('alarm_voc', parsedVOC >= (this.getSetting('voc_notification') || 2200));
 						this.setCapabilityValue('measure_voc', parsedVOC);
 					}
 				}

@@ -1,7 +1,13 @@
 {
+  "id": "A8-9",
   "name": {
     "en": "A8-9 Multi-Sensor"
   },
+  "energy": {
+    "approximation": {
+      "usageConstant": 2.5
+  }
+},
   "zwave": {
     "manufacturerId": [351],
     "productTypeId": [43011],
