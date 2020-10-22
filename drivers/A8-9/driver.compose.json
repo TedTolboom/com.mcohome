@@ -13,14 +13,14 @@
     "productTypeId": [43011],
     "productId": [4946],
     "learnmode": {
-      "image": "/drivers/A8-9/assets/learnmode.svg",
+      "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
         "en": "1. Press and hold the F1 key on the panel for 3 seconds.\n2. Click F2 five times.\n3. Hold F2 and the device will enter learning mode\r\nNote: If inclusion is successful, the signal icon will stay solid blue.",
         "nl": "1. Houdt de F1 knop op het paneel meer dan 3 seconden ingedrukt.\n2. Druk 5 maal op de F2 knop.\n2. Houdt de F2 knop ingedruk en hij zal in leer modus gaan.\r\nNote: Wanneer het toevoegen succesvol is, wordt het signaal icoon blauw."
       }
     },
     "unlearnmode": {
-      "image": "/drivers/A8-9/assets/learnmode.svg",
+      "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
         "en": "1. Press and hold the F1 key on the panel for 3 seconds.\n2. Click F2 five times.\n3. Hold F2 and the device will enter learning mode\r\nNote: If inclusion is successful, the signal icon will stay solid gray.",
         "nl": "1. Houdt de F1 knop op het paneel meer dan 3 seconden ingedrukt.\n2. Druk 5 maal op de F2 knop.\n2. Houdt de F2 knop ingedruk en hij zal in verwijder modus gaan.\r\nNote: Wanneer het verwijderen succesvol is, wordt het signaal icoon grijs."
@@ -52,9 +52,9 @@
     "alarm_motion",
     "alarm_smoke"
   ],
-  "icon": "/drivers/A8-9/assets/icon.svg",
+  "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {
-    "large": "/drivers/A8-9/assets/images/large.jpg",
-    "small": "/drivers/A8-9/assets/images/small.jpg"
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "alarm_voc_false",
+  "title": {
+    "en": "The VOC alarm turned off",
+    "nl": "Het VOC alarm gaat uit"
+  },
+  "args": []
+}

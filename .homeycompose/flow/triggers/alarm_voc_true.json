@@ -1,0 +1,8 @@
+{
+  "id": "alarm_vibration_true",
+  "title": {
+    "en": "The VOC alarm turned on",
+    "nl": "Het VOC alarm gaat aan"
+  },
+  "args": []
+}
