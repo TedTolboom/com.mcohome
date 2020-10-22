@@ -28,7 +28,7 @@ class MCOhomeApp extends Homey.App {
   }
 
   async _actionStartDimLevelChangeRunListener(args, state) {
-    if (!args.hasOwnProperty('direction')) return Promise.reject('direction_property_missing');
+    if (!args.hasOwnProperty('direction')) return Promise.reject(new Error('direction_property_missing'));
     args.device.log('FlowCardAction triggered to start dim level change in direction', args.direction);
 
     const nodeCommandClassVersion = parseInt(args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.version);
@@ -43,7 +43,7 @@ class MCOhomeApp extends Homey.App {
     if (args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL) {
       return await args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.SWITCH_MULTILEVEL_START_LEVEL_CHANGE(startLevelChangeObj);
     }
-    return Promise.reject('unknown_error');
+    return Promise.reject(new Error('unknown_error'));
   }
 
   async _actionStopDimLevelChangeRunListener(args, state) {
@@ -52,7 +52,7 @@ class MCOhomeApp extends Homey.App {
     if (args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL) {
       return await args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE({});
     }
-    return Promise.reject('unknown_error');
+    return Promise.reject(new Error('unknown_error'));
   }
 
 }
