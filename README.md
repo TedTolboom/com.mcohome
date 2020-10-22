@@ -95,7 +95,16 @@ Monitor the air quality in terms of Atmospheric particulate matter (PM2.5).
 </a>  
 
 **Supported devices:**    
-* PM2.5 monitor (MH10-PM2.5): MH10-PM2.5-WA, MH10-PM2.5-WD    
+* PM2.5 monitor (MH10-PM2.5): MH10-PM2.5-WA, MH10-PM2.5-WD
+
+### MCOHome Multi-Sensor     
+Monitor multiple environmental monitoring sensors, with Temperature, Humidity,PM2.5, CO2, VOC, PIR, illumination, Noise, Smoke sensors.    
+<a href="https://github.com/TedTolboom/com.mcohome">
+  <img src="https://momotica.nl/wp-content/uploads/2020/06/MCOHome/icon.svg" width="10%" height="10%">
+</a>  
+
+**Supported devices:**    
+* A8-9 Multi-Sensor    
 
 
 ## Supported Languages:

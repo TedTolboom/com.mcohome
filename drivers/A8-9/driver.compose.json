@@ -1,0 +1,60 @@
+{
+  "id": "A8-9",
+  "name": {
+    "en": "A8-9 Multi-Sensor"
+  },
+  "energy": {
+    "approximation": {
+      "usageConstant": 2.5
+  }
+},
+  "zwave": {
+    "manufacturerId": [351],
+    "productTypeId": [43011],
+    "productId": [4946],
+    "learnmode": {
+      "image": "/drivers/A8-9/assets/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the F1 key on the panel for 3 seconds.\n2. Click F2 five times.\n3. Hold F2 and the device will enter learning mode\r\nNote: If inclusion is successful, the signal icon will stay solid blue.",
+        "nl": "1. Houdt de F1 knop op het paneel meer dan 3 seconden ingedrukt.\n2. Druk 5 maal op de F2 knop.\n2. Houdt de F2 knop ingedruk en hij zal in leer modus gaan.\r\nNote: Wanneer het toevoegen succesvol is, wordt het signaal icoon blauw."
+      }
+    },
+    "unlearnmode": {
+      "image": "/drivers/A8-9/assets/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the F1 key on the panel for 3 seconds.\n2. Click F2 five times.\n3. Hold F2 and the device will enter learning mode\r\nNote: If inclusion is successful, the signal icon will stay solid gray.",
+        "nl": "1. Houdt de F1 knop op het paneel meer dan 3 seconden ingedrukt.\n2. Druk 5 maal op de F2 knop.\n2. Houdt de F2 knop ingedruk en hij zal in verwijder modus gaan.\r\nNote: Wanneer het verwijderen succesvol is, wordt het signaal icoon grijs."
+      }
+    },
+    "associationGroups": [
+      1
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Lifeline group"
+        }
+      }
+    }
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_co2",
+    "alarm_co2",
+    "measure_pm25",
+    "alarm_pm25",
+    "measure_voc",
+    "alarm_voc",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_luminance",
+    "measure_noise",
+    "alarm_motion",
+    "alarm_smoke"
+  ],
+  "icon": "/drivers/A8-9/assets/icon.svg",
+  "images": {
+    "large": "/drivers/A8-9/assets/images/large.jpg",
+    "small": "/drivers/A8-9/assets/images/small.jpg"
+  }
+}
