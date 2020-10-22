@@ -125,6 +125,10 @@ If possible, please report issues at the [issues section on Github](https://gith
 If you like the app, consider a donation to support development    
 
 ## Changelog:    
+### v1.4.0
+* Add support for the A8-9 sensor      
+* Update Homey meshdriver to 1.4.0
+
 ### v1.3.5
 * Add additional productTypeID's for PM2.5 sensor      
 
