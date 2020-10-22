@@ -16,5 +16,8 @@
   },
   "1.3.5": {
     "en": "Additional Product(Type)Id's for the PM2.5 sensor"
+  },
+  "1.4.0": {
+    "en": "Add support MCO Home A8-9 sensor and update homey-meshdriver"
   }
 }
