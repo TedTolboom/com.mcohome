@@ -7,7 +7,7 @@
 	"dependencies": {
 		"git-branch": "^1.0.0",
 		"homey-log": "^1.0.1",
-		"homey-meshdriver": "^2.0.1"
+		"homey-meshdriver": "^2.0.3"
 	},
 	"devDependencies": {
 		"eslint": "^6.8.0",
