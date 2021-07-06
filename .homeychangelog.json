@@ -19,5 +19,8 @@
   },
   "1.4.0": {
     "en": "Add support MCO Home A8-9 sensor and update homey-meshdriver"
+  },
+  "1.4.1": {
+    "en": "Fix issue with reporting of switch state after Homey v7 update"
   }
 }
