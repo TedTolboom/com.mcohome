@@ -22,5 +22,8 @@
   },
   "1.4.1": {
     "en": "Fix issue with reporting of switch state after Homey v7 update"
+  },
+  "1.4.2": {
+    "en": "Fix switch naming error"
   }
 }

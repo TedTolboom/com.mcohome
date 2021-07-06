@@ -5,7 +5,7 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.4.1",
+  "version": "1.4.2",
   "compatibility": ">=4.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -4218,8 +4218,8 @@
             ],
             "icon": "/drivers/Switch-4-Plus/assets/icon_1.svg",
             "name": {
-              "en": "Switch 2",
-              "nl": "Schakelaar 2"
+              "en": "Switch 1",
+              "nl": "Schakelaar 1"
             },
             "settings": []
           },
