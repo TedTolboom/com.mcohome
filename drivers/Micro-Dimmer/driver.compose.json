@@ -24,14 +24,14 @@
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
         "en": "1. Set the controller into INCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
-        "nl": "1. Zet de controller in toevoeg modus\n2.Druk de puld drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+        "nl": "1. Zet de controller in toevoeg modus\n2.Druk de puls drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
       }
     },
     "unlearnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
         "en": "1. Set the controller into EXCLUSION mode\n2.Press the momentary button on the device, or the connected external button S1 3 times in quick succession.",
-        "nl": "1. Zet de controller in verwijder modus\n2.Druk de puld drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
+        "nl": "1. Zet de controller in verwijder modus\n2.Druk de puls drukknop op de dimmer, of de aangesloten externe knop S1 3 keer snel achterelkaar in."
       }
     },
     "associationGroups": [
