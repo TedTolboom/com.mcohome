@@ -72,8 +72,8 @@
         ],
         "icon": "{{driverAssetsPath}}/icon_1.svg",
         "name": {
-          "en": "Switch 2",
-          "nl": "Schakelaar 2"
+          "en": "Switch 1",
+          "nl": "Schakelaar 1"
         },
         "settings": []
       },
