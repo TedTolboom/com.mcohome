@@ -153,6 +153,10 @@
           "en": "Thermostat mode has changed to",
           "nl": "Thermostaat modus is veranderd naar"
         },
+        "titleFormatted": {
+          "en": "Thermostat has changed to [[mode]]",
+          "nl": "Thermostaat is veranderd naar [[mode]]"
+        },
         "args": [
           {
             "name": "device",
@@ -247,6 +251,10 @@
           "en": "Start dim level change",
           "nl": "Start helderheid transitie"
         },
+        "titleFormatted": {
+          "en": "Start dim level change in [[direction]]",
+          "nl": "Start helderheid transitie in [[direction]]"
+        },
         "hint": {
           "en": "This action card will trigger the start of a dim level change in the set direction. \nDuration (for the change in dim-level from 0-100%) can be set by using the transition symbol. \nIf not set, factory default duration is used.",
           "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting. \nTransitie duur (voor de transitie in helderheid van 0-100%) kan ingesteld worden met behulp van de transitie symbool. \nWanneer niet ingesteld, dan wordt de standaard duur gebruikt."
@@ -304,6 +312,10 @@
           "en": "Set the thermostat mode",
           "nl": "Stel de thermostaat modus in"
         },
+        "titleFormatted": {
+          "en": "Set the thermostat to [[mode]]",
+          "nl": "Activeer de thermostaat [[mode]]"
+        },
         "hint": {
           "en": "Set the thermostat mode (Comfort / Energy Saving / Off / Cooling) and activate instantly",
           "nl": "Stel de thermostaat modus (Comfort / Energiebesparing / Uit / Koelen) in en activeer direct"
@@ -355,6 +367,10 @@
         "title": {
           "en": "Set a setpoint of a thermostat mode",
           "nl": "Stel de temperatuur in van een thermostaat modus"
+        },
+        "titleFormatted": {
+          "en": "Set the thermostat mode [[setpointMode]] to [[setpointValue]] °C",
+          "nl": "Stel de thermostaat modus [[setpointMode]] in naar [[setpointValue]] °C"
         },
         "hint": {
           "en": "Change the setpoint of a specific thermostat mode (Comfort / Energy Saving / Heating). Note: does NOT activate this mode",
@@ -2703,8 +2719,8 @@
       },
       "icon": "/drivers/Micro-Shutter/assets/icon.svg",
       "images": {
-        "large": "/drivers/Micro-Shutter/assets/images/large.jpg",
-        "small": "/drivers/Micro-Shutter/assets/images/small.jpg"
+        "large": "/drivers/Micro-Shutter/assets/images/large.png",
+        "small": "/drivers/Micro-Shutter/assets/images/small.png"
       },
       "settings": [
         {

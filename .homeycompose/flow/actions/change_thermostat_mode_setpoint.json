@@ -4,6 +4,10 @@
     "en": "Set a setpoint of a thermostat mode",
     "nl": "Stel de temperatuur in van een thermostaat modus"
   },
+  "titleFormatted": {
+    "en": "Set the thermostat mode [[setpointMode]] to [[setpointValue]] °C",
+    "nl": "Stel de thermostaat modus [[setpointMode]] in naar [[setpointValue]] °C"
+  },
   "hint": {
     "en": "Change the setpoint of a specific thermostat mode (Comfort / Energy Saving / Heating). Note: does NOT activate this mode",
     "nl": "Stel de temperatuur in van een thermostaat modus (Comfort / Energy Saving / Heating). Let op: activeert deze modus niet"
