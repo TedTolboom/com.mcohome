@@ -4,6 +4,10 @@
     "en": "Set the thermostat mode",
     "nl": "Stel de thermostaat modus in"
   },
+  "titleFormatted": {
+    "en": "Activate the thermostat [[mode]]",
+    "nl": "Activeer de thermostaat [[mode]]"
+  },
   "hint": {
     "en": "Set the thermostat mode (Comfort / Energy Saving / Off / Cooling) and activate instantly",
     "nl": "Stel de thermostaat modus (Comfort / Energiebesparing / Uit / Koelen) in en activeer direct"
