@@ -1,0 +1,100 @@
+[
+  {
+  "id": "start_calibration",
+  "type": "checkbox",
+  "label": {
+    "en": "Start calibration",
+    "nl": "Start kalibratie"
+  },
+  "hint": {
+    "en": "This parameter ({{zwaveParameterIndex}}) starts a demo trip and the calibration procedure on save.",
+    "nl": "Deze parameter ({{zwaveParameterIndex}}) start een demo trip en de kalibratieprocedure na het opslaan."
+  },
+  "zwave": {
+    "index": 9,
+    "size": 1
+  },
+  "value": false
+},
+{
+  "id": "invertWindowCoveringsDirection",
+  "type": "checkbox",
+  "label": {
+    "en": "Invert movement",
+    "nl": "Keer de beweging om"
+  },
+  "hint": {
+    "en": "This parameter inverts the shutter movement direction.",
+    "nl": "Deze parameter keert de rolluik bewegingsdirectie om."
+  },
+  "value": false
+},
+{
+  "id": "watt_meter_report_period",
+  "zwave": {
+    "index": 1,
+    "size": 2
+  },
+  "type": "number",
+  "label": {
+    "en": "Watt Meter Report Period"
+  },
+  "value": 720,
+  "attr": {
+    "min": 1,
+    "max": 32767
+  },
+  "hint": {
+    "en": "This value is in units of 5 seconds. (i.e 720 x 5 sec = 1 hour)"
+  }
+},
+{
+  "id": "kwh_meter_report_period",
+  "zwave": {
+    "index": 2,
+    "size": 2
+  },
+  "type": "number",
+  "label": {
+    "en": "KWH Meter Report Period"
+  },
+  "value": 6,
+  "attr": {
+    "min": 1,
+    "max": 32767
+  },
+  "hint": {
+    "en": "This value is in units of 10 minutes. (i.e 6 x 10 min = 1 hour)"
+  }
+},
+{
+  "id": "level_report_mode",
+  "zwave": {
+    "index": 5,
+    "size": 1
+  },
+  "type": "dropdown",
+  "value": "2",
+  "label": {
+    "en": "Level Report Mode"
+  },
+  "hint": {
+    "en": "Duration of level reporting"
+  },
+  "values": [
+    {
+      "id": "1",
+      "label": {
+        "en": "Report level every 5 seconds while running"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Report level every 10 percent while running"
+      }
+    }
+  ]
+}
+
+]
