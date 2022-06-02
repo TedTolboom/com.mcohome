@@ -1915,22 +1915,23 @@
       "name": {
         "en": "MH8-FC4 Thermostat"
       },
-      "icon": "//drivers/MH8-FC4/assets/icon.svg",
+      "icon": "/drivers/MH8-FC4/assets/icon.svg",
       "images": {
-        "large": "//drivers/MH8-FC4/assets/images/large.jpg",
-        "small": "//drivers/MH8-FC4/assets/images/small.jpg"
+        "large": "/drivers/MH8-FC4/assets/images/large.jpg",
+        "small": "/drivers/MH8-FC4/assets/images/small.jpg"
       },
       "class": "thermostat",
       "capabilities": [
         "measure_temperature",
-        "thermostat_mode_custom",
+        "thermostat_mode_hvac",
+        "fan_speed",
         "thermostat_onoff",
         "target_temperature"
       ],
       "capabilitiesOptions": {
         "target_temperature": {
           "min": 5,
-          "max": 37,
+          "max": 35,
           "step": 0.5
         },
         "thermostat_onoff": {
@@ -1954,13 +1955,13 @@
           20738
         ],
         "learnmode": {
-          "image": "//drivers/MH8-FC4/assets/learnmode.svg",
+          "image": "/drivers/MH8-FC4/assets/learnmode.svg",
           "instruction": {
             "en": "1. Make sure the thermostat is off. Press and hold the ⌄ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
           }
         },
         "unlearnmode": {
-          "image": "//drivers/MH8-FC4/assets/learnmode.svg",
+          "image": "/drivers/MH8-FC4/assets/learnmode.svg",
           "instruction": {
             "en": "1. Make sure the thermostat is off. Press and hold the ⌄ key on the panel for 3 seconds.\n2. Release and press the same key again to set the device in exclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
           }
@@ -4707,6 +4708,48 @@
       "icon": "/assets/capabilities/alarm_voc.svg",
       "uiQuickAction": false
     },
+    "fan_speed": {
+      "type": "enum",
+      "uiComponent": "picker",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator snelheid",
+        "no": "Viftehastighet"
+      },
+      "desc": {
+        "en": "Speed of the ventilator fan",
+        "nl": "Snelheid van de ventilator",
+        "no": "Hastighet på ventilatorviften"
+      },
+      "values": [
+        {
+          "id": "Low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "no": "Lav"
+          }
+        },
+        {
+          "id": "Medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Gemiddeld",
+            "no": "Middels"
+          }
+        },
+        {
+          "id": "High",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "no": "Høy"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
     "measure_voc": {
       "type": "number",
       "title": {
@@ -4773,6 +4816,56 @@
       "getable": true,
       "setable": true
     },
+    "thermostat_mode_hvac": {
+      "type": "enum",
+      "uiComponent": "picker",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus",
+        "no": "Termostatmodus"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat",
+        "no": "Modus for termostaten"
+      },
+      "values": [
+        {
+          "id": "Heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Verhitten",
+            "no": "Varme"
+          }
+        },
+        {
+          "id": "Cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koelen",
+            "no": "Avkjøle"
+          }
+        },
+        {
+          "id": "Fan Only",
+          "title": {
+            "en": "Ventilation",
+            "nl": "Ventilatie",
+            "no": "Ventilasjon"
+          }
+        },
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "no": "Av"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
     "thermostat_onoff": {
       "type": "boolean",
       "uiComponent": "sensor",
@@ -4783,7 +4876,8 @@
       },
       "desc": {
         "en": "State of the thermostat",
-        "nl": "Status van de thermostaat"
+        "nl": "Status van de thermostaat",
+        "no": "Status til termostaten"
       },
       "getable": true,
       "setable": false,

@@ -1,24 +1,26 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 const Homey = require('homey');
 const { ZwaveDevice } = require('homey-meshdriver');
 
 const MasterData = {
-  'Energy Save Heat': {
-    Mode: 'Energy Save Heat',
-    Setpoint: 'Energy Save Heating',
-  },
   Heat: {
     Mode: 'Heat',
     Setpoint: 'Heating 1',
   },
+  Cool: {
+    Mode: 'Cool',
+    Setpoint: 'Cooling 1',
+  },
+  'Fan Only': {
+    Mode: 'Fan Only',
+    Setpoint: 'not supported',
+  },
   Off: {
     Mode: 'Off',
     Setpoint: 'not supported',
-  },
-  AWAY: {
-    Mode: 'AWAY',
-    Setpoint: 'Away Heating',
   },
 };
 
@@ -54,9 +56,8 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
       report: 'THERMOSTAT_OPERATING_STATE_REPORT',
       reportParser: report => {
         if (report && report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Operating State')) {
-          const thermostat_onoff_state = report.Level['Operating State'] === 'Heating';
+          const thermostat_onoff_state = (report.Level['Operating State'] === 'Heating' || report.Level['Operating State'] === 'Cooling');
           if (thermostat_onoff_state !== this.getCapabilityValue('thermostat_onoff')) {
-            // Homey.app[`triggerThermostatOnoff${thermostat_onoff_state ? 'True' : 'False'}`].trigger(this, {}, {});
             return thermostat_onoff_state;
           }
         }
@@ -64,11 +65,36 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
       },
     });
 
-    this.registerCapability('thermostat_mode_custom', 'THERMOSTAT_MODE', {
+    this.registerCapability('fan_speed', 'THERMOSTAT_FAN_MODE', {
+      get: 'THERMOSTAT_FAN_MODE_GET',
       getOpts: {
         getOnStart: true,
-        // pollInterval: 'poll_interval_THERMOSTAT_MODE',
-        // pollMultiplication: 60000,
+      },
+      set: 'THERMOSTAT_FAN_MODE_SET',
+      setParser(fanModeValue) {
+        return {
+          Properties1: {
+            Off: false,
+            'Fan Mode': fanModeValue,
+          },
+        };
+      },
+      report: 'THERMOSTAT_FAN_MODE_REPORT',
+      reportParserV2: report => {
+        if (!report) return null;
+        if (report.hasOwnProperty('Properties1') && report.Properties1.hasOwnProperty('Fan Mode')) {
+          const fanMode = report.Properties1['Fan Mode'];
+          this.log('Received thermostat fan mode report:', fanMode);
+
+          return fanMode;
+        }
+        return null;
+      },
+    });
+
+    this.registerCapability('thermostat_mode_hvac', 'THERMOSTAT_MODE', {
+      getOpts: {
+        getOnStart: true,
       },
       get: 'THERMOSTAT_MODE_GET',
       set: 'THERMOSTAT_MODE_SET',
@@ -84,22 +110,14 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
           this.setCapabilityValue('target_temperature', null);
         }
 
-        // 3. Trigger mode trigger cards if the mode is actually changed
-        if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
-          const thermostatModeObj = {
-            mode: thermostatMode,
-            mode_name: Homey.__(`mode.${thermostatMode}`),
-          };
-          this.triggerThermostatModeChanged.trigger(this, thermostatModeObj, null);
-          this.triggerThermostatModeChangedTo.trigger(this, null, thermostatModeObj);
-
+        // 3. If the mode is actually changed
+        if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
           // 4. Update onoff state when the thermostat mode is off
           if (thermostatMode === 'Off') {
             this.setCapabilityValue('thermostat_onoff', false);
-            // Homey.app[`triggerThermostatOnoffFalse`].trigger(this, {}, {});
           }
         }
-        // 5. Return setParser object and update thermostat_mode_custom capability
+        // 5. Return setParser object and update thermostat_mode_hvac capability
         return {
           Level: {
             'No of Manufacturer Data fields': 0,
@@ -124,23 +142,15 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
             this.setCapabilityValue('target_temperature', null);
           }
 
-          // 3. Trigger mode trigger cards if the mode is actually changed
-          if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
-            const thermostatModeObj = {
-              mode: thermostatMode,
-              mode_name: Homey.__(`mode.${thermostatMode}`),
-            };
-            this.triggerThermostatModeChanged.trigger(this, thermostatModeObj, null);
-            this.triggerThermostatModeChangedTo.trigger(this, null, thermostatModeObj);
-
-
+          // 3. If the mode is actually changed
+          if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
             // 4. Update onoff state when the thermostat mode is off
             if (thermostatMode === 'Off') {
               this.setCapabilityValue('thermostat_onoff', false);
             }
           }
 
-          // 5. Return reportParser object and update thermostat_mode_custom capability
+          // 5. Return reportParser object and update thermostat_mode_hvac capability
           return thermostatMode;
         }
         return null;
@@ -150,12 +160,10 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
     this.registerCapability('target_temperature', 'THERMOSTAT_SETPOINT', {
       getOpts: {
         getOnStart: true,
-        // pollInterval: 'poll_interval_THERMOSTAT_SETPOINT',
-        // pollMultiplication: 60000,
       },
       getParser: () => {
         // 1. Retrieve the setpointType based on the thermostat mode
-        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_custom') || 'Heat'];
+        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat'];
 
         // 2. Return getParser object with correct setpointType
         return {
@@ -167,7 +175,7 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
       set: 'THERMOSTAT_SETPOINT_SET',
       setParser(setpointValue) {
         // 1. Retrieve the setpointType based on the thermostat mode
-        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_custom') || 'Heat'];
+        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat'];
 
         this.log('Setting thermostat setpoint to:', setpointValue, 'for setpointType', setpointType);
 
@@ -221,7 +229,7 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
             }
 
             // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode
-            if (setpointType === mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_custom') || 'Heat']) {
+            if (setpointType === mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat']) {
               this.log('Updated thermostat setpoint on UI to', setpointValue);
               return setpointValue;
             }
@@ -239,75 +247,7 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
       return (10 * value);
     });
 
-    // thermostat_mode_custom_changed
-    this.triggerThermostatModeChanged = new Homey.FlowCardTriggerDevice('thermostat_mode_changed');
-    this.triggerThermostatModeChanged
-      .register();
-
-    // thermostat_mode_custom_changed_to
-    this.triggerThermostatModeChangedTo = new Homey.FlowCardTriggerDevice('thermostat_mode_changed_to');
-    this.triggerThermostatModeChangedTo
-      .register()
-      .registerRunListener((args, state) => Promise.resolve(args.mode === state.mode));
-
-    // Register actions for flows thermostat_change_mode
-    this._actionThermofloorChangeMode = new Homey.FlowCardAction('change_thermostat_mode')
-      .register()
-      .registerRunListener((args, state) => {
-        const thermostatMode = args.mode;
-        this.log('FlowCardAction triggered for ', args.device.getName(), 'to change Thermostat mode to', thermostatMode);
-
-        // Trigger the thermostat mode setParser
-        return args.device.triggerCapabilityListener('thermostat_mode_custom', thermostatMode, {});
-      });
-
-    // Register actions for flows
-    this._actionThermofloorChangeSetpoint = new Homey.FlowCardAction('change_thermostat_mode_setpoint')
-      .register()
-      .registerRunListener(this._actionThermostatChangeSetpointRunListener.bind(this));
-
     this.log('MH8-FC4 device driver MeshInit completed');
-  }
-
-  // thermostat_change_mode_setpoint
-
-  async _actionThermostatChangeSetpointRunListener(args, state) {
-    if (!args.hasOwnProperty('setpointMode')) return Promise.reject(new Error('setpointMode_property_missing'));
-    if (!args.hasOwnProperty('setpointValue')) return Promise.reject(new Error('setpointValue_property_missing'));
-    if (typeof args.setpointValue !== 'number') return Promise.reject(new Error('setpointValue_is_not_a_number'));
-
-    // 1. Retrieve the setpointType based on the thermostat mode
-    const setpointType = mapMode2Setpoint[args.setpointMode];
-    const { setpointValue } = args;
-    this.log('FlowCardAction triggered for ', args.device.getName(), 'to change setpoint value', setpointValue, 'for', setpointType);
-
-    // 2. Store thermostat setpoint based on thermostat type
-    this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
-
-    // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode
-    if (setpointType === mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_custom') || 'Heat']) {
-      this.log('Updated thermostat setpoint on UI to', setpointValue);
-      this.setCapabilityValue('target_temperature', setpointValue);
-    }
-
-    // 6. Trigger command to update device setpoint
-    const bufferValue = Buffer.alloc(2);
-    bufferValue.writeUInt16BE((Math.round(setpointValue * 2) / 2 * 10).toFixed(0));
-
-    if (args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT) {
-      return args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT.THERMOSTAT_SETPOINT_SET({
-        Level: {
-          'Setpoint Type': setpointType,
-        },
-        Level2: {
-          Size: 2,
-          Scale: 0,
-          Precision: 1,
-        },
-        Value: bufferValue,
-      });
-    }
-    return Promise.reject(new Error('unknown_error'));
   }
 
 }

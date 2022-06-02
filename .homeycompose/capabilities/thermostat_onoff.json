@@ -8,7 +8,8 @@
   },
   "desc": {
     "en": "State of the thermostat",
-    "nl": "Status van de thermostaat"
+    "nl": "Status van de thermostaat",
+    "no": "Status til termostaten"
   },
   "getable": true,
   "setable": false,
