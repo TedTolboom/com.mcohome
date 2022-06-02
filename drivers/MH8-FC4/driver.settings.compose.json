@@ -1,0 +1,18 @@
+[
+    {
+      "$extends": "temperatureFormat",
+      "id": "temperature_format"
+    },
+    {
+      "$extends": "temperatureHumidityReporting",
+      "id": "temperature_humidity_reporting"
+    },
+    {
+      "$extends": "temperatureReportingThreshold",
+      "id": "temperature_reporting_threshold"
+    },
+    {
+      "$extends": "temperatureReportingInterval",
+      "id": "reporting_interval"
+    }
+  ]
