@@ -57,7 +57,7 @@
   "class": "windowcoverings",
   "capabilities": [
     "windowcoverings_state",
-    "dim"
+    "windowcoverings_set"
   ],
   "capabilitiesOptions": {
     "onoff": {
