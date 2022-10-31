@@ -3409,6 +3409,39 @@
       },
       "settings": [
         {
+          "id": "led_backlit_brightness",
+          "zwave": {
+            "index": 8,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "LED Backlight Brightness"
+          },
+          "value": 10,
+          "attr": {
+            "min": 0,
+            "max": 10
+          },
+          "hint": {
+            "en": "0 - Disabled, 10 - Maximum brightness"
+          }
+        },
+        {
+          "id": "invertWindowCoveringsDirection",
+          "type": "checkbox",
+          "label": {
+            "en": "Invert movement",
+            "nl": "Keer de beweging om"
+          },
+          "hint": {
+            "en": "This parameter inverts the shutter movement direction.",
+            "nl": "Deze parameter keert de rolluik bewegingsdirectie om."
+          },
+          "value": false
+        },
+        {
           "id": "start_calibration",
           "type": "checkbox",
           "label": {
@@ -3422,19 +3455,6 @@
           "zwave": {
             "index": 9,
             "size": 1
-          },
-          "value": false
-        },
-        {
-          "id": "invertWindowCoveringsDirection",
-          "type": "checkbox",
-          "label": {
-            "en": "Invert movement",
-            "nl": "Keer de beweging om"
-          },
-          "hint": {
-            "en": "This parameter inverts the shutter movement direction.",
-            "nl": "Deze parameter keert de rolluik bewegingsdirectie om."
           },
           "value": false
         },

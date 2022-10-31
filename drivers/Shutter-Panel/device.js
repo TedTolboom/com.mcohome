@@ -21,7 +21,7 @@ class ShutterPanel extends ZwaveDevice {
         // }
 
         let result = 0;
-        const offset = 4;
+        const offset = 0;  // offset not necesary
         const state = this.getCapabilityValue('windowcoverings_state');
         console.log('value: ', value);
         console.log('state: ', state);
