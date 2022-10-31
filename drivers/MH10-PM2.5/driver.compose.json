@@ -2,6 +2,8 @@
   "name": {
     "en": "PM2.5 Monitor"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

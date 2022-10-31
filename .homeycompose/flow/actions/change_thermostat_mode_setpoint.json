@@ -21,6 +21,10 @@
     {
       "name": "setpointMode",
       "type": "dropdown",
+      "title": {
+        "en": "Select the thermostat mode",
+        "nl": "Selecteer de thermostaat modus"
+      },
       "values": [
         {
           "id": "Heat",
@@ -48,6 +52,10 @@
     {
       "name": "setpointValue",
       "type": "range",
+      "title": {
+        "en": "Select the thermostat setpoint",
+        "nl": "Selecteer de thermostaat temperatuur"
+      },
       "min": 5,
       "max": 37,
       "step": 0.5,

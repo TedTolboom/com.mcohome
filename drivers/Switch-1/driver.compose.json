@@ -2,6 +2,8 @@
   "name": {
     "en": "Touch panel switch (1)"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

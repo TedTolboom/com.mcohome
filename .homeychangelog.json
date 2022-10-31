@@ -25,5 +25,11 @@
   },
   "1.4.2": {
     "en": "Fix switch naming error"
+  },
+  "1.4.3": {
+    "en": "Updates to prevent crashes in v7.4.0"
+  },
+  "1.4.4": {
+    "en": "Updates to prevent crashes in v7.4.0"
   }
 }

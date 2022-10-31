@@ -2,6 +2,8 @@
   "name": {
     "en": "Micro Dimmer"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

@@ -21,6 +21,10 @@
     {
       "name": "mode",
       "type": "dropdown",
+      "title": {
+        "en": "Select the thermostat mode",
+        "nl": "Selecteer de thermostaat modus"
+      },
       "values": [
         {
           "id": "Heat",

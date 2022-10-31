@@ -22,6 +22,10 @@
     {
       "name": "direction",
       "type": "dropdown",
+      "title": {
+        "en": "Select the direction of the dim level change",
+        "nl": "Selecteer de richting van het dimmen"
+      },
       "values": [
         {
           "id": "0",

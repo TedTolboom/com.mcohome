@@ -5,15 +5,19 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.4.2",
+  "version": "1.4.4",
   "compatibility": ">=4.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
+  "platforms": [
+    "local"
+  ],
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
   },
+  "support": "https://homey.app/a/com.mcohome/",
   "contributors": {
     "developers": [
       {
@@ -126,6 +130,7 @@
               "en": "ID",
               "nl": "ID"
             },
+            "type": "string",
             "example": {
               "en": "Heat"
             }
@@ -136,6 +141,7 @@
               "en": "Name",
               "nl": "Naam"
             },
+            "type": "string",
             "example": {
               "en": "Comfort",
               "nl": "Comfort"
@@ -149,6 +155,10 @@
           "en": "Thermostat mode has changed to",
           "nl": "Thermostaat modus is veranderd naar"
         },
+        "titleFormatted": {
+          "en": "Thermostat has changed to [[mode]]",
+          "nl": "Thermostaat is veranderd naar [[mode]]"
+        },
         "args": [
           {
             "name": "device",
@@ -158,6 +168,10 @@
           {
             "name": "mode",
             "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus"
+            },
             "values": [
               {
                 "id": "Heat",
@@ -243,6 +257,10 @@
           "en": "Start dim level change",
           "nl": "Start helderheid transitie"
         },
+        "titleFormatted": {
+          "en": "Start dim level change in [[direction]]",
+          "nl": "Start helderheid transitie in [[direction]]"
+        },
         "hint": {
           "en": "This action card will trigger the start of a dim level change in the set direction. \nDuration (for the change in dim-level from 0-100%) can be set by using the transition symbol. \nIf not set, factory default duration is used.",
           "nl": "Deze actie kaart start een helderheids transitie in de ingestelde richting. \nTransitie duur (voor de transitie in helderheid van 0-100%) kan ingesteld worden met behulp van de transitie symbool. \nWanneer niet ingesteld, dan wordt de standaard duur gebruikt."
@@ -257,6 +275,10 @@
           {
             "name": "direction",
             "type": "dropdown",
+            "title": {
+              "en": "Select the direction of the dim level change",
+              "nl": "Selecteer de richting van het dimmen"
+            },
             "values": [
               {
                 "id": "0",
@@ -300,6 +322,10 @@
           "en": "Set the thermostat mode",
           "nl": "Stel de thermostaat modus in"
         },
+        "titleFormatted": {
+          "en": "Activate the thermostat [[mode]]",
+          "nl": "Activeer de thermostaat [[mode]]"
+        },
         "hint": {
           "en": "Set the thermostat mode (Comfort / Energy Saving / Off / Cooling) and activate instantly",
           "nl": "Stel de thermostaat modus (Comfort / Energiebesparing / Uit / Koelen) in en activeer direct"
@@ -313,6 +339,10 @@
           {
             "name": "mode",
             "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus"
+            },
             "values": [
               {
                 "id": "Heat",
@@ -352,6 +382,10 @@
           "en": "Set a setpoint of a thermostat mode",
           "nl": "Stel de temperatuur in van een thermostaat modus"
         },
+        "titleFormatted": {
+          "en": "Set the thermostat mode [[setpointMode]] to [[setpointValue]] °C",
+          "nl": "Stel de thermostaat modus [[setpointMode]] in naar [[setpointValue]] °C"
+        },
         "hint": {
           "en": "Change the setpoint of a specific thermostat mode (Comfort / Energy Saving / Heating). Note: does NOT activate this mode",
           "nl": "Stel de temperatuur in van een thermostaat modus (Comfort / Energy Saving / Heating). Let op: activeert deze modus niet"
@@ -365,6 +399,10 @@
           {
             "name": "setpointMode",
             "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus"
+            },
             "values": [
               {
                 "id": "Heat",
@@ -392,6 +430,10 @@
           {
             "name": "setpointValue",
             "type": "range",
+            "title": {
+              "en": "Select the thermostat setpoint",
+              "nl": "Selecteer de thermostaat temperatuur"
+            },
             "min": 5,
             "max": 37,
             "step": 0.5,
@@ -413,6 +455,12 @@
           "usageConstant": 2.5
         }
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -1184,6 +1232,12 @@
       "name": {
         "en": "Touch panel dimmer"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -1293,6 +1347,12 @@
       "name": {
         "en": "Touch Dimmer Z-Wave Plus"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -1395,6 +1455,12 @@
       "name": {
         "en": "PM2.5 Monitor"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -1474,6 +1540,12 @@
       "name": {
         "en": "MH7 Thermostat"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "icon": "//drivers/MH7/assets/icon.svg",
       "images": {
         "large": "//drivers/MH7/assets/images/large.jpg",
@@ -1675,6 +1747,12 @@
       "name": {
         "en": "MH7H Thermostat (+ humidity sensor)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "icon": "/drivers/MH7H/assets/icon.svg",
       "images": {
         "large": "/drivers/MH7H/assets/images/large.jpg",
@@ -1899,6 +1977,12 @@
       "name": {
         "en": "CO2 Monitor"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -1988,6 +2072,12 @@
       "name": {
         "en": "Micro Dimmer"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -2632,6 +2722,12 @@
       "name": {
         "en": "Micro Shutter"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -2702,8 +2798,8 @@
             "nl": "Start kalibratie"
           },
           "hint": {
-            "en": "This parameter ({{zwaveParameterIndex}}) starts a demo trip and the calibration procedure on save.",
-            "nl": "Deze parameter ({{zwaveParameterIndex}}) start een demo trip en de kalibratieprocedure na het opslaan."
+            "en": "This parameter (9) starts a demo trip and the calibration procedure on save.",
+            "nl": "Deze parameter (9) start een demo trip en de kalibratieprocedure na het opslaan."
           },
           "zwave": {
             "index": 9,
@@ -2797,6 +2893,12 @@
       "name": {
         "en": "Micro Switch"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3229,6 +3331,12 @@
       "name": {
         "en": "Shutter Panel"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3423,6 +3531,12 @@
       "name": {
         "en": "Touch panel switch (1)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3534,6 +3648,12 @@
       "name": {
         "en": "Touch Switch (1) Plus"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3616,6 +3736,12 @@
       "name": {
         "en": "Touch panel switch (2)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3744,6 +3870,12 @@
       "name": {
         "en": "Touch Switch (2) Z-Wave Plus"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -3876,6 +4008,12 @@
       "name": {
         "en": "Touch panel switch (3)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -4014,6 +4152,12 @@
       "name": {
         "en": "Touch panel switch (3) Z-Wave Plus"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -4164,6 +4308,12 @@
       "name": {
         "en": "Touch panel switch (4)"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351
@@ -4313,6 +4463,12 @@
       "name": {
         "en": "Touch Switch (4) Z-Wave Plus"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           351

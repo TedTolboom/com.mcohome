@@ -2,6 +2,8 @@
   "name": {
     "en": "Touch panel switch (3) Z-Wave Plus"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

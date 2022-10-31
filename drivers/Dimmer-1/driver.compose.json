@@ -2,6 +2,8 @@
   "name": {
     "en": "Touch panel dimmer"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

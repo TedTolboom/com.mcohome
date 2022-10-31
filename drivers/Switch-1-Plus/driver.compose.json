@@ -2,6 +2,8 @@
   "name": {
     "en": "Touch Switch (1) Plus"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

@@ -2,6 +2,8 @@
   "name": {
     "en": "Touch Dimmer Z-Wave Plus"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

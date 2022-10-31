@@ -2,6 +2,8 @@
   "name": {
     "en": "Shutter Panel"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "zwave": {
     "manufacturerId": [
       351

@@ -18,6 +18,7 @@
         "en": "ID",
         "nl": "ID"
       },
+      "type": "string",
       "example": {
         "en": "Heat"
       }
@@ -28,6 +29,7 @@
         "en": "Name",
         "nl": "Naam"
       },
+      "type": "string",
       "example": {
         "en": "Comfort",
         "nl": "Comfort"

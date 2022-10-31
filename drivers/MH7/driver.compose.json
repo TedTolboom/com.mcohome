@@ -2,6 +2,8 @@
   "name": {
     "en": "MH7 Thermostat"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "icon": "/{{driverAssetsPath}}/icon.svg",
   "images": {
     "large": "/{{driverAssetsPath}}/images/large.jpg",

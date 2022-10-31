@@ -4,15 +4,17 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.4.2",
+  "version": "1.4.4",
   "compatibility": ">=4.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
+  "platforms": ["local"],
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
   },
+  "support": "https://homey.app/a/com.mcohome/",
   "contributors": {
     "developers": [
       {

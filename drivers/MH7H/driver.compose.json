@@ -2,6 +2,8 @@
   "name": {
     "en": "MH7H Thermostat (+ humidity sensor)"
   },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
   "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {
     "large": "{{driverAssetsPath}}/images/large.jpg",
