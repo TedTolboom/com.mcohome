@@ -23,15 +23,15 @@ class ShutterPanel extends ZwaveDevice {
         let result = 0;
         const offset = 0;  // offset not necesary
         const state = this.getCapabilityValue('windowcoverings_state');
-        console.log('value: ', value);
-        console.log('state: ', state);
+        // console.log('value: ', value);
+        // console.log('state: ', state);
 
         // Check correct counter value in case of idle
         // Not the ideal implementation as the shutter does not stop the operation upon an opposite command unlike FIBARO
         // An anticipated offset is being used until a better solution is found
         if (value === 'idle') {
           result = null;
-          ////
+          //
           let currentLevel
           if (this.hasCapability('dim')) {
              currentLevel = parseInt(this.getCapabilityValue('dim') * 100);
@@ -39,7 +39,7 @@ class ShutterPanel extends ZwaveDevice {
             // windowcoverings_set
             currentLevel = parseInt(this.getCapabilityValue('windowcoverings_set') * 100);
           }
-          console.log('currentLevel: ', currentLevel);
+          // console.log('currentLevel: ', currentLevel);
           if (state === 'up') {
             result = currentLevel + offset;
             if (result > 99) {
@@ -69,13 +69,13 @@ class ShutterPanel extends ZwaveDevice {
       },
       report: 'BASIC_REPORT',
       reportParser(report) {
-        console.log(report);
+        // console.log(report);
         return null;
       },
     });
 
     // this.registerCapability('dim', 'SWITCH_MULTILEVEL');
-    // Backward Compatibility
+    // Backward Compatibility with old as DIM paired devices.
     if (this.hasCapability('dim')) {
       this.registerCapability('dim', 'SWITCH_MULTILEVEL', {
       get: 'SWITCH_MULTILEVEL_GET',
@@ -114,7 +114,7 @@ class ShutterPanel extends ZwaveDevice {
   }
 
   _dimSetParser(value) {
-    console.log('_dimSetParser ', value);
+    // console.log('_dimSetParser ', value);
 
     let invert;
     typeof this.getSetting('invertWindowCoveringsDirection') === 'boolean' ? invert = this.getSetting('invertWindowCoveringsDirection') : false;
@@ -134,7 +134,7 @@ class ShutterPanel extends ZwaveDevice {
   }
 
   _dimReportParser(report) {
-    console.log('_dimReportParser ', report);
+    // console.log('_dimReportParser ', report);
     let invert;
     typeof this.getSetting('invertWindowCoveringsDirection') === 'boolean' ? invert = this.getSetting('invertWindowCoveringsDirection') : false;
 

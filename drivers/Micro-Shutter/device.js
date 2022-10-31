@@ -24,14 +24,14 @@ class MicroShutter extends ZwaveDevice {
         let result = 0;
         const offset = 0;  // offset not necesary
         const state = this.getCapabilityValue('windowcoverings_state');
-        console.log('windowcoverings_state value', value);
-        console.log('windowcoverings_state state', state);
+        // console.log('windowcoverings_state value', value);
+        // console.log('windowcoverings_state state', state);
 
         // Check correct counter value in case of idle
         // Not the ideal implementation as the shutter does not stop the operation upon an opposite command unlike FIBARO
         // An anticipated offset is being used until a better solution is found
         const currentLevel = parseInt(this.getCapabilityValue('windowcoverings_set') * 100);
-        console.log('1 windowcoverings_set currentLevel', currentLevel);
+        // console.log('1 windowcoverings_set currentLevel', currentLevel);
         if (state === 'idle') {
           result = null;
           if (state === 'up') {
@@ -99,7 +99,7 @@ class MicroShutter extends ZwaveDevice {
   }
 
   _dimSetParser(value) {
-    console.log('_dimSetParser ', value);
+    // console.log('_dimSetParser ', value);
 
     let invert;
     typeof this.getSetting('invertWindowCoveringsDirection') === 'boolean' ? invert = this.getSetting('invertWindowCoveringsDirection') : false;
@@ -119,7 +119,7 @@ class MicroShutter extends ZwaveDevice {
   }
 
   _dimReportParser(report) {
-    console.log('_dimReportParser ', report);
+    // console.log('_dimReportParser ', report);
     let invert;
     typeof this.getSetting('invertWindowCoveringsDirection') === 'boolean' ? invert = this.getSetting('invertWindowCoveringsDirection') : false;
 
