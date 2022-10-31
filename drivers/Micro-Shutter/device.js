@@ -1,13 +1,13 @@
 'use strict';
 
-const { ZwaveDevice } = require('homey-meshdriver');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 class MicroShutter extends ZwaveDevice {
 
   onMeshInit() {
     // based on FGRM-222
     // enable debugging
-    this.enableDebug();
+    // this.enableDebug();
 
     // print the node's info to the console
     // this.printNode();
