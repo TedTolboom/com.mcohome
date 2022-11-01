@@ -30,7 +30,7 @@ for (const mode in MasterData) {
 
 class Thermostat_MH7 extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     this.enableDebug();
 
@@ -56,7 +56,6 @@ class Thermostat_MH7 extends ZwaveDevice {
         if (report && report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Operating State')) {
           const thermostat_onoff_state = report.Level['Operating State'] === 'Heating';
           if (thermostat_onoff_state !== this.getCapabilityValue('thermostat_onoff')) {
-            // Homey.app[`triggerThermostatOnoff${thermostat_onoff_state ? 'True' : 'False'}`].trigger(this, {}, {});
             return thermostat_onoff_state;
           }
         }
@@ -79,24 +78,27 @@ class Thermostat_MH7 extends ZwaveDevice {
         const setpointType = mapMode2Setpoint[thermostatMode];
 
         if (setpointType !== 'not supported') {
-          this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+          this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null).catch(this.error);
         } else {
-          this.setCapabilityValue('target_temperature', null);
+          this.setCapabilityValue('target_temperature', null).catch(this.error);
         }
 
         // 3. Trigger mode trigger cards if the mode is actually changed
         if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
           const thermostatModeObj = {
             mode: thermostatMode,
-            mode_name: Homey.__(`mode.${thermostatMode}`),
+            mode_name: this.homey.__(`mode.${thermostatMode}`),
           };
-          this.triggerThermostatModeChanged.trigger(this, thermostatModeObj, null);
-          this.triggerThermostatModeChangedTo.trigger(this, null, thermostatModeObj);
+          this.triggerThermostatModeChanged
+          .trigger(this, thermostatModeObj, null);
+          .catch(this.error);
+          this.triggerThermostatModeChangedTo
+          .trigger(this, null, thermostatModeObj);
+          .catch(this.error);
 
           // 4. Update onoff state when the thermostat mode is off
           if (thermostatMode === 'Off') {
-            this.setCapabilityValue('thermostat_onoff', false);
-            // Homey.app[`triggerThermostatOnoffFalse`].trigger(this, {}, {});
+            this.setCapabilityValue('thermostat_onoff', false).catch(this.error);
           }
         }
         // 5. Return setParser object and update thermostat_mode_custom capability
@@ -119,24 +121,27 @@ class Thermostat_MH7 extends ZwaveDevice {
           const setpointType = mapMode2Setpoint[thermostatMode];
 
           if (setpointType !== 'not supported') {
-            this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+            this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null).catch(this.error);
           } else {
-            this.setCapabilityValue('target_temperature', null);
+            this.setCapabilityValue('target_temperature', null).catch(this.error);
           }
 
           // 3. Trigger mode trigger cards if the mode is actually changed
           if (this.getCapabilityValue('thermostat_mode_custom') !== thermostatMode) {
             const thermostatModeObj = {
               mode: thermostatMode,
-              mode_name: Homey.__(`mode.${thermostatMode}`),
+              mode_name: this.homey.__(`mode.${thermostatMode}`),
             };
-            this.triggerThermostatModeChanged.trigger(this, thermostatModeObj, null);
-            this.triggerThermostatModeChangedTo.trigger(this, null, thermostatModeObj);
-
+            this.triggerThermostatModeChanged
+            .trigger(this, thermostatModeObj, null);
+            .catch(this.error);
+            this.triggerThermostatModeChangedTo
+            .trigger(this, null, thermostatModeObj);
+            .catch(this.error);
 
             // 4. Update onoff state when the thermostat mode is off
             if (thermostatMode === 'Off') {
-              this.setCapabilityValue('thermostat_onoff', false);
+              this.setCapabilityValue('thermostat_onoff', false).catch(this.error);
             }
           }
 
@@ -173,7 +178,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 
         if (setpointType !== 'not supported') {
           // 2. Store thermostat setpoint based on thermostat type
-          this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+          this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue).catch(this.error);
 
           // 4. Return setParser object and update thermostat mode
           const bufferValue = Buffer.alloc(2);
@@ -217,7 +222,7 @@ class Thermostat_MH7 extends ZwaveDevice {
 
             // 3. Store thermostat setpoint based on thermostat type
             if (setpointType !== 'not supported') {
-              this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+              this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue).catch(this.error);
             }
 
             // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode
@@ -240,19 +245,14 @@ class Thermostat_MH7 extends ZwaveDevice {
     });
 
     // thermostat_mode_custom_changed
-    this.triggerThermostatModeChanged = new Homey.FlowCardTriggerDevice('thermostat_mode_changed');
-    this.triggerThermostatModeChanged
-      .register();
+    this.triggerThermostatModeChanged = this.homey.flow.getDeviceTriggerCard('thermostat_mode_changed');
 
     // thermostat_mode_custom_changed_to
-    this.triggerThermostatModeChangedTo = new Homey.FlowCardTriggerDevice('thermostat_mode_changed_to');
-    this.triggerThermostatModeChangedTo
-      .register()
+    this.triggerThermostatModeChangedTo = this.homey.flow.getDeviceTriggerCard('thermostat_mode_changed_to')
       .registerRunListener((args, state) => Promise.resolve(args.mode === state.mode));
 
     // Register actions for flows thermostat_change_mode
-    this._actionThermofloorChangeMode = new Homey.FlowCardAction('change_thermostat_mode')
-      .register()
+    this._actionThermofloorChangeMode = this.homey.flow.getActionCard('change_thermostat_mode')
       .registerRunListener((args, state) => {
         const thermostatMode = args.mode;
         this.log('FlowCardAction triggered for ', args.device.getName(), 'to change Thermostat mode to', thermostatMode);
@@ -262,8 +262,7 @@ class Thermostat_MH7 extends ZwaveDevice {
       });
 
     // Register actions for flows
-    this._actionThermofloorChangeSetpoint = new Homey.FlowCardAction('change_thermostat_mode_setpoint')
-      .register()
+    this._actionThermofloorChangeSetpoint = this.homey.flow.getActionCard('change_thermostat_mode_setpoint')
       .registerRunListener(this._actionThermostatChangeSetpointRunListener.bind(this));
 
     this.log('MH7 device driver MeshInit completed');
@@ -282,12 +281,12 @@ class Thermostat_MH7 extends ZwaveDevice {
     this.log('FlowCardAction triggered for ', args.device.getName(), 'to change setpoint value', setpointValue, 'for', setpointType);
 
     // 2. Store thermostat setpoint based on thermostat type
-    this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+    this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue).catch(this.error);
 
     // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode
     if (setpointType === mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_custom') || 'Heat']) {
       this.log('Updated thermostat setpoint on UI to', setpointValue);
-      this.setCapabilityValue('target_temperature', setpointValue);
+      this.setCapabilityValue('target_temperature', setpointValue).catch(this.error);
     }
 
     // 6. Trigger command to update device setpoint
@@ -295,7 +294,7 @@ class Thermostat_MH7 extends ZwaveDevice {
     bufferValue.writeUInt16BE((Math.round(setpointValue * 2) / 2 * 10).toFixed(0));
 
     if (args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT) {
-      return args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT.THERMOSTAT_SETPOINT_SET({
+      return await args.device.node.CommandClass.COMMAND_CLASS_THERMOSTAT_SETPOINT.THERMOSTAT_SETPOINT_SET({
         Level: {
           'Setpoint Type': setpointType,
         },

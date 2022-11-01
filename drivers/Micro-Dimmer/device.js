@@ -4,7 +4,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class MicroDimmer extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 

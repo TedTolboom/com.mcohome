@@ -4,7 +4,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class ShutterPanel extends ZwaveDevice {
 
-  async onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
