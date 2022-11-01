@@ -4,24 +4,24 @@ const Homey = require('homey');
 
 class MCOhomeApp extends Homey.App {
 
-  onInit() {
+  async onInit() {
     this.log('MCOhomeApp is running...');
 
-    this.actionStartDimLevelChange = new Homey.FlowCardAction('action_DIM_startLevelChange')
-      .register()
+    this.actionStartDimLevelChange = this.homey.flow.getActionCard('action_DIM_startLevelChange')
+      // .register()
       .registerRunListener(this._actionStartDimLevelChangeRunListener.bind(this));
 
-    this.actionStopDimLevelChange = new Homey.FlowCardAction('action_DIM_stopLevelChange')
-      .register()
+    this.actionStopDimLevelChange = this.homey.flow.getActionCard('action_DIM_stopLevelChange')
+      // .register()
       .registerRunListener(this._actionStopDimLevelChangeRunListener.bind(this));
 
     // thermostat_onoff trigger cards
-    this.triggerThermostatOnoffTrue = new Homey.FlowCardTriggerDevice('thermostat_onoff_true').register();
-    this.triggerThermostatOnoffFalse = new Homey.FlowCardTriggerDevice('thermostat_onoff_false').register();
+    this.triggerThermostatOnoffTrue = this.homey.flow.getDeviceTriggerCard('thermostat_onoff_true'); // .register();
+    this.triggerThermostatOnoffFalse = this.homey.flow.getDeviceTriggerCard('thermostat_onoff_false'); //.register();
 
     // Register conditions for flows
-    this.triggerThermostatOnoffOn = new Homey.FlowCardCondition('thermostat_onoff_on')
-      .register()
+    this.triggerThermostatOnoffOn = this.homey.flow.getConditionCard('thermostat_onoff_on')
+      // .register()
       .registerRunListener((args, state) => {
         return args.device.getCapabilityValue('thermostat_onoff');
       });
@@ -29,7 +29,7 @@ class MCOhomeApp extends Homey.App {
 
   async _actionStartDimLevelChangeRunListener(args, state) {
     if (!args.hasOwnProperty('direction')) return Promise.reject(new Error('direction_property_missing'));
-    args.device.log('FlowCardAction triggered to start dim level change in direction', args.direction);
+    args.device.log('getActionCard triggered to start dim level change in direction', args.direction);
 
     const nodeCommandClassVersion = parseInt(args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.version);
 
@@ -47,7 +47,7 @@ class MCOhomeApp extends Homey.App {
   }
 
   async _actionStopDimLevelChangeRunListener(args, state) {
-    args.device.log('FlowCardAction triggered for ', args.device.getName(), 'to stop dim level change');
+    args.device.log('getActionCard triggered for ', args.device.getName(), 'to stop dim level change');
 
     if (args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL) {
       return await args.device.node.CommandClass.COMMAND_CLASS_SWITCH_MULTILEVEL.SWITCH_MULTILEVEL_STOP_LEVEL_CHANGE({});

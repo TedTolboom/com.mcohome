@@ -1,11 +1,11 @@
 'use strict';
 
 const Homey = require('homey');
-const { ZwaveDevice } = require('homey-meshdriver');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 class PM25monitor extends ZwaveDevice {
 
-  async onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
@@ -22,14 +22,14 @@ class PM25monitor extends ZwaveDevice {
           if (report.hasOwnProperty('Sensor Type')) {
             console.log('Sensor Type: ', report['Sensor Type']); // debugging only
             if (report['Sensor Type'] === 'Particulate Matter 2.5 (v7)') {
-              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 800));
+              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 800)).catch(this.error);
               return report['Sensor Value (Parsed)'];
             }
           }
           if (report.hasOwnProperty('Sensor Type (Raw)')) {
             console.log('Sensor Type (RAW): ', report['Sensor Type (Raw)'][0]); // debugging only
             if (report['Sensor Type (Raw)'][0] === 35) {
-              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 800));
+              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 800)).catch(this.error);
               return report['Sensor Value (Parsed)'];
             }
           }

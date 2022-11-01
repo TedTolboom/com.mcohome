@@ -1,0 +1,50 @@
+{
+  "type": "enum",
+  "uiComponent": "picker",
+  "title": {
+    "en": "Thermostat mode",
+    "nl": "Thermostaat modus",
+    "no": "Termostatmodus"
+  },
+  "desc": {
+    "en": "Mode of the thermostat",
+    "nl": "Modus van de thermostaat",
+    "no": "Modus for termostaten"
+  },
+  "values": [
+    {
+      "id": "Heat",
+      "title": {
+        "en": "Heat",
+        "nl": "Verhitten",
+        "no": "Varme"
+      }
+    },
+    {
+      "id": "Cool",
+      "title": {
+        "en": "Cool",
+        "nl": "Koelen",
+        "no": "Avkjøle"
+      }
+    },
+    {
+      "id": "Fan Only",
+      "title": {
+        "en": "Ventilation",
+        "nl": "Ventilatie",
+        "no": "Ventilasjon"
+      }
+    },
+    {
+      "id": "Off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "no": "Av"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

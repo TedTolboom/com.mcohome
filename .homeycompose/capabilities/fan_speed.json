@@ -1,0 +1,42 @@
+{
+  "type": "enum",
+  "uiComponent": "picker",
+  "title": {
+    "en": "Fan speed",
+    "nl": "Ventilator snelheid",
+    "no": "Viftehastighet"
+  },
+  "desc": {
+    "en": "Speed of the ventilator fan",
+    "nl": "Snelheid van de ventilator",
+    "no": "Hastighet på ventilatorviften"
+  },
+  "values": [
+    {
+      "id": "Low",
+      "title": {
+        "en": "Low",
+        "nl": "Laag",
+        "no": "Lav"
+      }
+    },
+    {
+      "id": "Medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Gemiddeld",
+        "no": "Middels"
+      }
+    },
+    {
+      "id": "High",
+      "title": {
+        "en": "High",
+        "nl": "Hoog",
+        "no": "Høy"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

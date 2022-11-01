@@ -1,10 +1,10 @@
 'use strict';
 
-const { ZwaveDevice } = require('homey-meshdriver');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 class TouchPanelDimmer extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
@@ -18,15 +18,14 @@ class TouchPanelDimmer extends ZwaveDevice {
       report: 'BASIC_REPORT',
       reportParser(report) {
         if (report['Value'] > 0) {
-          this.setCapabilityValue('onoff', true);
+          this.setCapabilityValue('onoff', true).catch(this.error);
         } else {
-          this.setCapabilityValue('onoff', false);
+          this.setCapabilityValue('onoff', false).catch(this.error);
         }
-        this.setCapabilityValue('dim', report['Value'] / 100);
+        this.setCapabilityValue('dim', report['Value'] / 100).catch(this.error);
         return null;
       },
     });
-
 
     this.registerCapability('dim', 'SWITCH_MULTILEVEL');
   }

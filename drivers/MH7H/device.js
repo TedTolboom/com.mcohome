@@ -4,8 +4,8 @@ const Thermostat_MH7 = require('../MH7/device');
 
 class Thermostat_MH7H extends Thermostat_MH7 {
 
-  async onMeshInit() {
-    await super.onMeshInit();
+  async onNodeInit() {
+    await super.async onNodeInit();
 
     // enable debugging
     this.enableDebug();

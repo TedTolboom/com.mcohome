@@ -1,11 +1,11 @@
 'use strict';
 
 const Homey = require('homey');
-const { ZwaveDevice } = require('homey-meshdriver');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 class A89Sensor extends ZwaveDevice {
 
-  async onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
@@ -22,7 +22,7 @@ class A89Sensor extends ZwaveDevice {
       reportParser: report => {
         if (report && report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
           if (report['Sensor Type'] === 'CO2-level (version 3)') {
-            this.setCapabilityValue('alarm_co2', report['Sensor Value (Parsed)'] >= (this.getSetting('CO2_notification') || 1200));
+            this.setCapabilityValue('alarm_co2', report['Sensor Value (Parsed)'] >= (this.getSetting('CO2_notification') || 1200)).catch(this.error);
             return report['Sensor Value (Parsed)'];
           }
         }
@@ -96,8 +96,8 @@ class A89Sensor extends ZwaveDevice {
           if (report['Sensor Type'] === 'Volatile Organic Compound (v7)') {
             const parsedRAW = report['Sensor Value (Parsed)'];
             const parsedVOC = Math.round(parsedRAW * 1000);
-            this.setCapabilityValue('alarm_voc', parsedVOC >= (this.getSetting('voc_notification') || 2200));
-            this.setCapabilityValue('measure_voc', parsedVOC);
+            this.setCapabilityValue('alarm_voc', parsedVOC >= (this.getSetting('voc_notification') || 2200)).catch(this.error);
+            this.setCapabilityValue('measure_voc', parsedVOC).catch(this.error);
           }
         }
         return null;
@@ -116,7 +116,7 @@ class A89Sensor extends ZwaveDevice {
           if (report.hasOwnProperty('Sensor Type')) {
             console.log('Sensor Type: ', report['Sensor Type']); // debugging only
             if (report['Sensor Type'] === 'Particulate Matter 2.5 (v7)') {
-              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 150));
+              this.setCapabilityValue('alarm_pm25', report['Sensor Value (Parsed)'] >= (this.getSetting('PM2.5_notification') || 150)).catch(this.error);
               return report['Sensor Value (Parsed)'];
             }
           }

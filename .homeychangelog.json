@@ -31,5 +31,8 @@
   },
   "1.4.4": {
     "en": "Updates to prevent crashes in v7.4.0"
+  },
+  "1.5.0": {
+    "en": "Update to SDK3 for Homey Pro (Early 2023) and add support for MH8-FC4 and C421 shutter panel"
   }
 }
