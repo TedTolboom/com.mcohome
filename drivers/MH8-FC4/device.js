@@ -1,0 +1,255 @@
+/* eslint-disable camelcase */
+
+'use strict';
+
+const Homey = require('homey');
+const { ZwaveDevice } = require('homey-meshdriver');
+
+const MasterData = {
+  Heat: {
+    Mode: 'Heat',
+    Setpoint: 'Heating 1',
+  },
+  Cool: {
+    Mode: 'Cool',
+    Setpoint: 'Cooling 1',
+  },
+  'Fan Only': {
+    Mode: 'Fan Only',
+    Setpoint: 'not supported',
+  },
+  Off: {
+    Mode: 'Off',
+    Setpoint: 'not supported',
+  },
+};
+
+// Create mapMode2Setpoint array based on MasterData array
+const mapMode2Setpoint = {};
+for (const mode in MasterData) {
+  mapMode2Setpoint[MasterData[mode].Mode] = MasterData[mode].Setpoint;
+}
+
+class Thermostat_MH8FC4 extends ZwaveDevice {
+
+  onMeshInit() {
+    // enable debugging
+    this.enableDebug();
+
+    // print the node's info to the console
+    this.printNode();
+
+    // registerCapability for measure_temperature for FW <=18.
+    this.registerCapability('measure_temperature', 'SENSOR_MULTILEVEL', {
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 'poll_interval_TEMPERATURE',
+        pollMultiplication: 60000,
+      },
+    });
+
+    this.registerCapability('thermostat_onoff', 'THERMOSTAT_OPERATING_STATE', {
+      get: 'THERMOSTAT_OPERATING_STATE_GET',
+      getOpts: {
+        getOnStart: true,
+      },
+      report: 'THERMOSTAT_OPERATING_STATE_REPORT',
+      reportParser: report => {
+        if (report && report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Operating State')) {
+          const thermostat_onoff_state = (report.Level['Operating State'] === 'Heating' || report.Level['Operating State'] === 'Cooling');
+          if (thermostat_onoff_state !== this.getCapabilityValue('thermostat_onoff')) {
+            return thermostat_onoff_state;
+          }
+        }
+        return null;
+      },
+    });
+
+    this.registerCapability('fan_speed', 'THERMOSTAT_FAN_MODE', {
+      get: 'THERMOSTAT_FAN_MODE_GET',
+      getOpts: {
+        getOnStart: true,
+      },
+      set: 'THERMOSTAT_FAN_MODE_SET',
+      setParser(fanModeValue) {
+        return {
+          Properties1: {
+            Off: false,
+            'Fan Mode': fanModeValue,
+          },
+        };
+      },
+      report: 'THERMOSTAT_FAN_MODE_REPORT',
+      reportParserV2: report => {
+        if (!report) return null;
+        if (report.hasOwnProperty('Properties1') && report.Properties1.hasOwnProperty('Fan Mode')) {
+          const fanMode = report.Properties1['Fan Mode'];
+          this.log('Received thermostat fan mode report:', fanMode);
+
+          return fanMode;
+        }
+        return null;
+      },
+    });
+
+    this.registerCapability('thermostat_mode_hvac', 'THERMOSTAT_MODE', {
+      getOpts: {
+        getOnStart: true,
+      },
+      get: 'THERMOSTAT_MODE_GET',
+      set: 'THERMOSTAT_MODE_SET',
+      setParserV2: thermostatMode => {
+        this.log('Setting thermostat mode to:', thermostatMode);
+
+        // 1. Update thermostat setpoint based on matching thermostat mode
+        const setpointType = mapMode2Setpoint[thermostatMode];
+
+        if (setpointType !== 'not supported') {
+          this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+        } else {
+          this.setCapabilityValue('target_temperature', null);
+        }
+
+        // 3. If the mode is actually changed
+        if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
+          // 4. Update onoff state when the thermostat mode is off
+          if (thermostatMode === 'Off') {
+            this.setCapabilityValue('thermostat_onoff', false);
+          }
+        }
+        // 5. Return setParser object and update thermostat_mode_hvac capability
+        return {
+          Level: {
+            'No of Manufacturer Data fields': 0,
+            Mode: thermostatMode,
+          },
+          'Manufacturer Data': Buffer.from([0]),
+        };
+      },
+      report: 'THERMOSTAT_MODE_REPORT',
+      reportParserV2: report => {
+        if (!report) return null;
+        if (report.hasOwnProperty('Level') && report.Level.hasOwnProperty('Mode')) {
+          const thermostatMode = report.Level.Mode;
+          this.log('Received thermostat mode report:', thermostatMode);
+
+          // 1. Update thermostat setpoint value based on matching thermostat mode
+          const setpointType = mapMode2Setpoint[thermostatMode];
+
+          if (setpointType !== 'not supported') {
+            this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+          } else {
+            this.setCapabilityValue('target_temperature', null);
+          }
+
+          // 3. If the mode is actually changed
+          if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
+            // 4. Update onoff state when the thermostat mode is off
+            if (thermostatMode === 'Off') {
+              this.setCapabilityValue('thermostat_onoff', false);
+            }
+          }
+
+          // 5. Return reportParser object and update thermostat_mode_hvac capability
+          return thermostatMode;
+        }
+        return null;
+      },
+    });
+
+    this.registerCapability('target_temperature', 'THERMOSTAT_SETPOINT', {
+      getOpts: {
+        getOnStart: true,
+      },
+      getParser: () => {
+        // 1. Retrieve the setpointType based on the thermostat mode
+        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat'];
+
+        // 2. Return getParser object with correct setpointType
+        return {
+          Level: {
+            'Setpoint Type': setpointType !== 'not supported' ? setpointType : 'Heating 1',
+          },
+        };
+      },
+      set: 'THERMOSTAT_SETPOINT_SET',
+      setParser(setpointValue) {
+        // 1. Retrieve the setpointType based on the thermostat mode
+        const setpointType = mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat'];
+
+        this.log('Setting thermostat setpoint to:', setpointValue, 'for setpointType', setpointType);
+
+        if (setpointType !== 'not supported') {
+          // 2. Store thermostat setpoint based on thermostat type
+          this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+
+          // 4. Return setParser object and update thermostat mode
+          const bufferValue = Buffer.alloc(2);
+          bufferValue.writeUInt16BE((Math.round(setpointValue * 2) / 2 * 10).toFixed(0));
+
+          return {
+            Level: {
+              'Setpoint Type': setpointType,
+            },
+            Level2: {
+              Size: 2,
+              Scale: 0,
+              Precision: 1,
+            },
+            Value: bufferValue,
+          };
+        }
+
+        return null;
+      },
+      report: 'THERMOSTAT_SETPOINT_REPORT',
+      reportParser: report => {
+        if (report && report.hasOwnProperty('Level2')
+          && report.Level2.hasOwnProperty('Scale')
+          && report.Level2.hasOwnProperty('Precision')
+          && report.Level2.Scale === 0
+          && typeof report.Level2.Size !== 'undefined') {
+          // 1. Try to read the readValue
+          let readValue;
+          try {
+            readValue = report.Value.readUIntBE(0, report.Level2.Size);
+          } catch (err) {
+            return null;
+          }
+
+          if (typeof readValue !== 'undefined') {
+            // 2. Define the setPointValue and setpointType
+            const setpointValue = readValue / Math.pow(10, report.Level2.Precision);
+            const setpointType = report.Level['Setpoint Type'];
+            this.log('Received thermostat setpoint report: Setpoint type', setpointType, ' Setpoint value', setpointValue);
+
+            // 3. Store thermostat setpoint based on thermostat type
+            if (setpointType !== 'not supported') {
+              this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+            }
+
+            // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode
+            if (setpointType === mapMode2Setpoint[this.getCapabilityValue('thermostat_mode_hvac') || 'Heat']) {
+              this.log('Updated thermostat setpoint on UI to', setpointValue);
+              return setpointValue;
+            }
+
+            return null;
+          }
+          return null;
+        }
+        return null;
+      },
+    });
+
+    // register a settings parser
+    this.registerSetting('temperature_reporting_threshold', value => {
+      return (10 * value);
+    });
+
+    this.log('MH8-FC4 device driver MeshInit completed');
+  }
+
+}
+
+module.exports = Thermostat_MH8FC4;
