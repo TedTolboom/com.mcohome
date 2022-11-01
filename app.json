@@ -5,7 +5,7 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.5.0",
+  "version": "1.5.1",
   "compatibility": ">=5.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -100,7 +100,13 @@
           "en": "The VOC alarm turned off",
           "nl": "Het VOC alarm gaat uit"
         },
-        "args": []
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=A8-9"
+          }
+        ]
       },
       {
         "id": "alarm_vibration_true",
@@ -108,7 +114,13 @@
           "en": "The VOC alarm turned on",
           "nl": "Het VOC alarm gaat aan"
         },
-        "args": []
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=A8-9"
+          }
+        ]
       },
       {
         "id": "thermostat_mode_changed",
@@ -4681,14 +4693,16 @@
           351
         ],
         "productTypeId": [
-          12609
+          12609,
+          28737
         ],
         "productId": [
           20737,
           20738,
           20740,
           20741,
-          20746
+          20746,
+          28930
         ],
         "learnmode": {
           "image": "/drivers/Switch-4-Plus/assets/learnmode.svg",

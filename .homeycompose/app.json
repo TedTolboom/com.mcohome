@@ -4,12 +4,14 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.5.0",
+  "version": "1.5.1",
   "compatibility": ">=5.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"

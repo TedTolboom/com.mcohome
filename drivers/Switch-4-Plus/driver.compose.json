@@ -9,14 +9,16 @@
       351
     ],
     "productTypeId": [
-      12609
+      12609,
+      28737
     ],
     "productId": [
       20737,
       20738,
       20740,
       20741,
-      20746
+      20746,
+      28930
     ],
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
