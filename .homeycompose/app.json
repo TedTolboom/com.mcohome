@@ -1,11 +1,11 @@
 {
   "id": "com.mcohome",
-  "sdk": 2,
+  "sdk": 3,
   "name": {
     "en": "MCOHome"
   },
   "version": "1.4.4",
-  "compatibility": ">=4.0.0",
+  "compatibility": ">=5.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
   "homeyCommunityTopicId": 159,
