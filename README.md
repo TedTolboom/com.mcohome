@@ -51,7 +51,7 @@ A glass shutter panel with 2 capacitive touch buttons.
 </a>
 
 **Supported devices:**     
-* Touch shutter panel: MH-C321
+* Touch shutter panel: MH-C321, MH-C421
 
 ### MCOHome Micro-dimmer
 A Z-Wave enabled 1-load in-wall dimmer   
