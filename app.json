@@ -5,7 +5,7 @@
   "name": {
     "en": "MCOHome"
   },
-  "version": "1.4.4",
+  "version": "1.5.0",
   "compatibility": ">=5.0.0",
   "brandColor": "#d0031a",
   "athomForumDiscussionId": 3463,
@@ -1977,6 +1977,12 @@
       "name": {
         "en": "MH8-FC4 Thermostat"
       },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "icon": "/drivers/MH8-FC4/assets/icon.svg",
       "images": {
         "large": "/drivers/MH8-FC4/assets/images/large.jpg",
@@ -3542,7 +3548,8 @@
           351
         ],
         "productTypeId": [
-          49953
+          49953,
+          50209
         ],
         "productId": [
           20738
@@ -3590,7 +3597,7 @@
       "class": "windowcoverings",
       "capabilities": [
         "windowcoverings_state",
-        "windowcoverings_set"
+        "dim"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -3608,36 +3615,6 @@
         "small": "/drivers/Shutter-Panel/assets/images/small.jpg"
       },
       "settings": [
-        {
-          "id": "start_calibration",
-          "type": "checkbox",
-          "label": {
-            "en": "Start calibration",
-            "nl": "Start kalibratie"
-          },
-          "hint": {
-            "en": "This parameter (9) starts a demo trip and the calibration procedure on save.",
-            "nl": "Deze parameter (9) start een demo trip en de kalibratieprocedure na het opslaan."
-          },
-          "zwave": {
-            "index": 9,
-            "size": 1
-          },
-          "value": false
-        },
-        {
-          "id": "invertWindowCoveringsDirection",
-          "type": "checkbox",
-          "label": {
-            "en": "Invert movement",
-            "nl": "Keer de beweging om"
-          },
-          "hint": {
-            "en": "This parameter inverts the shutter movement direction.",
-            "nl": "Deze parameter keert de rolluik bewegingsdirectie om."
-          },
-          "value": false
-        },
         {
           "id": "watt_meter_report_period",
           "zwave": {
@@ -3701,6 +3678,55 @@
               "id": "2",
               "label": {
                 "en": "Report level every 10 percent while running"
+              }
+            }
+          ]
+        },
+        {
+          "id": "led_backlit_brightness",
+          "zwave": {
+            "index": 8,
+            "size": 1,
+            "signed": false
+          },
+          "type": "number",
+          "label": {
+            "en": "LED Backlight Brightness"
+          },
+          "value": 10,
+          "attr": {
+            "min": 0,
+            "max": 10
+          },
+          "hint": {
+            "en": "0 - Disabled, 10 - Maximum brightness"
+          }
+        },
+        {
+          "id": "calibration",
+          "zwave": {
+            "index": 10,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Auto Calibration"
+          },
+          "hint": {
+            "en": "Activate auto calibration. Resets to 0 after calibration."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Deactivated"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Activated"
               }
             }
           ]
