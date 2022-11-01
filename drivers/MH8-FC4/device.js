@@ -3,7 +3,7 @@
 'use strict';
 
 const Homey = require('homey');
-const { ZwaveDevice } = require('homey-meshdriver');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 const MasterData = {
   Heat: {
@@ -32,7 +32,7 @@ for (const mode in MasterData) {
 
 class Thermostat_MH8FC4 extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     this.enableDebug();
 
@@ -105,16 +105,16 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
         const setpointType = mapMode2Setpoint[thermostatMode];
 
         if (setpointType !== 'not supported') {
-          this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+          this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null).catch(this.error);
         } else {
-          this.setCapabilityValue('target_temperature', null);
+          this.setCapabilityValue('target_temperature', null).catch(this.error);
         }
 
         // 3. If the mode is actually changed
         if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
           // 4. Update onoff state when the thermostat mode is off
           if (thermostatMode === 'Off') {
-            this.setCapabilityValue('thermostat_onoff', false);
+            this.setCapabilityValue('thermostat_onoff', false).catch(this.error);
           }
         }
         // 5. Return setParser object and update thermostat_mode_hvac capability
@@ -137,16 +137,16 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
           const setpointType = mapMode2Setpoint[thermostatMode];
 
           if (setpointType !== 'not supported') {
-            this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null);
+            this.setCapabilityValue('target_temperature', this.getStoreValue(`thermostatsetpointValue.${setpointType}`) || null).catch(this.error);
           } else {
-            this.setCapabilityValue('target_temperature', null);
+            this.setCapabilityValue('target_temperature', null).catch(this.error);
           }
 
           // 3. If the mode is actually changed
           if (this.getCapabilityValue('thermostat_mode_hvac') !== thermostatMode) {
             // 4. Update onoff state when the thermostat mode is off
             if (thermostatMode === 'Off') {
-              this.setCapabilityValue('thermostat_onoff', false);
+              this.setCapabilityValue('thermostat_onoff', false).catch(this.error);
             }
           }
 
@@ -181,7 +181,7 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
 
         if (setpointType !== 'not supported') {
           // 2. Store thermostat setpoint based on thermostat type
-          this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+          this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue).catch(this.error);
 
           // 4. Return setParser object and update thermostat mode
           const bufferValue = Buffer.alloc(2);
@@ -225,7 +225,7 @@ class Thermostat_MH8FC4 extends ZwaveDevice {
 
             // 3. Store thermostat setpoint based on thermostat type
             if (setpointType !== 'not supported') {
-              this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue);
+              this.setStoreValue(`thermostatsetpointValue.${setpointType}`, setpointValue).catch(this.error);
             }
 
             // 5. Update UI if reported setpointType equals active sepointType based on the thermostat mode

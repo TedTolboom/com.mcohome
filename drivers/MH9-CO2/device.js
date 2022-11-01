@@ -5,7 +5,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class CO2monitor extends ZwaveDevice {
 
-  async onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
@@ -22,7 +22,7 @@ class CO2monitor extends ZwaveDevice {
       reportParser: report => {
         if (report && report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
           if (report['Sensor Type'] === 'CO2-level (version 3)') {
-            this.setCapabilityValue('alarm_co2', report['Sensor Value (Parsed)'] >= (this.getSetting('CO2_notification') || 1200));
+            this.setCapabilityValue('alarm_co2', report['Sensor Value (Parsed)'] >= (this.getSetting('CO2_notification') || 1200)).catch(this.error);
             return report['Sensor Value (Parsed)'];
           }
         }

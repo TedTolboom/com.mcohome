@@ -4,7 +4,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class MicroShutter extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // based on FGRM-222
     // enable debugging
     // this.enableDebug();
@@ -16,13 +16,13 @@ class MicroShutter extends ZwaveDevice {
       get: 'SWITCH_BINARY_GET',
       set: 'SWITCH_BINARY_SET',
       setParser: value => {
-        const invert  = false;
+        const invert = false;
         if (node.hasOwnProperty('settings') && node.settings.hasOwnProperty('invertWindowCoveringsDirection')) {
-          invert  = node.settings.invertWindowCoveringsDirection;
+          invert = node.settings.invertWindowCoveringsDirection;
         }
 
         let result = 0;
-        const offset = 0;  // offset not necesary
+        const offset = 0; // offset not necesary
         const state = this.getCapabilityValue('windowcoverings_state');
         console.log('windowcoverings_state value', value);
         console.log('windowcoverings_state state', state);
@@ -65,9 +65,9 @@ class MicroShutter extends ZwaveDevice {
       // reportParser(report) {
       //   console.log('report ' , report);
       //   if (invert) {
-      //     this.setCapabilityValue('windowcoverings_state', (100 - report['Value (Raw)'][0]) / 99);
+      //     this.setCapabilityValue('windowcoverings_state', (100 - report['Value (Raw)'][0]) / 99).catch(this.error);
       //   } else {
-      //     this.setCapabilityValue('windowcoverings_state', report['Value'] / 99);
+      //     this.setCapabilityValue('windowcoverings_state', report['Value'] / 99).catch(this.error);
       //   }
       //   return null;
       // },
@@ -77,7 +77,7 @@ class MicroShutter extends ZwaveDevice {
       set: 'SWITCH_MULTILEVEL_SET',
       setParser: this._dimSetParser.bind(this),
       report: 'SWITCH_MULTILEVEL_REPORT',
-      reportParser:  this._dimReportParser.bind(this),
+      reportParser: this._dimReportParser.bind(this),
       reportParserOverride: true,
     });
 
@@ -85,11 +85,11 @@ class MicroShutter extends ZwaveDevice {
     // this.registerCapability('measure_power', 'METER');
 
     this.registerSetting('start_calibration', newValue => {
-      console.log('start_calibration', newValue );
+      console.log('start_calibration', newValue);
 
       if (newValue) {
         setTimeout(() => {
-          console.log('setTimeout start_calibration', newValue );
+          console.log('setTimeout start_calibration', newValue);
 
           this.setSettings({ start_calibration: false });
         }, 30000);
@@ -127,6 +127,7 @@ class MicroShutter extends ZwaveDevice {
     if (invert) return (100 - report['Value (Raw)'][0]) / 100;
     return report['Value (Raw)'][0] / 100;
   }
+
 }
 
 module.exports = MicroShutter;

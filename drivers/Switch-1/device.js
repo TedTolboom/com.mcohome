@@ -4,7 +4,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class TouchPanelSwitch1 extends ZwaveDevice {
 
-  onMeshInit() {
+  async onNodeInit() {
     // enable debugging
     // this.enableDebug();
 
