@@ -40,5 +40,11 @@
   },
   "1.5.2": {
     "en": "Update to SDK3 for Homey Pro (Early 2023) and add support for MH8-FC4 and C421 shutter panel"
+  },
+  "1.5.3": {
+    "en": "Update to SDK3 for Homey Pro (Early 2023) and add support for MH8-FC4 and C421 shutter panel"
+  },
+  "1.5.4": {
+    "en": "Update to SDK3 for Homey Pro (Early 2023) and add support for MH8-FC4 and C421 shutter panel"
   }
 }
