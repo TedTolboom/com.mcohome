@@ -90,11 +90,10 @@ class Thermostat_MH7 extends ZwaveDevice {
             mode_name: this.homey.__(`mode.${thermostatMode}`),
           };
           this.triggerThermostatModeChanged
-          .trigger(this, thermostatModeObj, null);
-          .catch(this.error);
+            .trigger(this, thermostatModeObj, null);
+
           this.triggerThermostatModeChangedTo
-          .trigger(this, null, thermostatModeObj);
-          .catch(this.error);
+            .trigger(this, null, thermostatModeObj);
 
           // 4. Update onoff state when the thermostat mode is off
           if (thermostatMode === 'Off') {
@@ -133,11 +132,10 @@ class Thermostat_MH7 extends ZwaveDevice {
               mode_name: this.homey.__(`mode.${thermostatMode}`),
             };
             this.triggerThermostatModeChanged
-            .trigger(this, thermostatModeObj, null);
-            .catch(this.error);
+              .trigger(this, thermostatModeObj, null);
+
             this.triggerThermostatModeChangedTo
-            .trigger(this, null, thermostatModeObj);
-            .catch(this.error);
+              .trigger(this, null, thermostatModeObj);
 
             // 4. Update onoff state when the thermostat mode is off
             if (thermostatMode === 'Off') {

@@ -5,7 +5,7 @@ const Thermostat_MH7 = require('../MH7/device');
 class Thermostat_MH7H extends Thermostat_MH7 {
 
   async onNodeInit() {
-    await super.async onNodeInit();
+    await super.onNodeInit();
 
     // enable debugging
     this.enableDebug();
