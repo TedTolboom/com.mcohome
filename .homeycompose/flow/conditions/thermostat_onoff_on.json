@@ -2,7 +2,8 @@
   "id": "thermostat_onoff_on",
   "title": {
     "en": "Thermostat is !{{on|off}}",
-    "nl": "Thermostat is !{{aan|uit}}"
+    "nl": "Thermostat is !{{aan|uit}}",
+    "sv": "Termostaten är !{{on|off}}"
   },
   "args": [
     {

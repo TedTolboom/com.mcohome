@@ -1,0 +1,63 @@
+{
+  "id": "thermostat_mode_MH52D_changed_to",
+  "title": {
+    "en": "Thermostat mode has changed to",
+    "nl": "Thermostaat modus is veranderd naar",
+    "sv": "Termostatläget har ändrats till"
+  },
+  "titleFormatted": {
+    "en": "Thermostat has changed to [[mode]]",
+    "nl": "Thermostaat is veranderd naar [[mode]]",
+    "sv": "Termostaten har ändrats till [[mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=MH52D"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "title": {
+        "en": "Select the thermostat mode",
+        "nl": "Selecteer de thermostaat modus",
+        "sv": "Välj termostatläge"
+      },
+      "values": [
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "sv": "Av"
+          }
+        },
+        {
+          "id": "Heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Warmte",
+            "sv": "Värme"
+          }
+        },
+        {
+          "id": "Cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koel",
+            "sv": "Kyla"
+          }
+        },
+        {
+          "id": "Fan Only",
+          "title": {
+            "en": "Only Fan",
+            "nl": "Ventilator",
+            "sv": "Endast Fläkt"
+          }
+        }
+      ]
+    }
+  ]
+}

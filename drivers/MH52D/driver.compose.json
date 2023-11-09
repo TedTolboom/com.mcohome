@@ -1,0 +1,68 @@
+{
+  "name": {
+    "en": "MH5-2D Thermostat"
+  },
+  "platforms": ["local"],
+  "connectivity": [ "zwave" ],
+  "icon": "/{{driverAssetsPath}}/icon.svg",
+  "images": {
+    "large": "/{{driverAssetsPath}}/images/large.jpg",
+    "small": "/{{driverAssetsPath}}/images/small.jpg"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "measure_temperature",
+    "thermostat_mode_MH52D",
+    "fan_mode_MH52D",
+    "target_temperature"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 5,
+      "max": 37,
+      "step": 0.5
+    },
+    "thermostat_onoff": {
+      "greyout": true,
+      "titleTrue": {
+        "en": "Active"
+      },
+      "titleFalse": {
+        "en": "Idle"
+      }
+    }
+  },
+  "zwave": {
+    "manufacturerId": [
+      351
+    ],
+    "productTypeId": [
+      62765
+    ],
+    "productId": [
+      28930
+    ],
+    "learnmode": {
+      "image": "/{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the ^ key and FAN key together for 3 seconds.\n2. Release and press the M key to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+      }
+    },
+    "unlearnmode": {
+      "image": "/{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "1. Press and hold the ^ key and FAN key together for 3 seconds.\n2. Release and press the M key to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+      }
+    },
+    "associationGroups": [
+      1
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Lifeline group"
+        }
+      }
+    }
+  }
+}

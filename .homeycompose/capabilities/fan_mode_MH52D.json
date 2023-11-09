@@ -1,0 +1,50 @@
+{
+  "type": "enum",
+  "uiComponent": "picker",
+  "title": {
+    "en": "Thermostat Fan mode",
+    "nl": "Thermostaat modus",
+    "sv": "Termostatfläktens läge"
+  },
+  "desc": {
+    "en": "Mode of the thermostat",
+    "nl": "Modus van de thermostaatventilator",
+    "sv": "Termostatfläktens läge"
+  },
+  "values": [
+    {
+      "id": "Low",
+      "title": {
+        "en": "Low",
+        "nl": "Laag",
+        "sv": "Låg"
+      }
+    },
+    {
+      "id": "Medium",
+      "title": {
+        "en": "Medium",
+        "nl": "Medium",
+        "sv": "Medium"
+      }
+    },
+    {
+      "id": "High",
+      "title": {
+        "en": "High",
+        "nl": "Hoog",
+        "sv": "Hög"
+      }
+    },
+    {
+      "id": "Auto Low",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "sv": "Auto"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true
+}

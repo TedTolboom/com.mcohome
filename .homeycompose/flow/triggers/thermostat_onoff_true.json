@@ -2,7 +2,8 @@
   "id": "thermostat_onoff_true",
   "title": {
     "en": "Thermostat turned on",
-    "nl": "Thermostaat aangezet"
+    "nl": "Thermostaat aangezet",
+    "sv": "Termostaten påslagen"
   },
   "args": [
     {

@@ -1,0 +1,68 @@
+{
+  "id": "change_thermostat_mode_MH52D",
+  "title": {
+    "en": "Set the thermostat mode",
+    "nl": "Stel de thermostaat modus in",
+    "sv": "Ställ in termostatläget"
+  },
+  "titleFormatted": {
+    "en": "Activate the thermostat [[mode]]",
+    "nl": "Activeer de thermostaat [[mode]]",
+    "sv": "Aktivera termostatläget [[mode]]"
+  },
+  "hint": {
+    "en": "Set the thermostat mode (Off / Heating / Cooling / Fan) and activate instantly",
+    "nl": "Stel de thermostaat modus (Uit / Warmte / Koel / Ventilator) in en activeer direct",
+    "sv": "Ställ in termostatläget (Av / Värme / Kyla / Fläkt) och aktivera omedelbart"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=MH52D"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "title": {
+        "en": "Select the thermostat mode",
+        "nl": "Selecteer de thermostaat modus",
+        "sv": "Välj termostatläge"
+      },
+      "values": [
+        {
+          "id": "Off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "sv": "Av"
+          }
+        },
+        {
+          "id": "Heat",
+          "title": {
+            "en": "Heat",
+            "nl": "Warmte",
+            "sv": "Värme"
+          }
+        },
+        {
+          "id": "Cool",
+          "title": {
+            "en": "Cool",
+            "nl": "Koel",
+            "sv": "Kyla"
+          }
+        },
+        {
+          "id": "Fan Only",
+          "title": {
+            "en": "Only Fan",
+            "nl": "Ventilator",
+            "sv": "Endast Fläkt"
+          }
+        }
+      ]
+    }
+  ]
+}

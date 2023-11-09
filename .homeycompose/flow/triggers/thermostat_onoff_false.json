@@ -2,7 +2,8 @@
   "id": "thermostat_onoff_false",
   "title": {
     "en": "Thermostat turned off",
-    "nl": "Thermostaat uitgezet"
+    "nl": "Thermostaat uitgezet",
+    "sv": "Termostaten avstängd"
   },
   "args": [
     {
