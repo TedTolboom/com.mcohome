@@ -127,16 +127,80 @@
         ]
       },
       {
-        "id": "thermostat_mode_changed",
+        "id": "fan_speed_MH52D_changed_to",
         "title": {
-          "en": "Thermostat mode has changed",
-          "nl": "Thermostaat modus is veranderd"
+          "en": "Fan mode has changed to",
+          "nl": "De ventilatormodus is gewijzigd naar",
+          "sv": "Fläktläget har ändrats till"
+        },
+        "titleFormatted": {
+          "en": "Fan has changed to [[mode]]",
+          "nl": "Fan is veranderd naar [[mode]]",
+          "sv": "Fläkten har ändrats till [[mode]]"
         },
         "args": [
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_id=MH7|MH7H"
+            "filter": "driver_id=MH52D"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Select the fan mode",
+              "nl": "Selecteer de ventilatormodus",
+              "sv": "Välj fläktläge"
+            },
+            "values": [
+              {
+                "id": "Low",
+                "title": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "sv": "Låg"
+                }
+              },
+              {
+                "id": "Medium",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium",
+                  "sv": "Medium"
+                }
+              },
+              {
+                "id": "High",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "sv": "Hög"
+                }
+              },
+              {
+                "id": "Auto Low",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto",
+                  "sv": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thermostat_mode_changed",
+        "title": {
+          "en": "Thermostat mode has changed",
+          "nl": "Thermostaat modus is veranderd",
+          "sv": "Termostatläget har ändrats"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH7|MH7H|MH52D"
           }
         ],
         "tokens": [
@@ -144,23 +208,28 @@
             "name": "mode",
             "title": {
               "en": "ID",
-              "nl": "ID"
+              "nl": "ID",
+              "sv": "ID"
             },
             "type": "string",
             "example": {
-              "en": "Heat"
+              "en": "Heat",
+              "nl": "Warmte",
+              "sv": "Värme"
             }
           },
           {
             "name": "mode_name",
             "title": {
               "en": "Name",
-              "nl": "Naam"
+              "nl": "Naam",
+              "sv": "Namn"
             },
             "type": "string",
             "example": {
               "en": "Comfort",
-              "nl": "Comfort"
+              "nl": "Comfort",
+              "sv": "Komfort"
             }
           }
         ]
@@ -222,10 +291,74 @@
         ]
       },
       {
+        "id": "thermostat_mode_MH52D_changed_to",
+        "title": {
+          "en": "Thermostat mode has changed to",
+          "nl": "Thermostaat modus is veranderd naar",
+          "sv": "Termostatläget har ändrats till"
+        },
+        "titleFormatted": {
+          "en": "Thermostat has changed to [[mode]]",
+          "nl": "Thermostaat is veranderd naar [[mode]]",
+          "sv": "Termostaten har ändrats till [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH52D"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus",
+              "sv": "Välj termostatläge"
+            },
+            "values": [
+              {
+                "id": "Off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "sv": "Av"
+                }
+              },
+              {
+                "id": "Heat",
+                "title": {
+                  "en": "Heat",
+                  "nl": "Warmte",
+                  "sv": "Värme"
+                }
+              },
+              {
+                "id": "Cool",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koel",
+                  "sv": "Kyla"
+                }
+              },
+              {
+                "id": "Fan Only",
+                "title": {
+                  "en": "Ventilation",
+                  "nl": "Ventilatie",
+                  "sv": "Ventilation"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "thermostat_onoff_false",
         "title": {
           "en": "Thermostat turned off",
-          "nl": "Thermostaat uitgezet"
+          "nl": "Thermostaat uitgezet",
+          "sv": "Termostaten avstängd"
         },
         "args": [
           {
@@ -239,7 +372,8 @@
         "id": "thermostat_onoff_true",
         "title": {
           "en": "Thermostat turned on",
-          "nl": "Thermostaat aangezet"
+          "nl": "Thermostaat aangezet",
+          "sv": "Termostaten påslagen"
         },
         "args": [
           {
@@ -255,7 +389,8 @@
         "id": "thermostat_onoff_on",
         "title": {
           "en": "Thermostat is !{{on|off}}",
-          "nl": "Thermostat is !{{aan|uit}}"
+          "nl": "Thermostat is !{{aan|uit}}",
+          "sv": "Termostaten är !{{on|off}}"
         },
         "args": [
           {
@@ -333,6 +468,74 @@
         ]
       },
       {
+        "id": "change_fan_speed_MH52D",
+        "title": {
+          "en": "Set the fan mode",
+          "nl": "Stel de ventilatormodus in",
+          "sv": "Ställ in fläktläget"
+        },
+        "titleFormatted": {
+          "en": "Activate the fan [[mode]]",
+          "nl": "Activeer de ventilator [[mode]]",
+          "sv": "Aktivera fläkten [[mode]]"
+        },
+        "hint": {
+          "en": "Set the fan mode (Off / Low / Medium / High) and activate instantly",
+          "nl": "Stel de ventilatormodus in (Uit / Laag / Medium / Hoog) en activeer deze direct",
+          "sv": "Ställ in fläktläget (Av / Låg / Medium / Hög) och aktivera omedelbart"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH52D"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Select the fan mode",
+              "nl": "Selecteer de ventilatormodus",
+              "sv": "Välj fläktläge"
+            },
+            "values": [
+              {
+                "id": "Low",
+                "title": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "sv": "Låg"
+                }
+              },
+              {
+                "id": "Medium",
+                "title": {
+                  "en": "Medium",
+                  "nl": "Medium",
+                  "sv": "Medium"
+                }
+              },
+              {
+                "id": "High",
+                "title": {
+                  "en": "High",
+                  "nl": "Hoog",
+                  "sv": "Hög"
+                }
+              },
+              {
+                "id": "Auto Low",
+                "title": {
+                  "en": "Auto",
+                  "nl": "Auto",
+                  "sv": "Auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "change_thermostat_mode",
         "title": {
           "en": "Set the thermostat mode",
@@ -386,6 +589,74 @@
                 "label": {
                   "en": "Away",
                   "nl": "Afwezig"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "change_thermostat_mode_MH52D",
+        "title": {
+          "en": "Set the thermostat mode",
+          "nl": "Stel de thermostaat modus in",
+          "sv": "Ställ in termostatläget"
+        },
+        "titleFormatted": {
+          "en": "Activate the thermostat [[mode]]",
+          "nl": "Activeer de thermostaat [[mode]]",
+          "sv": "Aktivera termostatläget [[mode]]"
+        },
+        "hint": {
+          "en": "Set the thermostat mode (Off / Heating / Cooling / Fan) and activate instantly",
+          "nl": "Stel de thermostaat modus (Uit / Warmte / Koel / Ventilator) in en activeer direct",
+          "sv": "Ställ in termostatläget (Av / Värme / Kyla / Fläkt) och aktivera omedelbart"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH52D"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus",
+              "sv": "Välj termostatläge"
+            },
+            "values": [
+              {
+                "id": "Off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "sv": "Av"
+                }
+              },
+              {
+                "id": "Heat",
+                "title": {
+                  "en": "Heat",
+                  "nl": "Warmte",
+                  "sv": "Värme"
+                }
+              },
+              {
+                "id": "Cool",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koel",
+                  "sv": "Kyla"
+                }
+              },
+              {
+                "id": "Fan Only",
+                "title": {
+                  "en": "Only Fan",
+                  "nl": "Ventilator",
+                  "sv": "Endast Fläkt"
                 }
               }
             ]
@@ -449,6 +720,72 @@
             "title": {
               "en": "Select the thermostat setpoint",
               "nl": "Selecteer de thermostaat temperatuur"
+            },
+            "min": 5,
+            "max": 37,
+            "step": 0.5,
+            "label": "°C",
+            "labelDecimals": 1
+          }
+        ]
+      },
+      {
+        "id": "change_thermostat_mode_setpoint_MH52D",
+        "title": {
+          "en": "Set a setpoint of a thermostat mode",
+          "nl": "Stel de temperatuur in van een thermostaat modus",
+          "sv": "Ställ in ett börvärde för ett termostatläge"
+        },
+        "titleFormatted": {
+          "en": "Set the thermostat mode [[setpointMode]] to [[setpointValue]] °C",
+          "nl": "Stel de thermostaat modus [[setpointMode]] in naar [[setpointValue]] °C",
+          "sv": "Ställ in termostatläget [[setpointMode]] till [[setpointValue]] °C"
+        },
+        "hint": {
+          "en": "Change the setpoint of a specific thermostat mode (Cooling / Heating). Note: does NOT activate this mode",
+          "nl": "Stel de temperatuur in van een thermostaat modus (Koelen / Warmte). Let op: activeert deze modus niet",
+          "sv": "Ändra börvärdet för ett specifikt termostatläge (Kylning / Värme). Obs: aktiverar INTE detta läge"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=MH52D"
+          },
+          {
+            "name": "setpointMode",
+            "type": "dropdown",
+            "title": {
+              "en": "Select the thermostat mode",
+              "nl": "Selecteer de thermostaat modus",
+              "sv": "Välj termostatläge"
+            },
+            "values": [
+              {
+                "id": "Heat",
+                "title": {
+                  "en": "Heat",
+                  "nl": "Warmte",
+                  "sv": "Värme"
+                }
+              },
+              {
+                "id": "Cool",
+                "title": {
+                  "en": "Cool",
+                  "nl": "Koel",
+                  "sv": "Kyla"
+                }
+              }
+            ]
+          },
+          {
+            "name": "setpointValue",
+            "type": "range",
+            "title": {
+              "en": "Select the thermostat setpoint",
+              "nl": "Selecteer de thermostaat temperatuur",
+              "sv": "Välj termostatbörvärde"
             },
             "min": 5,
             "max": 37,
@@ -1548,6 +1885,577 @@
           "hint": {
             "en": "PM2.5 Notification threshold 1 to 999 ug/m3.\nDefault: 800\nRange 1 - 999 ug/m3",
             "nl": "PM2.5 Notificatie drempelwaarde 1 to 999 ug/m3.\nStandaard: 800\nBereik 1 - 999 ug/m3"
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "MH5-2D Thermostat"
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
+      "icon": "//drivers/MH52D/assets/icon.svg",
+      "images": {
+        "large": "//drivers/MH52D/assets/images/large.jpg",
+        "small": "//drivers/MH52D/assets/images/small.jpg"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "measure_temperature",
+        "thermostat_mode_hvac",
+        "fan_speed_MH52D",
+        "target_temperature"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 37,
+          "step": 0.5
+        },
+        "thermostat_onoff": {
+          "greyout": true,
+          "titleTrue": {
+            "en": "Active"
+          },
+          "titleFalse": {
+            "en": "Idle"
+          }
+        }
+      },
+      "zwave": {
+        "manufacturerId": [
+          351
+        ],
+        "productTypeId": [
+          62765
+        ],
+        "productId": [
+          28930
+        ],
+        "learnmode": {
+          "image": "//drivers/MH52D/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key and FAN key together for 3 seconds.\n2. Release and press the M key to set the device in inclusion mode. The display will show '---''\r\nNote: If inclusion is successful, the Node ID will be shown in the display for a few seconds."
+          }
+        },
+        "unlearnmode": {
+          "image": "//drivers/MH52D/assets/learnmode.svg",
+          "instruction": {
+            "en": "1. Press and hold the ^ key and FAN key together for 3 seconds.\n2. Release and press the M key to set the device in inclusion mode\r\nNote: If the exclusion is successful, the display will show '---'"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Lifeline group"
+            }
+          }
+        }
+      },
+      "id": "MH52D",
+      "settings": [
+        {
+          "id": "temperature_unit",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Temperature unit"
+          },
+          "hint": {
+            "en": "Determines in which unit the temperature measurements are reported."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "In degrees Celcius (°C)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "In degrees Fahrenheit (°F)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_report_threshold",
+          "zwave": {
+            "index": 2,
+            "size": 2
+          },
+          "type": "number",
+          "value": 5,
+          "label": {
+            "en": "Temperature reporting threshold (°C/°F)"
+          },
+          "hint": {
+            "en": "Determines the minimum temperature value change (°C/°F) before reporting changes."
+          },
+          "attr": {
+            "min": 3,
+            "max": 255
+          }
+        },
+        {
+          "id": "power_failure_memory",
+          "zwave": {
+            "index": 12,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Power Failure Memory"
+          },
+          "hint": {
+            "en": "When power on again:"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "device will be in shutdown state (OFF)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "device will be working interface"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "device will stay the last sstatus before power failure"
+              }
+            }
+          ]
+        },
+        {
+          "id": "backlight_brightness",
+          "zwave": {
+            "index": 13,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "2",
+          "label": {
+            "en": "Backlight brightness"
+          },
+          "hint": {
+            "en": "Backlight brightness"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "dim. dim without key touch"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Low brightness"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Medium brightness"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "High brightness"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Always on"
+              }
+            }
+          ]
+        },
+        {
+          "id": "beep",
+          "zwave": {
+            "index": 14,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "5",
+          "label": {
+            "en": "Beep"
+          },
+          "hint": {
+            "en": "Beep"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "OFF"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Low Beep"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Medium Beep"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "High Beep"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Standard Beep"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temperature_upper_limit",
+          "zwave": {
+            "index": 16,
+            "size": 1
+          },
+          "type": "number",
+          "value": 37,
+          "label": {
+            "en": "Temperature Upper limit"
+          },
+          "hint": {
+            "en": "Upper limit always > lower limit"
+          },
+          "attr": {
+            "min": 1,
+            "max": 99
+          }
+        },
+        {
+          "id": "temperature_lower_limit",
+          "zwave": {
+            "index": 17,
+            "size": 1
+          },
+          "type": "number",
+          "value": 5,
+          "label": {
+            "en": "Temperature Lower limit"
+          },
+          "hint": {
+            "en": "Upper limit always > lower limit"
+          },
+          "attr": {
+            "min": 0,
+            "max": 98
+          }
+        },
+        {
+          "id": "indoor_temperature_calibration",
+          "zwave": {
+            "index": 18,
+            "size": 1
+          },
+          "type": "number",
+          "value": 0,
+          "label": {
+            "en": "Indoor temperature calibration"
+          },
+          "hint": {
+            "en": "Temperature calibration value (C or F), accuracy 0.1"
+          },
+          "attr": {
+            "min": -99,
+            "max": 99
+          }
+        },
+        {
+          "id": "external_temperature_calibration",
+          "zwave": {
+            "index": 20,
+            "size": 1
+          },
+          "type": "number",
+          "value": 0,
+          "label": {
+            "en": "External temperature calibration"
+          },
+          "hint": {
+            "en": "Temperature calibration value (C or F), accuracy 0.1"
+          },
+          "attr": {
+            "min": -99,
+            "max": 99
+          }
+        },
+        {
+          "id": "option_ext_temp_sensor",
+          "zwave": {
+            "index": 21,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Function option for external temperature sensor"
+          },
+          "hint": {
+            "en": ""
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "External temperature sensor is protection sensor"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "External temperature sensor is controlled sensor"
+              }
+            }
+          ]
+        },
+        {
+          "id": "anti_freeze_protection",
+          "zwave": {
+            "index": 22,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Switch for anti-freeze protection"
+          },
+          "hint": {
+            "en": "Only in heating mode, turn on when temperature bellow <= 5C, turn off, when temperature >= 8C"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Turn off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Turn on"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fan_mode_option",
+          "zwave": {
+            "index": 23,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Fan mode option when indoor temperature too high"
+          },
+          "hint": {
+            "en": ""
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Fan turned off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Manual fan speed, leep fan speed, valve turned off auto fan speed leep low fan speed"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fan_working_mode",
+          "zwave": {
+            "index": 24,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Fan working mode"
+          },
+          "hint": {
+            "en": ""
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Fan works both for cooling and heating mode"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Fan works only in cooling mode"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Fan works only in heating mode"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Fan doesn't work neither in cooling nor in heating mode"
+              }
+            }
+          ]
+        },
+        {
+          "id": "key_lock_function",
+          "zwave": {
+            "index": 25,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "label": {
+            "en": "Key lock function"
+          },
+          "hint": {
+            "en": ""
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Turn off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Turn on"
+              }
+            }
+          ]
+        },
+        {
+          "id": "internal_ventilation_feature",
+          "zwave": {
+            "index": 27,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Option for interval ventilation feature"
+          },
+          "hint": {
+            "en": ""
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Turn off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Turn on"
+              }
+            }
+          ]
+        },
+        {
+          "id": "duration_internal_ventilation",
+          "zwave": {
+            "index": 28,
+            "size": 1
+          },
+          "type": "number",
+          "value": 5,
+          "label": {
+            "en": "Duration for interval ventilation"
+          },
+          "hint": {
+            "en": "Duration for interval ventilation every 1 hour, unit: minute"
+          },
+          "attr": {
+            "min": 1,
+            "max": 30
+          }
+        },
+        {
+          "id": "temperature_deadband",
+          "zwave": {
+            "index": 29,
+            "size": 1
+          },
+          "type": "number",
+          "value": 15,
+          "label": {
+            "en": "Temperature Deadband"
+          },
+          "hint": {
+            "en": "Temperature deadband (C or F), accuracy 0.1"
+          },
+          "attr": {
+            "min": 0,
+            "max": 99
+          }
+        },
+        {
+          "id": "factory_restore",
+          "zwave": {
+            "index": 255,
+            "size": 1
+          },
+          "type": "number",
+          "value": 53,
+          "label": {
+            "en": "Factory restore"
+          },
+          "hint": {
+            "en": "55: write 55 to restore factory setting and turn to shut down interface"
+          },
+          "attr": {
+            "min": 0,
+            "max": 99
           }
         }
       ]
@@ -4880,12 +5788,14 @@
       "title": {
         "en": "Fan speed",
         "nl": "Ventilator snelheid",
-        "no": "Viftehastighet"
+        "no": "Viftehastighet",
+        "sv": "Ventilationshastighet"
       },
       "desc": {
         "en": "Speed of the ventilator fan",
         "nl": "Snelheid van de ventilator",
-        "no": "Hastighet på ventilatorviften"
+        "no": "Hastighet på ventilatorviften",
+        "sv": "Ventilationsfläktens hastighet"
       },
       "values": [
         {
@@ -4893,7 +5803,8 @@
           "title": {
             "en": "Low",
             "nl": "Laag",
-            "no": "Lav"
+            "no": "Lav",
+            "sv": "Låg"
           }
         },
         {
@@ -4901,7 +5812,8 @@
           "title": {
             "en": "Medium",
             "nl": "Gemiddeld",
-            "no": "Middels"
+            "no": "Middels",
+            "sv": "Medium"
           }
         },
         {
@@ -4909,7 +5821,64 @@
           "title": {
             "en": "High",
             "nl": "Hoog",
-            "no": "Høy"
+            "no": "Høy",
+            "sv": "Hög"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true
+    },
+    "fan_speed_MH52D": {
+      "type": "enum",
+      "uiComponent": "picker",
+      "title": {
+        "en": "Fan speed",
+        "nl": "Ventilator snelheid",
+        "no": "Viftehastighet",
+        "sv": "Ventilationshastighet"
+      },
+      "desc": {
+        "en": "Speed of the ventilator fan",
+        "nl": "Snelheid van de ventilator",
+        "no": "Hastighet på ventilatorviften",
+        "sv": "Ventilationsfläktens hastighet"
+      },
+      "values": [
+        {
+          "id": "Low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "no": "Lav",
+            "sv": "Låg"
+          }
+        },
+        {
+          "id": "Medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Gemiddeld",
+            "no": "Middels",
+            "sv": "Medium"
+          }
+        },
+        {
+          "id": "High",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "no": "Høy",
+            "sv": "Hög"
+          }
+        },
+        {
+          "id": "Auto Low",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "no": "Auto",
+            "sv": "Auto"
           }
         }
       ],
@@ -4988,12 +5957,14 @@
       "title": {
         "en": "Thermostat mode",
         "nl": "Thermostaat modus",
-        "no": "Termostatmodus"
+        "no": "Termostatmodus",
+        "sv": "Termostatens läge"
       },
       "desc": {
         "en": "Mode of the thermostat",
         "nl": "Modus van de thermostaat",
-        "no": "Modus for termostaten"
+        "no": "Modus for termostaten",
+        "sv": "Termostatens läge"
       },
       "values": [
         {
@@ -5001,7 +5972,8 @@
           "title": {
             "en": "Heat",
             "nl": "Verhitten",
-            "no": "Varme"
+            "no": "Varme",
+            "sv": "Värme"
           }
         },
         {
@@ -5009,7 +5981,8 @@
           "title": {
             "en": "Cool",
             "nl": "Koelen",
-            "no": "Avkjøle"
+            "no": "Avkjøle",
+            "sv": "Kyla"
           }
         },
         {
@@ -5017,7 +5990,8 @@
           "title": {
             "en": "Ventilation",
             "nl": "Ventilatie",
-            "no": "Ventilasjon"
+            "no": "Ventilasjon",
+            "sv": "Ventilation"
           }
         },
         {
@@ -5025,7 +5999,8 @@
           "title": {
             "en": "Off",
             "nl": "Uit",
-            "no": "Av"
+            "no": "Av",
+            "sv": "Av"
           }
         }
       ],

@@ -2,13 +2,14 @@
   "id": "thermostat_mode_changed",
   "title": {
     "en": "Thermostat mode has changed",
-    "nl": "Thermostaat modus is veranderd"
+    "nl": "Thermostaat modus is veranderd",
+    "sv": "Termostatläget har ändrats"
   },
   "args": [
     {
       "name": "device",
       "type": "device",
-      "filter": "driver_id=MH7|MH7H"
+      "filter": "driver_id=MH7|MH7H|MH52D"
     }
   ],
   "tokens": [
@@ -16,23 +17,28 @@
       "name": "mode",
       "title": {
         "en": "ID",
-        "nl": "ID"
+        "nl": "ID",
+        "sv": "ID"
       },
       "type": "string",
       "example": {
-        "en": "Heat"
+        "en": "Heat",
+        "nl": "Warmte",
+        "sv": "Värme"
       }
     },
     {
       "name": "mode_name",
       "title": {
         "en": "Name",
-        "nl": "Naam"
+        "nl": "Naam",
+        "sv": "Namn"
       },
       "type": "string",
       "example": {
         "en": "Comfort",
-        "nl": "Comfort"
+        "nl": "Comfort",
+        "sv": "Komfort"
       }
     }
   ]

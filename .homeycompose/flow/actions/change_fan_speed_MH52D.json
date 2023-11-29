@@ -1,0 +1,68 @@
+{
+  "id": "change_fan_speed_MH52D",
+  "title": {
+    "en": "Set the fan mode",
+    "nl": "Stel de ventilatormodus in",
+    "sv": "Ställ in fläktläget"
+  },
+  "titleFormatted": {
+    "en": "Activate the fan [[mode]]",
+    "nl": "Activeer de ventilator [[mode]]",
+    "sv": "Aktivera fläkten [[mode]]"
+  },
+  "hint": {
+    "en": "Set the fan mode (Off / Low / Medium / High) and activate instantly",
+    "nl": "Stel de ventilatormodus in (Uit / Laag / Medium / Hoog) en activeer deze direct",
+    "sv": "Ställ in fläktläget (Av / Låg / Medium / Hög) och aktivera omedelbart"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=MH52D"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "title": {
+        "en": "Select the fan mode",
+        "nl": "Selecteer de ventilatormodus",
+        "sv": "Välj fläktläge"
+      },
+      "values": [
+        {
+          "id": "Low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "sv": "Låg"
+          }
+        },
+        {
+          "id": "Medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium",
+            "sv": "Medium"
+          }
+        },
+        {
+          "id": "High",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "sv": "Hög"
+          }
+        },
+        {
+          "id": "Auto Low",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "sv": "Auto"
+          }
+        }
+      ]
+    }
+  ]
+}
