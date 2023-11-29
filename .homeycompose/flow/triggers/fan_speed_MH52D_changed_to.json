@@ -1,0 +1,63 @@
+{
+  "id": "fan_speed_MH52D_changed_to",
+  "title": {
+    "en": "Fan mode has changed to",
+    "nl": "De ventilatormodus is gewijzigd naar",
+    "sv": "Fläktläget har ändrats till"
+  },
+  "titleFormatted": {
+    "en": "Fan has changed to [[mode]]",
+    "nl": "Fan is veranderd naar [[mode]]",
+    "sv": "Fläkten har ändrats till [[mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=MH52D"
+    },
+    {
+      "name": "mode",
+      "type": "dropdown",
+      "title": {
+        "en": "Select the fan mode",
+        "nl": "Selecteer de ventilatormodus",
+        "sv": "Välj fläktläge"
+      },
+      "values": [
+        {
+          "id": "Low",
+          "title": {
+            "en": "Low",
+            "nl": "Laag",
+            "sv": "Låg"
+          }
+        },
+        {
+          "id": "Medium",
+          "title": {
+            "en": "Medium",
+            "nl": "Medium",
+            "sv": "Medium"
+          }
+        },
+        {
+          "id": "High",
+          "title": {
+            "en": "High",
+            "nl": "Hoog",
+            "sv": "Hög"
+          }
+        },
+        {
+          "id": "Auto Low",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "sv": "Auto"
+          }
+        }
+      ]
+    }
+  ]
+}

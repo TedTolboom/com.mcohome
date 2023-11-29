@@ -40,6 +40,15 @@
         "no": "Høy",
         "sv": "Hög"
       }
+    },
+    {
+      "id": "Auto Low",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "no": "Auto",
+        "sv": "Auto"
+      }
     }
   ],
   "getable": true,

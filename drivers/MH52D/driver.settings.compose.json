@@ -1,0 +1,498 @@
+[
+    {
+        "id": "temperature_unit",
+        "zwave": {
+            "index": 1,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Temperature unit"
+        },
+        "hint": {
+            "en": "Determines in which unit the temperature measurements are reported."
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "In degrees Celcius (°C)"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "In degrees Fahrenheit (°F)"
+                }
+            }
+        ]
+    },
+    {
+        "id": "temperature_report_threshold",
+        "zwave": {
+            "index": 2,
+            "size": 2
+        },
+        "type": "number",
+        "value": 5,
+        "label": {
+            "en": "Temperature reporting threshold (°C/°F)"
+        },
+        "hint": {
+            "en": "Determines the minimum temperature value change (°C/°F) before reporting changes."
+        },
+        "attr": {
+            "min": 3,
+            "max": 255
+        }
+    },
+    {
+        "id": "power_failure_memory",
+        "zwave": {
+            "index": 12,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "1",
+        "label": {
+            "en": "Power Failure Memory"
+        },
+        "hint": {
+            "en": "When power on again:"
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "device will be in shutdown state (OFF)"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "device will be working interface"
+                }
+            },
+            {
+                "id": "2",
+                "label": {
+                    "en": "device will stay the last sstatus before power failure"
+                }
+            }
+        ]
+    },
+    {
+        "id": "backlight_brightness",
+        "zwave": {
+            "index": 13,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "2",
+        "label": {
+            "en": "Backlight brightness"
+        },
+        "hint": {
+            "en": "Backlight brightness"
+        },
+        "values": [
+            {
+                "id": "1",
+                "label": {
+                    "en": "dim. dim without key touch"
+                }
+            },
+            {
+                "id": "2",
+                "label": {
+                    "en": "Low brightness"
+                }
+            },
+            {
+                "id": "3",
+                "label": {
+                    "en": "Medium brightness"
+                }
+            },
+            {
+                "id": "4",
+                "label": {
+                    "en": "High brightness"
+                }
+            },
+            {
+                "id": "5",
+                "label": {
+                    "en": "Always on"
+                }
+            }
+        ]
+    },
+    {
+        "id": "beep",
+        "zwave": {
+            "index": 14,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "5",
+        "label": {
+            "en": "Beep"
+        },
+        "hint": {
+            "en": "Beep"
+        },
+        "values": [
+            {
+                "id": "1",
+                "label": {
+                    "en": "OFF"
+                }
+            },
+            {
+                "id": "2",
+                "label": {
+                    "en": "Low Beep"
+                }
+            },
+            {
+                "id": "3",
+                "label": {
+                    "en": "Medium Beep"
+                }
+            },
+            {
+                "id": "4",
+                "label": {
+                    "en": "High Beep"
+                }
+            },
+            {
+                "id": "5",
+                "label": {
+                    "en": "Standard Beep"
+                }
+            }
+        ]
+    },
+    {
+        "id": "temperature_upper_limit",
+        "zwave": {
+            "index": 16,
+            "size": 1
+        },
+        "type": "number",
+        "value": 37,
+        "label": {
+            "en": "Temperature Upper limit"
+        },
+        "hint": {
+            "en": "Upper limit always > lower limit"
+        },
+        "attr": {
+            "min": 1,
+            "max": 99
+        }
+    },
+    {
+        "id": "temperature_lower_limit",
+        "zwave": {
+            "index": 17,
+            "size": 1
+        },
+        "type": "number",
+        "value": 5,
+        "label": {
+            "en": "Temperature Lower limit"
+        },
+        "hint": {
+            "en": "Upper limit always > lower limit"
+        },
+        "attr": {
+            "min": 0,
+            "max": 98
+        }
+    },
+    {
+        "id": "indoor_temperature_calibration",
+        "zwave": {
+            "index": 18,
+            "size": 1
+        },
+        "type": "number",
+        "value": 0,
+        "label": {
+            "en": "Indoor temperature calibration"
+        },
+        "hint": {
+            "en": "Temperature calibration value (C or F), accuracy 0.1"
+        },
+        "attr": {
+            "min": -99,
+            "max": 99
+        }
+    },
+    {
+        "id": "external_temperature_calibration",
+        "zwave": {
+            "index": 20,
+            "size": 1
+        },
+        "type": "number",
+        "value": 0,
+        "label": {
+            "en": "External temperature calibration"
+        },
+        "hint": {
+            "en": "Temperature calibration value (C or F), accuracy 0.1"
+        },
+        "attr": {
+            "min": -99,
+            "max": 99
+        }
+    },
+    {
+        "id": "option_ext_temp_sensor",
+        "zwave": {
+            "index": 21,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Function option for external temperature sensor"
+        },
+        "hint": {
+            "en": ""
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "External temperature sensor is protection sensor"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "External temperature sensor is controlled sensor"
+                }
+            }
+        ]
+    },
+    {
+        "id": "anti_freeze_protection",
+        "zwave": {
+            "index": 22,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Switch for anti-freeze protection"
+        },
+        "hint": {
+            "en": "Only in heating mode, turn on when temperature bellow <= 5C, turn off, when temperature >= 8C"
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "Turn off"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "Turn on"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fan_mode_option",
+        "zwave": {
+            "index": 23,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Fan mode option when indoor temperature too high"
+        },
+        "hint": {
+            "en": ""
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "Fan turned off"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "Manual fan speed, leep fan speed, valve turned off auto fan speed leep low fan speed"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fan_working_mode",
+        "zwave": {
+            "index": 24,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Fan working mode"
+        },
+        "hint": {
+            "en": ""
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "Fan works both for cooling and heating mode"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "Fan works only in cooling mode"
+                }
+            },
+            {
+                "id": "2",
+                "label": {
+                    "en": "Fan works only in heating mode"
+                }
+            },
+            {
+                "id": "3",
+                "label": {
+                    "en": "Fan doesn't work neither in cooling nor in heating mode"
+                }
+            }
+        ]
+    },
+    {
+        "id": "key_lock_function",
+        "zwave": {
+            "index": 25,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "1",
+        "label": {
+            "en": "Key lock function"
+        },
+        "hint": {
+            "en": ""
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "Turn off"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "Turn on"
+                }
+            }
+        ]
+    },
+    {
+        "id": "internal_ventilation_feature",
+        "zwave": {
+            "index": 27,
+            "size": 1
+        },
+        "type": "dropdown",
+        "value": "0",
+        "label": {
+            "en": "Option for interval ventilation feature"
+        },
+        "hint": {
+            "en": ""
+        },
+        "values": [
+            {
+                "id": "0",
+                "label": {
+                    "en": "Turn off"
+                }
+            },
+            {
+                "id": "1",
+                "label": {
+                    "en": "Turn on"
+                }
+            }
+        ]
+    },
+    {
+        "id": "duration_internal_ventilation",
+        "zwave": {
+            "index": 28,
+            "size": 1
+        },
+        "type": "number",
+        "value": 5,
+        "label": {
+            "en": "Duration for interval ventilation"
+        },
+        "hint": {
+            "en": "Duration for interval ventilation every 1 hour, unit: minute"
+        },
+        "attr": {
+            "min": 1,
+            "max": 30
+        }
+    },
+    {
+        "id": "temperature_deadband",
+        "zwave": {
+            "index": 29,
+            "size": 1
+        },
+        "type": "number",
+        "value": 15,
+        "label": {
+            "en": "Temperature Deadband"
+        },
+        "hint": {
+            "en": "Temperature deadband (C or F), accuracy 0.1"
+        },
+        "attr": {
+            "min": 0,
+            "max": 99
+        }
+    },
+    {
+        "id": "factory_restore",
+        "zwave": {
+            "index": 255,
+            "size": 1
+        },
+        "type": "number",
+        "value": 53,
+        "label": {
+            "en": "Factory restore"
+        },
+        "hint": {
+            "en": "55: write 55 to restore factory setting and turn to shut down interface"
+        },
+        "attr": {
+            "min": 0,
+            "max": 99
+        }
+    }
+]
